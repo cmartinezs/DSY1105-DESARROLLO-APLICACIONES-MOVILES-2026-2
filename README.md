@@ -11,6 +11,7 @@ Este repositorio reúne contenido de clases, ejemplos, ejercicios, guías y recu
 - [`labs/`](labs/) — ejercicios y laboratorios prácticos.
 - [`examples/`](examples/) — ejemplos de código desarrollados en clases.
 - [`page/`](page/) — portal web del curso (se habilitará progresivamente).
+- [**Material público del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) — biblioteca de archivos originales organizada semana a semana.
 
 ## Cómo se organiza el material
 
@@ -32,7 +33,7 @@ El directorio [`semanas/`](semanas/) mantiene un **README general** que funciona
 
 ### Material original
 
-Los archivos institucionales se mantienen como fuente de referencia en Google Drive y se organizarán semana a semana para su consulta. El repositorio no reemplaza AVA ni los recursos oficiales; los complementa con el material consolidado utilizado efectivamente en clases.
+Los archivos institucionales se mantienen como fuente de referencia en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) y se organizarán semana a semana para su consulta. El repositorio no reemplaza AVA ni los recursos oficiales; los complementa con el material consolidado utilizado efectivamente en clases.
 
 ## Cómo obtener el repositorio
 
