@@ -27,7 +27,7 @@ La coordinación recomienda además utilizar esta primera semana para comparar s
 
 ## Material original de la asignatura
 
-📚 [**Biblioteca pública del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs)  
+📚 [**Biblioteca pública del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing)  
 📁 [**Semana 01 · 10 al 15 de agosto**](https://drive.google.com/drive/folders/1ieL6EOF475qNxCErYrQfjqw8EL-GXeiV)
 
 Actualmente se encuentra disponible allí:
