@@ -7,7 +7,7 @@ Cada semana dispone de dos recursos complementarios:
 - **Contenido consolidado en GitHub:** material de estudio desarrollado para la semana, incluyendo explicaciones, ejemplos, ejercicios, aclaraciones y ajustes técnicos cuando el material institucional lo requiere.
 - **Material público en Google Drive:** archivos originales de la asignatura y recursos entregados para esa semana, disponibles para consulta.
 
-📁 [**Biblioteca pública de materiales del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs)
+📁 [**Biblioteca pública de materiales del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing)
 
 ## Índice de semanas
 
