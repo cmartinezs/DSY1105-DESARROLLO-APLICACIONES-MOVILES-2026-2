@@ -2,7 +2,9 @@
 
 Este ejemplo corresponde a la clase del **jueves 13 de agosto de 2026** y permite comparar Java y Kotlin escribiendo el mismo programa en paralelo dentro de un único proyecto de IntelliJ IDEA.
 
-← [Volver a Semana 01](../README.md)
+← [Volver a Semana 01](../README.md)  
+📘 [Leer primero la guía paso a paso](../guia-java-kotlin-paso-a-paso.md)  
+🧪 [Después del ejemplo: laboratorio autónomo](../laboratorio-java-kotlin/README.md)
 
 ## Objetivo
 
@@ -52,6 +54,18 @@ Los dos archivos implementan el mismo problema: mostrar información básica de 
 7. Utiliza **Split Right** en el editor para mantener Java a la izquierda y Kotlin a la derecha.
 
 Ambos programas tienen su propio punto de entrada y pueden ejecutarse independientemente desde IntelliJ.
+
+## Cómo usar este ejemplo en clase
+
+No se recomienda comenzar mostrando el código terminado. La secuencia sugerida es:
+
+1. escribir una pequeña parte en Java;
+2. preguntar qué concepto se está utilizando;
+3. implementar inmediatamente el equivalente en Kotlin;
+4. ejecutar ambos;
+5. identificar qué cambió en la sintaxis y qué concepto se mantuvo igual.
+
+La explicación detallada de cada paso se encuentra en la [guía Java → Kotlin](../guia-java-kotlin-paso-a-paso.md).
 
 ## 1. Variables
 
@@ -198,9 +212,7 @@ println("Sitio web: $sitio")
 
 El compilador conoce qué variables pueden contener `null` y obliga a tratar ese caso explícitamente.
 
-## Código para la clase
-
-No es necesario comenzar copiando los archivos terminados. La recomendación es construir ambas implementaciones progresivamente:
+## Secuencia sugerida durante la demostración
 
 | Paso | Java | Kotlin |
 |---|---|---|
@@ -211,29 +223,17 @@ No es necesario comenzar copiando los archivos terminados. La recomendación es 
 | 5 | método | función |
 | 6 | referencia nullable | `String?` y `?:` |
 
-## Ejercicio de cierre
-
-Modifica **ambas versiones** del programa.
-
-Agrega los siguientes datos:
-
-- desarrollador;
-- versión;
-- categoría.
-
-Luego modifica `obtenerEstado()` para considerar tres estados:
-
-- menos de 500 descargas → `Nueva`;
-- entre 500 y 999 descargas → `En crecimiento`;
-- 1000 o más descargas → `Popular`.
-
-### Restricción
-
-La versión Java y la versión Kotlin deben producir la misma información en consola.
-
-### Preguntas de reflexión
+## Preguntas de comprobación
 
 1. ¿Qué elementos de Java desaparecen o se simplifican en Kotlin?
 2. ¿Qué diferencia existe entre `val` y `var`?
 3. ¿Qué ventaja tiene que el compilador distinga entre `String` y `String?`?
 4. ¿Qué conceptos siguen siendo exactamente los mismos aunque cambie la sintaxis?
+
+## Siguiente paso
+
+Cuando el ejemplo esté claro, no continúes modificándolo como ejercicio. Pasa a un problema nuevo para comprobar que puedes aplicar los conceptos sin copiar la solución:
+
+🧪 [**Laboratorio · Control de batería Java → Kotlin**](../laboratorio-java-kotlin/README.md)
+
+El laboratorio está diseñado para tomar aproximadamente **15 minutos** y debe resolverse primero en Java y después en Kotlin.
