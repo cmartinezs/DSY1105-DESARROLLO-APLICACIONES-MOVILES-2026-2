@@ -57,31 +57,54 @@ Continuación de la PPT 1.1.1:
 
 ### Bloque 1 · 21:11–21:50 · Puente Java → Kotlin
 
+El contenido práctico se organiza en tres capas:
+
+1. **Guía explicada:** conceptos Java → Kotlin desarrollados paso a paso y en lenguaje simple.
+2. **Ejemplo acompañado:** mismo programa construido en Java y Kotlin dentro del mismo proyecto IntelliJ.
+3. **Laboratorio autónomo:** problema nuevo de aproximadamente 15 minutos, resuelto primero en Java y luego en Kotlin por cada estudiante.
+
+#### 1. Guía paso a paso
+
+📘 [**Guía · De Java a Kotlin sin partir de cero**](./guia-java-kotlin-paso-a-paso.md)
+
+Explica con detalle:
+
+- variables y tipos;
+- inferencia de tipos;
 - `val` y `var`;
-- tipos explícitos e inferencia;
 - String templates;
-- introducción a null safety;
-- funciones simples;
-- equivalencias breves Java → Kotlin;
-- diferencia entre plataforma, lenguaje, framework/toolkit e IDE.
+- `if/else`;
+- funciones y parámetros;
+- retorno de valores;
+- `String?`;
+- operador Elvis `?:`.
 
-Actividad: transformar pequeños snippets y explicar qué cambia y por qué.
-
-### Ejemplo práctico de la clase
-
-Se incorpora un proyecto Gradle ejecutable en IntelliJ IDEA con Java y Kotlin dentro del mismo módulo:
+#### 2. Ejemplo práctico acompañado
 
 📁 [**Ejemplo práctico · Java → Kotlin**](./ejemplo-java-kotlin/README.md)
 
-El proyecto contiene:
+Proyecto Gradle ejecutable en IntelliJ IDEA con:
 
 - `AppJava.java`;
 - `AppKotlin.kt`;
-- `build.gradle.kts`;
-- `settings.gradle.kts`;
-- ejercicio de cierre y preguntas de reflexión.
+- ambos lenguajes dentro del mismo módulo;
+- misma lógica implementada en paralelo.
 
-La idea es mantener ambos archivos abiertos en paralelo y construir el mismo programa progresivamente en los dos lenguajes.
+La recomendación para la clase es mantener ambos archivos abiertos mediante **Split Right**, construir primero cada fragmento en Java y escribir inmediatamente su equivalente Kotlin.
+
+#### 3. Laboratorio autónomo · 15 minutos
+
+🧪 [**Laboratorio · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md)
+
+Los estudiantes reciben un problema diferente al ejemplo y deben:
+
+1. resolverlo primero en Java;
+2. comprobar su ejecución;
+3. reproducir la misma lógica en Kotlin;
+4. aplicar `val`, inferencia, String templates, funciones y null safety;
+5. comparar ambas salidas.
+
+La carpeta contiene solamente estructura inicial y `TODO`; **no contiene la solución terminada**.
 
 ### Bloque 2 · 21:51–22:30 · Guía 1 + proyecto
 
@@ -101,8 +124,10 @@ Al finalizar la semana el estudiante debería poder:
 2. diferenciar plataforma, lenguaje, framework/toolkit e IDE;
 3. explicar por qué Kotlin es relevante para Android;
 4. reconocer equivalencias básicas Java ↔ Kotlin;
-5. iniciar una comparación técnica basada en criterios y fuentes oficiales;
-6. tener pareja de proyecto definida o una incidencia registrada.
+5. escribir un programa breve primero en Java y luego en Kotlin conservando la misma lógica;
+6. diferenciar `String` y `String?` y utilizar `?:` en un caso sencillo;
+7. iniciar una comparación técnica basada en criterios y fuentes oficiales;
+8. tener pareja de proyecto definida o una incidencia registrada.
 
 ## Material
 
