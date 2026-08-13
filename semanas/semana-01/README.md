@@ -67,6 +67,22 @@ Continuación de la PPT 1.1.1:
 
 Actividad: transformar pequeños snippets y explicar qué cambia y por qué.
 
+### Ejemplo práctico de la clase
+
+Se incorpora un proyecto Gradle ejecutable en IntelliJ IDEA con Java y Kotlin dentro del mismo módulo:
+
+📁 [**Ejemplo práctico · Java → Kotlin**](./ejemplo-java-kotlin/README.md)
+
+El proyecto contiene:
+
+- `AppJava.java`;
+- `AppKotlin.kt`;
+- `build.gradle.kts`;
+- `settings.gradle.kts`;
+- ejercicio de cierre y preguntas de reflexión.
+
+La idea es mantener ambos archivos abiertos en paralelo y construir el mismo programa progresivamente en los dos lenguajes.
+
 ### Bloque 2 · 21:51–22:30 · Guía 1 + proyecto
 
 - explicar el propósito de la Guía 1;
