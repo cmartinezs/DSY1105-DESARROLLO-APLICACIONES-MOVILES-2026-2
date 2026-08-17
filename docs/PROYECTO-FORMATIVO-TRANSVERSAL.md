@@ -2,71 +2,55 @@
 
 ## Propósito
 
-**PocketLog** es el proyecto formativo transversal de DSY1105. Su objetivo es que el código escrito durante la Unidad 1 no se descarte al comenzar Android, sino que evolucione durante todo el semestre.
+**PocketLog** es el proyecto formativo transversal de DSY1105. Su objetivo es que el código construido durante Kotlin de consola evolucione hacia una aplicación móvil completa **siguiendo el avance real de la asignatura**.
 
-La regla arquitectónica central es:
+La regla principal no es arquitectónica, sino curricular:
 
-> **La lógica del negocio debe poder ejecutarse sin saber si quien la utiliza es una consola, una pantalla Android, una base de datos SQLite o una API REST.**
+> **PocketLog solo incorpora durante una semana conceptos, técnicas y tecnologías que correspondan al contenido planificado para esa semana o que ya hayan sido estudiados anteriormente.**
 
-Por eso el proyecto se divide conceptualmente en:
-
-```mermaid
-flowchart LR
-    CONSOLE[Consola Kotlin] --> CORE[Core Kotlin puro]
-    ANDROID[Android / Compose] --> CORE
-    TESTS[Pruebas] --> CORE
-    CORE --> PORT[Contratos / puertos]
-    PORT --> MEMORY[Memoria]
-    PORT --> SQLITE[SQLite]
-    PORT --> REST[API REST]
-```
-
-El **core** no debe importar `android.*`, Compose, SQLite, Retrofit ni clases de interfaz gráfica.
+La arquitectura desacoplada sigue siendo una dirección docente, pero no se adelanta como contenido para el estudiante.
 
 ---
 
-## Dominio
+# Fuente de verdad para cada incremento
 
-PocketLog es una bitácora personal de registros. Cada registro puede representar una idea, observación, pendiente o hallazgo.
+Antes de preparar una nueva versión de PocketLog se revisa, en este orden:
 
-Modelo objetivo inicial:
+1. cronograma institucional de DSY1105;
+2. coordinación/material institucional de la semana;
+3. avance real de la sección;
+4. checkpoint PocketLog de la semana anterior.
 
-```text
-Registro
-- id
-- titulo
-- descripcion
-- categoria
-- estado
-- tags
-```
-
-Durante la unidad móvil puede evolucionar con:
+Solo entonces se define el incremento.
 
 ```text
-- fotografía asociada
-- fecha/hora
-- ubicación u otro recurso nativo si corresponde
-- persistencia local
-- sincronización remota
+contenido planificado
+        +
+avance real
+        +
+checkpoint anterior
+        ↓
+problema didáctico de la semana
+        ↓
+PocketLog versión nueva
 ```
 
-El dominio es intencionalmente sencillo: el objetivo del curso no es aprender la industria de las bitácoras, sino Kotlin y desarrollo móvil.
+Si una técnica sería arquitectónicamente conveniente pero aún **no corresponde curricularmente**, se deja pendiente.
 
 ---
 
 # Metodología longitudinal
 
-PocketLog **no es un enunciado de laboratorio que se entrega una vez**. Se desarrolla como una guía paso a paso durante el semestre.
+PocketLog se desarrolla como una guía paso a paso.
 
 Cada semana sigue esta secuencia:
 
 ```text
 checkpoint anterior
         ↓
-problema o limitación observable
+problema observable relacionado con el contenido semanal
         ↓
-alternativas posibles
+alternativas posibles con conocimientos disponibles
         ↓
 decisión explicada
         ↓
@@ -74,57 +58,29 @@ implementación paso a paso
         ↓
 descubrimiento autónomo acotado
         ↓
-prueba / evidencia / defensa
+prueba / evidencia / explicación
         ↓
-nuevo checkpoint versionado
+nuevo checkpoint ejecutable
 ```
 
-## Qué debe contener cada guía semanal
+Cada guía semanal debe contener:
 
-Como mínimo:
-
-1. estado inicial del código;
-2. problema que motiva el nuevo contenido;
-3. comparación entre alternativas cuando sea útil;
-4. decisión adoptada y sus trade-offs;
-5. cambios de código progresivos;
-6. preguntas de predicción o pequeñas tareas sin solución inmediata;
-7. pruebas a ejecutar;
-8. reflexión final;
-9. código final de la semana.
-
-El alumno puede recibir bastante acompañamiento. El objetivo no es “adivinar la arquitectura”, sino **comprender por qué el código cambia**.
-
-## Qué no debe ser la guía
-
-No debe convertirse en:
-
-```text
-copiar bloque 1
-copiar bloque 2
-copiar bloque 3
-funciona
-fin
-```
-
-En puntos seleccionados el estudiante debe:
-
-- predecir qué ocurrirá;
-- elegir entre dos opciones;
-- completar una pequeña función;
-- probar una variación;
-- explicar una decisión;
-- detectar la limitación que prepara la semana siguiente.
+1. **RECIBE** · qué hace la versión anterior;
+2. **APRENDEMOS** · contenidos de la semana que se usarán;
+3. **PROBLEMA** · qué limitación de PocketLog permite introducirlos;
+4. **ALTERNATIVAS** · soluciones posibles con comparación simple;
+5. **DECISIÓN** · qué alternativa se utilizará y por qué;
+6. **PASO A PASO** · modificación progresiva del código;
+7. **DESCUBRE TÚ** · pequeñas partes que el alumno debe resolver;
+8. **COMPRUEBA** · pruebas manuales o automatizadas según lo ya aprendido;
+9. **CHECKPOINT** · versión completa y ejecutable;
+10. **DEJA ABIERTO** · limitación que puede preparar un contenido futuro, sin enseñarlo antes de tiempo.
 
 ---
 
-# Versionado semanal
+# Versionado
 
-Cada semana deja una **nueva versión completa y ejecutable**.
-
-Los checkpoints anteriores no se sobrescriben.
-
-Ejemplo:
+Cada semana de trabajo formativo deja una versión completa y preserva las anteriores.
 
 ```text
 checkpoint-semana-02/   PocketLog v0.2
@@ -133,68 +89,87 @@ checkpoint-semana-04/   PocketLog v0.4
 ...
 ```
 
-Esto permite comparar directamente la evolución del mismo sistema.
+Las semanas de evaluación no generan artificialmente una nueva versión solo para mantener el número correlativo.
 
-## Regla
+---
 
-Una versión nueva debe documentar:
+# Dominio
+
+PocketLog es una bitácora personal de registros. El dominio se mantiene sencillo para que el protagonismo sea de Kotlin y desarrollo móvil.
+
+Los datos y capacidades también **crecen con el plan**. No se agregan por adelantado atributos para una tecnología futura.
+
+Ejemplo conceptual de evolución:
 
 ```text
-RECIBE
-qué podía hacer la versión anterior
+Semana 02
+registros representados con estructuras básicas
 
-AGREGA
-qué concepto/capacidad incorpora esta semana
+Semana 03
+Registro como objeto/clase
 
-CAMBIA
-qué código fue refactorizado y por qué
+Semanas Android
+los mismos registros visibles y editables desde interfaz móvil
 
-CONSERVA
-qué comportamiento no debería romperse
+Semana de recursos nativos
+fotografía solo cuando el contenido introduce cámara
 
-DEJA ABIERTO
-qué limitación preparará el siguiente incremento
+Semana SQLite
+persistencia SQLite solo cuando corresponde
+
+Semana REST
+fuente remota solo cuando corresponde
 ```
 
 ---
 
-# Evaluaciones
+# Matriz de trazabilidad · cronograma → PocketLog
 
-Las evaluaciones parciales **no reutilizan PocketLog como plantilla de solución**.
+Esta tabla es la **fuente de verdad del roadmap formativo**. La implementación concreta puede ajustarse al avance real de la sección, pero no debe adelantarse respecto del contenido.
 
-El proyecto formativo se pausa durante EP1, EP2 y EP3, y se retoma desde el último checkpoint estable al terminar la evaluación.
-
-Esto separa claramente:
-
-```text
-aprendizaje acompañado → PocketLog
-
-evidencia sumativa → dominio propio de la evaluación
-```
+| Semana | Contenido planificado | Incremento permitido en PocketLog | Lo que NO se adelanta |
+|---|---|---|---|
+| 1 | Panorama del desarrollo de aplicaciones | Contexto del proyecto; eventualmente comparar tecnologías/lenguajes. No es necesario crear checkpoint funcional. | Kotlin avanzado, POO, Android. |
+| 2 | Programación de Kotlin y fundamentos; Kotlin básico; colecciones y funciones | **v0.2 consola:** variables, tipos, operadores, condicionales, ciclos, funciones, `List`/`MutableList`, iteración, `map`/`filter` cuando hayan sido vistos. | `data class`, POO, corrutinas, Android, MVVM, persistencia. |
+| 3 | POO y control de errores; corrutinas y sintaxis avanzada Kotlin | **v0.3 consola:** refactor de las estructuras de v0.2 hacia clases/data classes; responsabilidades simples; manejo de errores; corrutinas y sintaxis avanzada solo en los puntos cubiertos por la guía/clase. | Compose, ViewModel, navegación, SQLite, REST. |
+| 4 | Kotlin y Android Studio; primer aplicativo en Android Studio | **v0.4:** crear el primer consumidor Android reutilizando la lógica Kotlin que sea viable; comprender estructura básica del proyecto Android y ejecutar la app. | MVVM/arquitectura de Unidad 2, navegación compleja, persistencia. |
+| 5 | Evaluación Parcial 1 | **PocketLog se pausa.** | No usar PocketLog como plantilla de la evaluación. |
+| 6 | Arquitectura y planificación colaborativa; configuración inicial con MVVM; componentes básicos de diseño; pantalla base con Jetpack Compose | Retomar PocketLog y estructurar el proyecto móvil según lo enseñado; incorporar MVVM y pantalla base Compose. | Navegación avanzada, formularios de Semana 8, SQLite. |
+| 7 | Diseño visual profesional/adaptable; navegación y estructura visual | Mejorar jerarquía/adaptabilidad visual; incorporar flujo de navegación entre las pantallas necesarias de PocketLog. | Formularios/validaciones no vistos, persistencia. |
+| 8 | Formularios, validaciones y componentes interactivos; paso de información | Incorporar creación/edición mediante formularios; validaciones y paso de datos entre pantallas según lo aprendido. | Cámara, SQLite, REST. |
+| 9 | Estado, persistencia y animaciones; recursos nativos; cámara | Incorporar gestión de estado y persistencia del tipo enseñado esa semana, animaciones si aportan al caso y **cámara** como recurso nativo de PocketLog. | SQLite avanzado si aún no corresponde; REST. |
+| 10 | Persistencia avanzada con SQLite | Sustituir/complementar la persistencia anterior con SQLite según la guía institucional. Refactorizar solo lo necesario para integrar la base local. | REST, testing de Semana 14. |
+| 11 | Evaluación Parcial 2 | **PocketLog se pausa.** | No usarlo como solución de la evaluación. |
+| 12 | Evaluación Parcial 2 | **PocketLog continúa pausado.** | No agregar contenido nuevo fuera del plan. |
+| 13 | Consumo de servicios REST y conexión interfaz-backend | Incorporar consumo de API REST y conectar datos remotos con la interfaz de PocketLog. Las decisiones local/remoto se enseñan solo al nivel requerido por la semana. | Testing formal aún no visto, firma APK. |
+| 14 | Pruebas unitarias y aseguramiento de calidad | Incorporar pruebas unitarias sobre lógica que sea testeable y revisar/refactorizar defectos detectados. | Firma/distribución si aún no corresponde. |
+| 15 | Compilación segura y firma de aplicación móvil | Preparar la versión formativa completa, generar APK y realizar firma/configuración según lo enseñado. | Nuevas capacidades funcionales no justificadas. |
+| 16 | Evaluación Parcial 3 | **PocketLog se pausa.** | No usarlo como plantilla de evaluación. |
+| 17 | Evaluación Parcial 3 | **PocketLog continúa pausado.** | No agregar incremento artificial. |
+| 18 | EFT | PocketLog puede quedar como evidencia histórica del proceso formativo; no sustituye la EFT. | — |
 
 ---
 
-# Unidad 1 · Kotlin independiente de Android
+# Unidad 1 · Cómo crece el core sin adelantar contenido
 
-## Semana 2 · Fundamentos Kotlin · PocketLog v0.2
+## Semana 02 · PocketLog v0.2
 
-PocketLog comienza en consola.
+Contenido habilitado:
 
-Se trabajan:
+```text
+val / var
+tipos
+operadores
+if / when
+for / while
+funciones
+colecciones
+map / filter cuando corresponda
+```
 
-- `val` / `var`;
-- tipos;
-- condicionales;
-- ciclos;
-- funciones;
-- colecciones;
-- `map` / `filter` / operaciones equivalentes.
+La representación puede ser procedural e incómoda. Eso es correcto para el conocimiento disponible.
 
-### Decisión pedagógica
-
-**No se utiliza `data class Registro` todavía.**
-
-La versión v0.2 mantiene datos en colecciones paralelas:
+Por ejemplo:
 
 ```text
 titulos
@@ -202,259 +177,111 @@ categorias
 completados
 ```
 
-Es una solución válida con el conocimiento disponible, pero incómoda y frágil.
+No utilizamos `data class Registro` antes de POO.
 
-Esa fragilidad es intencional porque deja preparada la pregunta:
-
-> ¿Cómo representamos como una sola unidad todos los datos que pertenecen al mismo registro?
-
-Eso crea la necesidad de POO en Semana 03.
+La limitación queda visible, pero **la solución se enseña recién en Semana 03**.
 
 Material:
 
 - [`proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md`](../proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md)
 - [`proyecto-formativo/checkpoint-semana-02/PocketLog.kt`](../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
 
-## Semana 3 · POO, errores, corrutinas y Kotlin avanzado · PocketLog v0.3
+## Semana 03 · PocketLog v0.3
 
-Se parte **copiando/reutilizando v0.2**, no desde un proyecto vacío.
+La necesidad de agrupar los datos de un registro permite introducir POO.
 
-Problema de entrada:
-
-```text
-los datos de un Registro están repartidos entre listas paralelas
-```
-
-Se compararán alternativas, por ejemplo:
+Ahora sí se puede comparar:
 
 ```text
-seguir agregando listas
-usar Map<String, Any>
-representar el concepto con una clase/data class
-```
-
-Aparecen gradualmente:
-
-- `data class Registro`;
-- enum/clases de estado cuando aporte valor;
-- encapsulación;
-- manejo de errores;
-- servicios o funciones asociadas al dominio;
-- corrutinas cuando corresponda al contenido real.
-
-Las abstracciones de persistencia se introducen solo cuando exista una necesidad didáctica clara; no se fuerza Repository demasiado temprano.
-
-Checkpoint esperado:
-
-```mermaid
-flowchart LR
-    CLI[Consola] --> LOGIC[Lógica PocketLog]
-    LOGIC --> MODEL[Registro / modelo]
-```
-
-## Semana 4 · Kotlin + Android Studio · PocketLog v0.4
-
-Se reutiliza la lógica de v0.3.
-
-El nuevo problema es:
-
-> Tenemos lógica funcional en consola. ¿Debemos reescribirla para verla desde Android?
-
-La respuesta que buscamos demostrar es **no**.
-
-Se crea el primer consumidor Android manteniendo la mayor cantidad posible de Kotlin puro reutilizable.
-
-La consola queda como evidencia histórica de que el dominio puede vivir sin Android.
-
-## Semana 5 · Evaluación 1
-
-PocketLog se pausa.
-
----
-
-# Unidad 2 · Aplicación Android
-
-## Semana 6 · Arquitectura, MVVM y Compose
-
-PocketLog obtiene una interfaz Android más estructurada.
-
-```mermaid
-flowchart LR
-    UI[Jetpack Compose] --> VM[ViewModel]
-    VM --> CORE[Core Kotlin]
-```
-
-Si para ese momento ya existe una necesidad clara de acceso a datos desacoplado, se introduce el contrato correspondiente.
-
-El ViewModel adapta el core a estado de pantalla; no absorbe reglas de negocio.
-
-## Semana 7 · Diseño y navegación
-
-Se agregan pantallas como:
-
-- lista de registros;
-- detalle;
-- creación/edición.
-
-La navegación cambia, el core permanece.
-
-## Semana 8 · Formularios y validaciones
-
-Las validaciones se separan en dos niveles:
-
-- validación de presentación: campos requeridos/formato;
-- reglas de negocio reutilizables: permanecen en el core.
-
-## Semana 9 · Estado, persistencia y recursos nativos
-
-Se agrega fotografía u otro recurso nativo al registro.
-
-La captura de cámara pertenece al adapter Android. El core recibe una referencia/identificador neutral, no un `Bitmap` ni una clase Android.
-
-Ejemplo:
-
-```text
-Core: fotoUri: String?
-Android: convierte resultado de cámara → URI/string
-```
-
-## Semana 10 · SQLite
-
-Aquí la necesidad de una abstracción de persistencia se vuelve explícita.
-
-```mermaid
-flowchart LR
-    UI[Compose] --> VM[ViewModel]
-    VM --> CORE[Core]
-    CORE --> PORT[RegistroRepository]
-    PORT --> SQLITE[SQLite Adapter]
-```
-
-Si existía una implementación temporal en memoria, se compara con SQLite y se demuestra qué código cambia y qué código se conserva.
-
-## Semanas 11–12 · Evaluación 2
-
-PocketLog se pausa.
-
----
-
-# Unidad 3 · Integración, calidad y distribución
-
-## Semana 13 · REST
-
-Se incorpora un adapter remoto.
-
-```mermaid
-flowchart TB
-    UI[Android] --> CORE[Core]
-    CORE --> REPO[RegistroRepository]
-    REPO --> LOCAL[SQLite]
-    REPO --> REMOTE[REST API]
-```
-
-Se compara explícitamente:
-
-```text
-persistencia local
+listas paralelas
 vs
-fuente remota
+Map
+vs
+clase/data class
 ```
 
-El dominio no conoce Retrofit, JSON ni HTTP.
+y refactorizar usando los contenidos oficiales de POO y manejo de errores.
 
-## Semana 14 · Pruebas
+Las corrutinas se incorporarán a una operación concreta **solo después de trabajarlas en la semana**; no se añaden como decoración arquitectónica.
 
-El desacoplamiento permite probar el core sin emulador:
+## Semana 04 · PocketLog v0.4
+
+La pregunta pasa a ser:
+
+> Ya tenemos lógica Kotlin funcionando. ¿Cómo la ejecutamos desde una aplicación Android?
+
+El incremento se limita a lo que contempla la introducción práctica a Android Studio y Kotlin y la guía del primer aplicativo.
+
+No se fuerza MVVM antes de Semana 06.
+
+---
+
+# Unidad 2 · Android según el orden curricular
+
+La arquitectura móvil tampoco se instala completa el primer día.
+
+```text
+Semana 04 → primer aplicativo Android
+Semana 06 → arquitectura/MVVM + Compose base
+Semana 07 → diseño + navegación
+Semana 08 → formularios + validación + paso de datos
+Semana 09 → estado + animación + recursos nativos/cámara
+Semana 10 → SQLite
+```
+
+Cada paso reutiliza el anterior.
+
+Así, por ejemplo, la pantalla de creación no se construye completa en Semana 06 si formularios y validación corresponden a Semana 08.
+
+---
+
+# Unidad 3 · Integración según el orden curricular
+
+```text
+Semana 13 → REST
+Semana 14 → pruebas unitarias
+Semana 15 → compilación segura y firma
+```
+
+REST no se incorpora antes para “preparar arquitectura”.
+
+Las pruebas unitarias pueden naturalmente apoyarse en el desacoplamiento logrado, pero **el contenido formal de testing aparece cuando el plan lo indica**.
+
+---
+
+# Dirección arquitectónica docente
+
+Existe una intención de mantener la lógica reutilizable y evitar acoplarla innecesariamente a Android:
 
 ```mermaid
 flowchart LR
-    TEST[Test Kotlin/JUnit] --> CORE[Core]
-    CORE --> FAKE[Fake RegistroRepository]
+    C[Consola] --> K[Lógica Kotlin reutilizable]
+    A[Android] --> K
+    T[Pruebas] --> K
 ```
 
-La guía debe comparar al menos:
+Más adelante, cuando persistencia y REST aparezcan curricularmente, podrán surgir contratos o separaciones adicionales.
 
-```text
-probar con dependencia real
-vs
-probar con fake/controlado
-```
+Pero esta arquitectura es una **dirección de diseño**, no una lista de patrones que el alumno deba implementar antes de estudiarlos.
 
-## Semana 15 · APK firmado
+Regla:
 
-PocketLog se empaqueta como una aplicación completa. No debería requerir cambios de negocio para generar el APK.
-
-## Semanas 16–17 · Evaluación 3
-
-PocketLog vuelve a pausarse.
+> Primero aparece el problema y el contenido de la semana; después PocketLog adopta la abstracción que ayuda a resolverlo.
 
 ---
 
-# Regla de dependencias objetivo
+# Regla para preparar cada semana futura
 
-A medida que el curso avance, la dirección conceptual debe tender hacia el core:
-
-```mermaid
-flowchart TD
-    CONSOLE[Console Adapter] --> CORE[Core Kotlin]
-    MOBILE[Android Adapter] --> CORE
-    DB[SQLite Adapter] --> CORE
-    NET[REST Adapter] --> CORE
-```
-
-Nunca:
+Antes de crear `checkpoint-semana-XX` debemos responder:
 
 ```text
-core → Android
-core → Compose
-core → SQLite
-core → Retrofit
+1. ¿Qué dice exactamente el cronograma esta semana?
+2. ¿Qué alcanzó realmente a ver la sección anterior?
+3. ¿Qué puede hacer hoy PocketLog?
+4. ¿Qué problema de PocketLog crea una necesidad natural del contenido nuevo?
+5. ¿Cuál es el cambio mínimo que demuestra ese aprendizaje?
+6. ¿Qué concepto debemos evitar porque corresponde a una semana posterior?
+7. ¿Qué versión completa y ejecutable quedará como checkpoint?
 ```
 
----
-
-# Qué significa “agnóstico a quien use el core”
-
-Una operación como:
-
-```text
-crearRegistro(...)
-filtrarPorCategoria(...)
-marcarComoCompletado(...)
-```
-
-no debería saber si fue invocada desde:
-
-- `main()`;
-- un botón Compose;
-- un ViewModel;
-- una prueba automática;
-- una futura API o interfaz diferente.
-
-Eso permite reutilizar realmente el trabajo de las primeras semanas.
-
----
-
-# Criterio pedagógico final
-
-No se enseñará toda la arquitectura desde Semana 2 como teoría anticipada.
-
-La arquitectura existe como **dirección docente**, pero cada abstracción se introduce cuando el estudiante ya siente el problema que resuelve.
-
-La secuencia deseada es:
-
-```text
-hacer funcionar
-        ↓
-observar limitación
-        ↓
-comparar opciones
-        ↓
-aprender concepto nuevo
-        ↓
-refactorizar PocketLog
-        ↓
-comprobar que lo anterior sigue funcionando
-```
-
-Así cada semana cuenta una parte de la historia del mismo software y el estudiante puede ver cómo una solución evoluciona con el conocimiento adquirido.
+Si no podemos justificar una modificación por alguno de los contenidos estudiados, **no se incorpora todavía**.
