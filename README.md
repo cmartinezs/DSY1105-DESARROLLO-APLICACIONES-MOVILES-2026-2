@@ -7,10 +7,10 @@ Este repositorio reúne contenido de clases, ejemplos, ejercicios, guías y recu
 ## Acceso rápido
 
 - [`semanas/`](semanas/) — índice y contenido consolidado de cada semana.
-- [`docs/`](docs/) — conocimientos y guías transversales.
-- [`labs/`](labs/) — ejercicios y laboratorios prácticos.
-- [`examples/`](examples/) — ejemplos de código desarrollados en clases.
-- [`page/`](page/) — portal web del curso (se habilitará progresivamente).
+- [`docs/`](docs/) — índice de conocimientos y guías transversales reutilizables durante el semestre.
+- [`labs/`](labs/) — índice de ejercicios y laboratorios prácticos, manteniendo cada laboratorio dentro de su semana de origen.
+- [`examples/`](examples/) — índice de ejemplos de código desarrollados en clases.
+- [`page/`](page/) — base del portal web del curso; se habilitará progresivamente.
 - [**Material público del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) — biblioteca de archivos originales organizada semana a semana.
 
 ## Cómo se organiza el material
@@ -31,9 +31,11 @@ El contenido consolidado incorpora:
 
 El directorio [`semanas/`](semanas/) mantiene un **README general** que funciona como índice del semestre. Además, cada carpeta semanal mantiene su propio `README.md` como punto de entrada a esa semana.
 
+Los directorios [`docs/`](docs/), [`labs/`](labs/) y [`examples/`](examples/) funcionan como **índices transversales**. El material principal no se duplica: permanece en la semana donde fue utilizado y estos índices facilitan encontrarlo después.
+
 ### Material original
 
-Los archivos institucionales se mantienen como fuente de referencia en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) y se organizarán semana a semana para su consulta. El repositorio no reemplaza AVA ni los recursos oficiales; los complementa con el material consolidado utilizado efectivamente en clases.
+Los archivos institucionales se mantienen como fuente de referencia en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) y se organizan semana a semana para su consulta. El repositorio no reemplaza AVA ni los recursos oficiales; los complementa con el material consolidado utilizado efectivamente en clases.
 
 ## Cómo obtener el repositorio
 
@@ -54,16 +56,18 @@ El curso avanza progresivamente desde fundamentos de Kotlin y el ecosistema móv
 
 ## Semana actual
 
-**Semana 1 · 10 al 15 de agosto de 2026**
+**Semana 2 · 17 al 22 de agosto de 2026**
 
-Actividad institucional: **1.1 Panorama del desarrollo de aplicaciones**.
+Actividad institucional: **1.2 Programando con Kotlin y fundamentos**.
 
-- 1.1.1 Ecosistema de Aplicaciones Móviles
-- 1.1.2 Guía 1: Investigación de lenguajes y frameworks móviles
-- Contextualización Kotlin ↔ Java
-- Organización inicial de parejas de trabajo para el proyecto semestral
+- 1.2.1 Fundamentos de Kotlin.
+- 1.2.2 Guía 2: Aplicando fundamentos de Kotlin.
+- 1.2.3 Colecciones y funciones.
+- 1.2.4 Guía 3: Aplicando colecciones.
+- Ejemplos prácticos sobre sintaxis y resolución de problemas.
+- Laboratorio incremental para aplicar y luego refactorizar la solución usando colecciones y funciones.
 
-Consulta el contenido en [`semanas/semana-01/`](semanas/semana-01/).
+Consulta el contenido en [`semanas/semana-02/`](semanas/semana-02/).
 
 ---
 
