@@ -6,30 +6,29 @@
 
 ← [Volver al índice](../README.md)
 
-## Proyecto formativo transversal · PocketLog
-
-Desde esta semana se inicia **PocketLog**, proyecto formativo que evolucionará durante todo el semestre.
-
-La idea central es que el código Kotlin creado ahora en consola **no sea descartado cuando comencemos Android**. La lógica del dominio irá quedando progresivamente separada de quien la utiliza:
-
-```mermaid
-flowchart LR
-    CONSOLE[Consola Kotlin] --> CORE[Core Kotlin]
-    ANDROID[Android posteriormente] --> CORE
-    TESTS[Pruebas posteriormente] --> CORE
-```
-
-Esta semana no se enseña todavía toda la arquitectura. Primero construiremos comportamiento útil con Kotlin básico; en las semanas siguientes aparecerán POO, contratos, Android, persistencia y REST cuando exista una necesidad concreta para ellos.
-
-- [Proyecto formativo · PocketLog](../../proyecto-formativo/README.md)
-- [Diseño longitudinal del semestre](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
-- [Checkpoint Semana 02 · `PocketLog.kt`](../../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
-
 ## Objetivo semanal
 
-Consolidar fundamentos de Kotlin mediante práctica incremental sobre PocketLog:
+Consolidar fundamentos de Kotlin mediante práctica incremental:
 
-**Variables → Operadores → Condicionales → Ciclos → Funciones → Colecciones → `map` / `filter` → checkpoint reutilizable.**
+**Variables → Entrada/Salida → Operadores → Condicionales → Ciclos → Funciones → Colecciones → Integración.**
+
+## Proyecto formativo transversal · PocketLog
+
+Esta semana comienza formalmente **PocketLog**, el proyecto formativo que evolucionará durante el semestre desde Kotlin de consola hasta una aplicación móvil con persistencia, REST y pruebas.
+
+El trabajo principal no consiste en recibir una solución terminada. Se sigue una guía en la que cada paso presenta:
+
+```text
+problema → alternativas → decisión → código → prueba → reflexión
+```
+
+Material principal:
+
+- [PocketLog · Guía paso a paso Semana 02](../../proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md)
+- [PocketLog · checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
+- [Diseño transversal del proyecto](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
+
+> El checkpoint de esta semana se conserva. En Semana 03 no se sobrescribe: se crea una nueva versión y se compara la evolución.
 
 ## Contenidos oficiales
 
@@ -44,54 +43,24 @@ Cada contenido importante se aborda con:
 
 1. explicación breve;
 2. ejemplo guiado ejecutable;
-3. modificación de PocketLog;
-4. práctica/laboratorio de transferencia;
+3. aplicación del concepto sobre PocketLog;
+4. una pequeña decisión o descubrimiento que el estudiante debe resolver;
 5. evidencia y explicación de decisiones;
-6. nuevo checkpoint reutilizable.
+6. actualización del checkpoint semanal cuando corresponda.
 
-El tamaño puede ser diario o semanal según la magnitud del contenido, pero **la práctica no queda como actividad opcional al final de la teoría**.
+La práctica no queda como actividad opcional al final de la teoría.
 
-## PocketLog esta semana
+## Material complementario
 
-El checkpoint debe permitir manejar una colección en memoria de registros simples, por ejemplo:
-
-```text
-Registro
-- id
-- título
-- categoría
-- completado
-```
-
-Sobre esos datos se practicarán:
-
-- `val` y `var`;
-- tipos;
-- String templates;
-- `if` y `when`;
-- iteraciones;
-- funciones con parámetros y retorno;
-- `List` / `MutableList`;
-- `filter`;
-- `map`;
-- `count` u otras operaciones sencillas sobre colecciones.
-
-> La `data class RegistroBasico` del checkpoint puede utilizarse como introducción ligera para agrupar datos, pero **POO como contenido formal se profundiza en Semana 03**. No se adelanta arquitectura por memorizar nombres.
-
-## Material creado
-
-### Material principal
+Además de PocketLog quedan disponibles ejercicios de transferencia con dominios distintos:
 
 - [Guía práctica · fundamentos Kotlin](./01-guia-kotlin-fundamentos.md)
-- [PocketLog · checkpoint Semana 02](../../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
-- [Proyecto formativo longitudinal](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
+- [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
+- [Laboratorio de transferencia · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
 
-### Material complementario
+Estos materiales sirven para comprobar que el estudiante puede aplicar Kotlin fuera del dominio PocketLog. **No reemplazan el hilo longitudinal.**
 
-- [Ejemplo guiado · Productos](./ejemplos/Productos.kt) — ejemplo adicional de sintaxis y colecciones.
-- [Laboratorio · Analizador de temperaturas](./laboratorio-temperaturas/README.md) — ejercicio de transferencia independiente; no constituye el hilo semestral.
-
-## Hoy lunes 17 · 19:01–21:10
+## Lunes 17 · 19:01–21:10
 
 ### Bloque 1 · 19:01–19:40
 
@@ -102,7 +71,7 @@ Sobre esos datos se practicarán:
 - String templates;
 - conversiones simples/seguras.
 
-**PocketLog:** definir los primeros datos de registros y mostrarlos por consola.
+**PocketLog:** pasos 0–3 de la guía. Construir el primer registro de forma procedural y discutir decisiones `val` vs `var`, concatenación vs String templates e `if` como expresión.
 
 ### Bloque 2 · 19:41–20:20
 
@@ -112,31 +81,55 @@ Sobre esos datos se practicarán:
 - `for` y rangos;
 - `while`.
 
-**PocketLog:** representar estados simples, recorrer registros y producir mensajes según cantidad/estado.
+**PocketLog:** ampliar de un registro a varios y recorrerlos. Comparar variables individuales vs colecciones.
 
 ### Bloque 3 · 20:31–21:10
 
 - funciones;
 - parámetros y retorno;
 - primera colección con `listOf` / `mutableListOf`;
-- comenzar a extraer comportamiento repetido.
+- extracción de lógica repetida.
 
-**Checkpoint parcial:** PocketLog puede listar registros y ejecutar al menos una operación encapsulada en función.
-
-> `map`, `filter` y `MutableList` se profundizan el jueves. No se sacrifica la base por intentar cubrir toda la semana en tres bloques.
+**PocketLog:** comenzar a separar `mostrarRegistros(...)` y observar por qué una función que solo lee puede recibir `List` aunque `main` tenga `MutableList`.
 
 ## Jueves 20 · 21:11–22:30
 
 - `List` vs `MutableList`;
 - mutabilidad/inmutabilidad;
 - iteraciones;
+- `filter` / `filterIndexed`;
 - `map`;
-- `filter`;
-- `count` y transformaciones simples;
-- consolidación de PocketLog;
-- ejercicio independiente de transferencia.
+- `count`;
+- cierre del checkpoint PocketLog v0.2;
+- laboratorio de transferencia si el avance lo permite.
 
-**Checkpoint de salida:** una versión de PocketLog que pueda reutilizarse en Semana 03 para transformarla progresivamente desde código Kotlin básico hacia POO, manejo de errores y corrutinas.
+### Cierre PocketLog
+
+La versión final de Semana 02 debe poder:
+
+```text
+listar registros
+filtrar por categoría
+identificar pendientes
+contar pendientes
+producir un resumen
+```
+
+Todavía utiliza tres listas coordinadas:
+
+```text
+títulos
+categorías
+completados
+```
+
+Esto es intencional.
+
+La pregunta de salida es:
+
+> **¿Qué problema aparece cuando un mismo concepto está dividido entre varias listas que siempre deben mantenerse sincronizadas?**
+
+Esa limitación será la entrada pedagógica de Semana 03 para introducir POO.
 
 ## Evidencia mínima semanal
 
@@ -148,30 +141,11 @@ El estudiante debe poder:
 4. implementar ciclos;
 5. escribir funciones con parámetros/retorno;
 6. trabajar con colecciones;
-7. explicar `map` y `filter`;
-8. ejecutar y modificar PocketLog;
-9. resolver un ejercicio de transferencia sin copiar el ejemplo;
-10. explicar qué parte del código será reutilizada la semana siguiente.
-
-## Continuidad hacia Semana 03
-
-No se comienza otro proyecto.
-
-La próxima semana aparecerá la necesidad de ordenar mejor PocketLog:
-
-```text
-código con datos + funciones + colecciones
-        ↓
-modelo de objetos
-        ↓
-responsabilidades
-        ↓
-manejo de errores
-        ↓
-operaciones asíncronas cuando corresponda
-```
-
-Así POO y corrutinas se incorporarán **porque PocketLog las necesita**, no como temas desconectados.
+7. explicar `List` vs `MutableList`;
+8. explicar una versión imperativa de un filtro y luego `filter`/`filterIndexed`;
+9. ejecutar PocketLog v0.2;
+10. explicar al menos dos decisiones tomadas durante la guía;
+11. identificar una limitación de la versión actual que motive una mejora futura.
 
 ## Material institucional
 
