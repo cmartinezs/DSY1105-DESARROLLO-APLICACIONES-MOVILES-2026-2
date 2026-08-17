@@ -28,14 +28,10 @@ No siempre “menos líneas” significa “mejor código”. Una sintaxis corta
 
 ## 1.1 Forma explícita
 
-En Kotlin podemos declarar el tipo directamente:
-
 ```kotlin
 val nombre: String = "Ana"
 var intentos: Int = 1
 ```
-
-Aquí podemos identificar claramente:
 
 ```text
 val          nombre       : String       = "Ana"
@@ -50,7 +46,7 @@ La referencia no puede reasignarse.
 ```kotlin
 val nombre: String = "Ana"
 
-// Esto no compila:
+// No compila:
 // nombre = "Camila"
 ```
 
@@ -79,8 +75,6 @@ val nombre: String = "Ana"
 var intentos: Int = 1
 ```
 
-Una diferencia visible es que Kotlin coloca el tipo **después del nombre**.
-
 ```text
 Java   → String nombre
 Kotlin → nombre: String
@@ -88,11 +82,7 @@ Kotlin → nombre: String
 
 También desaparece el `;` obligatorio.
 
-## 1.3 Evolucionamos: inferencia de tipos
-
-El compilador puede deducir el tipo desde el valor asignado.
-
-Por eso:
+## 1.3 Inferencia de tipos
 
 ```kotlin
 val nombre: String = "Ana"
@@ -116,9 +106,7 @@ puede escribirse:
 var intentos = 1
 ```
 
-### ¿Cuál usar?
-
-Usaremos normalmente inferencia cuando el tipo sea evidente:
+Usaremos normalmente inferencia cuando el tipo sea evidente.
 
 ```kotlin
 val edad = 20
@@ -127,15 +115,9 @@ val activo = true
 val curso = "DSY1105"
 ```
 
-Pero escribir el tipo puede mejorar claridad en algunos casos:
-
-```kotlin
-val total: Double = 10.0
-```
-
 ### Descubre tú
 
-Predice el tipo que Kotlin inferirá para:
+Predice el tipo inferido en:
 
 ```kotlin
 val a = 10
@@ -150,8 +132,6 @@ Luego verifica en IntelliJ.
 
 # 2. Tipos básicos
 
-Los tipos que utilizaremos inicialmente son:
-
 ```kotlin
 val edad: Int = 20
 val poblacion: Long = 1_500_000L
@@ -162,9 +142,7 @@ val inicial: Char = 'A'
 val curso: String = "DSY1105"
 ```
 
-## Kotlin no utiliza tipos primitivos en la sintaxis del lenguaje
-
-En Java probablemente han visto:
+Java:
 
 ```java
 int edad = 20;
@@ -172,7 +150,7 @@ double promedio = 5.8;
 boolean activo = true;
 ```
 
-En Kotlin escribimos:
+Kotlin:
 
 ```kotlin
 val edad: Int = 20
@@ -180,15 +158,13 @@ val promedio: Double = 5.8
 val activo: Boolean = true
 ```
 
-Para esta etapa basta entender sus tipos y operaciones. Los detalles internos de representación no son necesarios todavía.
+Para esta etapa basta comprender los tipos y sus operaciones.
 
 ---
 
-# 3. Mostrar información: de concatenación a String templates
+# 3. De concatenación a String templates
 
-## 3.1 Forma conocida desde Java
-
-Podemos concatenar textos:
+## 3.1 Forma familiar
 
 ```kotlin
 val nombre = "Camila"
@@ -197,51 +173,29 @@ val nota = 6.1
 println(nombre + " obtuvo nota " + nota)
 ```
 
-Esto funciona y resulta familiar si venimos de Java.
-
-## 3.2 Problema
-
-Cuando aparecen más valores, la lectura se vuelve más ruidosa:
-
-```kotlin
-println("Estudiante: " + nombre + " | Nota: " + nota + " | Aprobó: " + (nota >= 4.0))
-```
-
-## 3.3 Forma idiomática: String templates
-
-Kotlin permite insertar variables directamente:
+## 3.2 Forma Kotlin
 
 ```kotlin
 println("$nombre obtuvo nota $nota")
 ```
 
-Para insertar una expresión usamos `${...}`:
+Para una expresión:
 
 ```kotlin
 println("Aprobó: ${nota >= 4.0}")
 ```
 
-La versión anterior completa puede transformarse en:
-
-```kotlin
-println("Estudiante: $nombre | Nota: $nota | Aprobó: ${nota >= 4.0}")
-```
-
-### Comparación
+Comparación:
 
 ```text
-Concatenación
 "Hola " + nombre + ", tienes " + edad + " años"
 
-String template
+↓
+
 "Hola $nombre, tienes $edad años"
 ```
 
-### Decisión
-
-En Kotlin preferiremos normalmente String templates porque expresan mejor la intención.
-
-No obstante, primero es importante comprender que ambas formas construyen un `String`.
+La segunda forma suele expresar mejor la intención, pero primero debemos comprender que ambas construyen un `String`.
 
 ---
 
@@ -260,20 +214,14 @@ val division = a / b
 val resto = a % b
 ```
 
-### Atención con la división entera
+### División entera
 
 ```kotlin
 val resultado = 10 / 3
-println(resultado)
+println(resultado) // 3
 ```
 
-Resultado:
-
-```text
-3
-```
-
-Si necesitamos decimales:
+Para obtener decimales:
 
 ```kotlin
 val resultado = 10.0 / 3.0
@@ -301,69 +249,37 @@ val noTieneEntrada = !tieneEntrada
 
 ---
 
-# 5. Conversiones: primero la forma directa
+# 5. Conversiones
 
-Supongamos que recibimos:
+## 5.1 Forma directa
 
 ```kotlin
 val texto = "42"
-```
-
-## 5.1 Conversión directa
-
-```kotlin
 val numero: Int = texto.toInt()
 ```
 
-Esto funciona si el texto representa un número válido.
-
-Pero:
-
-```kotlin
-val texto = "cuarenta y dos"
-val numero = texto.toInt()
-```
-
-provocará un error en ejecución.
+Si el texto no representa un entero válido, la conversión falla en ejecución.
 
 ## 5.2 Forma segura
-
-Kotlin ofrece:
 
 ```kotlin
 val numero: Int? = texto.toIntOrNull()
 ```
 
-Ahora el resultado puede ser:
-
-```text
-42
-```
-
-o:
-
-```text
-null
-```
-
-El `?` indica que la variable puede no contener un `Int` válido.
-
-> La nulabilidad se estudiará con más profundidad cuando corresponda. Por ahora interesa comprender por qué `toIntOrNull()` evita que una entrada inválida detenga inmediatamente el programa.
-
-### Comparación
+El resultado puede ser un `Int` o `null`.
 
 ```text
 toInt()       → confío en que el texto es válido
 toIntOrNull() → acepto que la conversión puede fallar
 ```
 
+La nulabilidad se estudiará con más profundidad cuando corresponda.
+
 ---
 
-# 6. Condicional `if`: de sentencia explícita a expresión
+# 6. `if`: de sentencia explícita a expresión
 
 ## 6.1 Forma explícita
-
-Comencemos de una manera muy similar a Java:
 
 ```kotlin
 val nota = 5.2
@@ -374,25 +290,9 @@ if (nota >= 4.0) {
 } else {
     estado = "Reprobado"
 }
-
-println(estado)
 ```
 
-Aquí podemos seguir el flujo claramente:
-
-```text
-crear variable
-      ↓
-evaluar condición
-      ↓
-asignar un valor u otro
-      ↓
-mostrar resultado
-```
-
-## 6.2 Comparación con Java
-
-Java:
+Java tiene prácticamente la misma estructura:
 
 ```java
 String estado;
@@ -404,11 +304,9 @@ if (nota >= 4.0) {
 }
 ```
 
-Kotlin puede escribirse prácticamente igual en su estructura.
+## 6.2 `if` como expresión
 
-## 6.3 Kotlin permite algo más: `if` produce un valor
-
-Como ambas ramas producen un resultado, podemos eliminar la variable mutable:
+Kotlin permite que `if` produzca un valor:
 
 ```kotlin
 val estado = if (nota >= 4.0) {
@@ -418,59 +316,27 @@ val estado = if (nota >= 4.0) {
 }
 ```
 
-Esta versión tiene una ventaja conceptual:
+Esto permite reemplazar una variable mutable por una que se calcula una sola vez.
 
-```text
-antes
-var estado
-→ después lo modificamos
-
-ahora
-val estado
-→ se calcula una vez
-```
-
-## 6.4 Forma corta
-
-Si cada rama es muy simple:
+## 6.3 Forma breve
 
 ```kotlin
 val estado = if (nota >= 4.0) "Aprobado" else "Reprobado"
 ```
 
-Las tres versiones son válidas.
+La evolución es:
 
-### ¿Cuál enseñar primero?
-
-Primero:
-
-```kotlin
-if (...) {
-    ...
-} else {
-    ...
-}
-```
-
-Después:
-
-```kotlin
-val resultado = if (...) {
-    ...
-} else {
-    ...
-}
-```
-
-Finalmente, cuando siga siendo legible:
-
-```kotlin
-val resultado = if (...) valorA else valorB
+```text
+if explícito + var
+        ↓
+if como expresión + val
+        ↓
+forma breve cuando siga siendo legible
 ```
 
 ### Micropráctica
 
-Convierte esta versión explícita a una expresión Kotlin:
+Refactoriza:
 
 ```kotlin
 val edad = 20
@@ -483,11 +349,11 @@ if (edad >= 18) {
 }
 ```
 
+hasta una expresión Kotlin.
+
 ---
 
-# 7. `when`: primero entender el problema que resuelve
-
-Supongamos que tenemos varias opciones.
+# 7. `when`: primero comprender la necesidad
 
 ## 7.1 Con `if / else if`
 
@@ -506,16 +372,9 @@ if (opcion == 1) {
 }
 ```
 
-Funciona.
-
-Pero estamos comparando repetidamente la misma variable.
-
 ## 7.2 `when` explícito
 
 ```kotlin
-val opcion = 2
-var mensaje = ""
-
 when (opcion) {
     1 -> {
         mensaje = "Crear"
@@ -534,8 +393,6 @@ when (opcion) {
 
 ## 7.3 `when` como expresión
 
-Al igual que `if`, `when` puede producir un valor:
-
 ```kotlin
 val mensaje = when (opcion) {
     1 -> "Crear"
@@ -545,8 +402,6 @@ val mensaje = when (opcion) {
 }
 ```
 
-### Evolución
-
 ```text
 if / else if
       ↓
@@ -555,15 +410,13 @@ when con bloques
 when como expresión
 ```
 
-No usamos `when` porque sea “más Kotlin”. Lo usamos cuando representa mejor el problema.
+No usamos `when` porque sea “más Kotlin”, sino cuando representa mejor el problema.
 
 ---
 
 # 8. Ciclos: primero con bloques completos
 
 ## 8.1 `while`
-
-Forma explícita:
 
 ```kotlin
 var contador = 1
@@ -574,26 +427,15 @@ while (contador <= 3) {
 }
 ```
 
-Después podemos reconocer la abreviación:
+Luego reconocemos la abreviación:
 
 ```kotlin
 contador++
 ```
 
-Quedando:
-
-```kotlin
-var contador = 1
-
-while (contador <= 3) {
-    println(contador)
-    contador++
-}
-```
-
 ## 8.2 `for`
 
-Java suele requerir algo como:
+Java:
 
 ```java
 for (int numero = 1; numero <= 5; numero++) {
@@ -601,7 +443,7 @@ for (int numero = 1; numero <= 5; numero++) {
 }
 ```
 
-En Kotlin expresamos directamente el rango:
+Kotlin:
 
 ```kotlin
 for (numero in 1..5) {
@@ -609,41 +451,15 @@ for (numero in 1..5) {
 }
 ```
 
-Primero usaremos siempre las llaves para que sea visible el bloque.
-
-Solo después mostraremos que, si existe una única instrucción, Kotlin permite:
+Solo después podemos mostrar la versión de una línea:
 
 ```kotlin
 for (numero in 1..5) println(numero)
 ```
 
-### Recomendación pedagógica
-
-Que el lenguaje permita omitir llaves en un caso sencillo **no significa que siempre convenga hacerlo**.
-
-Mientras estamos aprendiendo flujo de control, la versión con bloque suele ser más clara.
+Que el lenguaje permita omitir llaves en un caso sencillo no significa que siempre convenga hacerlo.
 
 ## 8.3 Rangos
-
-```kotlin
-for (numero in 1..5) {
-    println(numero)
-}
-```
-
-`1..5` incluye ambos extremos.
-
-También podemos encontrar:
-
-```kotlin
-for (numero in 1 until 5) {
-    println(numero)
-}
-```
-
-Aquí `5` queda fuera.
-
-Comparación:
 
 ```text
 1..5      → 1, 2, 3, 4, 5
@@ -656,8 +472,6 @@ Comparación:
 
 ## 9.1 Forma completa
 
-Comencemos declarando todo explícitamente:
-
 ```kotlin
 fun calcularDescuento(precio: Double, porcentaje: Double): Double {
     val descuento: Double = precio * porcentaje / 100
@@ -665,17 +479,7 @@ fun calcularDescuento(precio: Double, porcentaje: Double): Double {
 }
 ```
 
-Podemos identificar:
-
-```text
-fun calcularDescuento(precio: Double, porcentaje: Double): Double
-↑   ↑                 ↑                                  ↑
-    nombre            parámetros                         retorno
-```
-
-## 9.2 Primera simplificación
-
-La variable intermedia no siempre es necesaria:
+## 9.2 Eliminamos una variable innecesaria
 
 ```kotlin
 fun calcularDescuento(precio: Double, porcentaje: Double): Double {
@@ -685,23 +489,17 @@ fun calcularDescuento(precio: Double, porcentaje: Double): Double {
 
 ## 9.3 Expression body
 
-Cuando una función consiste únicamente en devolver una expresión, Kotlin permite:
-
 ```kotlin
 fun calcularDescuento(precio: Double, porcentaje: Double): Double =
     precio * porcentaje / 100
 ```
 
-Incluso el retorno puede inferirse en algunos casos:
+Y, si resulta claro:
 
 ```kotlin
 fun calcularDescuento(precio: Double, porcentaje: Double) =
     precio * porcentaje / 100
 ```
-
-### ¿Debemos saltar directamente a la última versión?
-
-No.
 
 Primero debemos comprender:
 
@@ -712,7 +510,7 @@ parámetros
 → tipo retornado
 ```
 
-Luego la sintaxis corta deja de parecer “magia”.
+Luego la sintaxis breve deja de parecer magia.
 
 ## 9.4 Otro ejemplo
 
@@ -736,27 +534,21 @@ fun esAprobado(nota: Double): Boolean {
 }
 ```
 
-Forma idiomática:
+Expression body:
 
 ```kotlin
 fun esAprobado(nota: Double): Boolean = nota >= 4.0
 ```
 
-Finalmente, si queremos permitir inferencia:
+Con inferencia:
 
 ```kotlin
 fun esAprobado(nota: Double) = nota >= 4.0
 ```
 
-### Pregunta importante
-
-¿Cuál de las cuatro versiones explica mejor el concepto a alguien que está aprendiendo?
-
-¿Cuál preferirías encontrar en un proyecto una vez que ya entiendes la sintaxis?
-
 ---
 
-# 10. Colecciones: primero recorrer, luego operar sobre ellas
+# 10. Colecciones: primero recorrer, luego operar
 
 ## 10.1 Crear una lista
 
@@ -774,17 +566,13 @@ val notas = listOf(5.5, 4.8, 6.2)
 
 ## 10.2 Recorrido tradicional
 
-Primero:
-
 ```kotlin
 for (nota in notas) {
     println(nota)
 }
 ```
 
-Esto es importante porque permite visualizar claramente la iteración.
-
-Después veremos formas como:
+Después veremos:
 
 ```kotlin
 notas.forEach { nota ->
@@ -792,7 +580,7 @@ notas.forEach { nota ->
 }
 ```
 
-Y, cuando el contexto sea evidente:
+Y, finalmente:
 
 ```kotlin
 notas.forEach {
@@ -800,7 +588,7 @@ notas.forEach {
 }
 ```
 
-La progresión es importante:
+La progresión es:
 
 ```text
 for
@@ -816,7 +604,7 @@ No empezaremos por `it` sin explicar qué representa.
 
 # 11. `List` y `MutableList`
 
-## Lista de solo lectura
+## 11.1 Lista de solo lectura
 
 ```kotlin
 val nombres: List<String> = listOf("Ana", "Bruno", "Camila")
@@ -828,13 +616,13 @@ Podemos leer:
 println(nombres[0])
 ```
 
-Pero no agregar directamente:
+pero no hacer:
 
 ```kotlin
 // nombres.add("Diego")
 ```
 
-## Lista mutable
+## 11.2 Lista mutable
 
 ```kotlin
 val nombres: MutableList<String> = mutableListOf("Ana", "Bruno", "Camila")
@@ -842,7 +630,7 @@ val nombres: MutableList<String> = mutableListOf("Ana", "Bruno", "Camila")
 nombres.add("Diego")
 ```
 
-Luego podemos simplificar la declaración:
+Luego podemos usar inferencia:
 
 ```kotlin
 val nombres = mutableListOf("Ana", "Bruno", "Camila")
@@ -884,7 +672,7 @@ for (nota in notas) {
 }
 ```
 
-Esta solución es importante porque muestra qué está ocurriendo realmente:
+Aquí podemos ver mecánicamente:
 
 ```text
 crear resultado
@@ -896,12 +684,49 @@ evaluar condición
 agregar si cumple
 ```
 
-## 12.2 Después: `filter` con parámetro nombrado
+## Antes de continuar: ¿por qué ahora aparecen `{ }` después de una función?
+
+Al mirar código como:
+
+```kotlin
+notas.filter { nota ->
+    nota >= 4.0
+}
+```
+
+es muy razonable preguntar:
+
+> “En Java normalmente veo `filter(...)`. ¿Por qué Kotlin parece usar llaves?”
+
+No es una regla especial de `filter`.
+
+Las llaves representan una **lambda**, y Kotlin posee una regla llamada **trailing lambda** que permite escribir el último argumento lambda fuera de los paréntesis de una función.
+
+Este tema es una profundización. Puedes continuar la guía comprendiendo que `{ nota -> ... }` representa la condición que `filter` ejecutará para cada elemento.
+
+Si quieres entender **de dónde viene esa sintaxis, por qué solo funciona así con el último argumento, cómo se compara con Java y por qué más adelante Compose se ve tan declarativo**, revisa:
+
+➡️ [**Kotlin avanzado · Lambdas, funciones de orden superior y trailing lambda**](./02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
+
+Después vuelve a este punto.
+
+## 12.2 `filter` con parámetro nombrado
 
 ```kotlin
 val aprobadas = notas.filter { nota ->
     nota >= 4.0
 }
+```
+
+Podemos leerlo como:
+
+```text
+para cada nota
+      ↓
+evalúa nota >= 4.0
+      ↓
+true  → conserva el elemento
+false → descártalo del resultado
 ```
 
 ## 12.3 Finalmente: `it`
@@ -914,23 +739,13 @@ val aprobadas = notas.filter {
 }
 ```
 
-Y si la expresión sigue siendo legible:
+Y, cuando la expresión sigue siendo legible:
 
 ```kotlin
 val aprobadas = notas.filter { it >= 4.0 }
 ```
 
-### Lo importante
-
-Las cuatro formas resuelven el mismo problema conceptual.
-
-Kotlin permite expresar más directamente **qué queremos**:
-
-```text
-"filtrar las notas"
-```
-
-en vez de describir cada paso mecánico de cómo construir el resultado.
+Lo importante es poder explicar cómo esta operación reemplaza el ciclo explícito anterior.
 
 ---
 
@@ -962,8 +777,6 @@ val textos = notas.map { nota ->
 val textos = notas.map { "Nota: $it" }
 ```
 
-### Diferencia conceptual
-
 ```text
 filter → conserva algunos elementos
 map    → transforma cada elemento
@@ -971,17 +784,51 @@ map    → transforma cada elemento
 
 ---
 
-# 14. La sintaxis corta no es una competencia
+# 14. Contar: del acumulador a `count`
 
-Kotlin permite escribir código muy compacto:
+Forma explícita:
+
+```kotlin
+var cantidadAprobadas = 0
+
+for (nota in notas) {
+    if (nota >= 4.0) {
+        cantidadAprobadas = cantidadAprobadas + 1
+    }
+}
+```
+
+Primera abreviación:
+
+```kotlin
+cantidadAprobadas++
+```
+
+Luego podemos expresar directamente la intención:
+
+```kotlin
+val cantidadAprobadas = notas.count { nota ->
+    nota >= 4.0
+}
+```
+
+Y finalmente:
+
+```kotlin
+val cantidadAprobadas = notas.count { it >= 4.0 }
+```
+
+---
+
+# 15. La sintaxis corta no es una competencia
+
+Kotlin permite escribir:
 
 ```kotlin
 val resultado = notas.filter { it >= 4.0 }.map { "Nota: $it" }
 ```
 
-Eso puede ser claro cuando ya dominamos las operaciones.
-
-Pero al principio también podemos separar:
+Pero también podemos separar:
 
 ```kotlin
 val aprobadas = notas.filter { nota ->
@@ -993,21 +840,17 @@ val resultado = aprobadas.map { nota ->
 }
 ```
 
-Ambas son válidas.
-
 La pregunta no es:
 
 > “¿Cuál tiene menos caracteres?”
 
-La pregunta es:
+Sino:
 
 > “¿Cuál comunica mejor la intención para este equipo y este momento?”
 
 ---
 
-# 15. Resumen de evolución sintáctica
-
-Durante esta semana veremos repetidamente el mismo patrón.
+# 16. Resumen de evolución sintáctica
 
 ## Variables
 
@@ -1088,7 +931,7 @@ val aprobadas = notas.filter { it >= 4.0 }
 
 ---
 
-# 16. Rutina práctica para cada concepto
+# 17. Rutina práctica para cada concepto
 
 Después de cada apartado:
 
@@ -1105,34 +948,33 @@ Después de cada apartado:
 
 ---
 
-# 17. Errores frecuentes
+# 18. Errores frecuentes
 
-- intentar aprender Kotlin memorizando únicamente sintaxis corta;
+- aprender Kotlin memorizando únicamente sintaxis corta;
 - usar `var` para todo;
 - creer que inferencia significa que Kotlin “no tiene tipos”;
 - confundir `=` con `==`;
 - olvidar que `1..5` incluye ambos extremos;
-- utilizar `toInt()` sobre texto inválido sin considerar qué ocurre;
-- usar `it` sin comprender a qué parámetro representa;
-- encadenar `filter`, `map` y otras operaciones sin saber explicar cada transformación;
+- usar `toInt()` sobre texto inválido sin pensar qué ocurre;
+- usar `it` sin comprender qué representa;
+- creer que las llaves de `filter { ... }` sustituyen mágicamente sus paréntesis;
+- encadenar `filter`, `map` y otras operaciones sin poder explicar cada transformación;
 - escribir funciones de una línea antes de comprender parámetros y retorno;
 - asumir que menos líneas siempre significa mejor código.
 
 ---
 
-# 18. Puente hacia PocketLog
+# 19. Puente hacia PocketLog
 
 La guía de **PocketLog Semana 02** aplicará la misma progresión.
 
-No se entregará directamente código extremadamente compacto.
-
-Por ejemplo, antes de llegar a:
+Antes de llegar a:
 
 ```kotlin
 val pendientes = completados.count { !it }
 ```
 
-primero podemos construir la operación explícitamente:
+primero construiremos:
 
 ```kotlin
 var pendientes = 0
@@ -1144,13 +986,20 @@ for (completado in completados) {
 }
 ```
 
-Después podremos comparar ambas soluciones y responder:
+Luego podremos comparar:
 
-- ¿qué hace el ciclo?;
-- ¿qué expresa `count`?;
-- ¿por qué producen el mismo resultado?;
-- ¿cuál es más conveniente una vez comprendido el problema?
+```kotlin
+val pendientes = completados.count { completado ->
+    !completado
+}
+```
 
-Ese será el criterio durante todo el proyecto formativo:
+Y finalmente:
+
+```kotlin
+val pendientes = completados.count { !it }
+```
+
+El criterio durante todo el proyecto formativo será:
 
 > **primero hacer visible el mecanismo; después aprender la abstracción que permite expresarlo mejor.**
