@@ -14,6 +14,7 @@ Cada semana dispone de dos recursos complementarios:
 | Semana | Periodo | Actividad / contenido | Contenido consolidado | Material original |
 |---|---|---|---|---|
 | **01** | 10–15 agosto 2026 | **1.1 Panorama del desarrollo de aplicaciones** | [Abrir Semana 01](semana-01/) | [Abrir Drive](https://drive.google.com/drive/folders/1ieL6EOF475qNxCErYrQfjqw8EL-GXeiV) |
+| **02** | 17–22 agosto 2026 | **1.2 Programación de Kotlin y sus fundamentos** | [Abrir Semana 02](semana-02/) | [Abrir Drive](https://drive.google.com/drive/folders/1dNgCNnnCU5aURfT_5qlU7NH9RQYNe8bj) |
 
 ## Cómo utilizar este índice
 
