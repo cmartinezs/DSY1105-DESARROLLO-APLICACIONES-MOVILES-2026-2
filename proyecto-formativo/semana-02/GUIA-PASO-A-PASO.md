@@ -12,14 +12,30 @@ Esta guía construye la **primera versión funcional de PocketLog** usando solam
 - ciclos;
 - funciones;
 - `List` y `MutableList`;
-- `filter`, `map`, `count` y recorridos.
+- operaciones sobre colecciones como `filter`, `map` y `count`.
 
 > No usamos clases propias todavía. Esa decisión es intencional: POO corresponde a la Semana 03.
 
-La dinámica será siempre:
+PocketLog seguirá además una segunda regla pedagógica:
+
+> **Primero escribimos la solución de forma explícita. Cuando entendemos el mecanismo, evolucionamos hacia una forma más corta e idiomática de Kotlin.**
+
+La dinámica será:
 
 ```text
-problema → alternativas → decisión → código → prueba → reflexión
+problema
+  ↓
+solución explícita
+  ↓
+comprender el mecanismo
+  ↓
+alternativa Kotlin
+  ↓
+comparar
+  ↓
+decidir
+  ↓
+prueba / reflexión
 ```
 
 Al final de la semana queda una versión ejecutable en:
@@ -53,9 +69,57 @@ No construiremos menú, base de datos, Android ni clases todavía. Primero neces
 
 ---
 
-# Paso 1 · Primer dato
+# Paso 1 · Primer dato: declaración explícita
 
-Comencemos con una sola entrada:
+Comencemos indicando los tipos:
+
+```kotlin
+val titulo: String = "Revisar guía Kotlin"
+val categoria: String = "estudio"
+val completado: Boolean = false
+```
+
+Es importante reconocer cada parte:
+
+```text
+val titulo: String = "Revisar guía Kotlin"
+↑   ↑       ↑        ↑
+    nombre  tipo     valor
+```
+
+## Comparación con Java
+
+Java:
+
+```java
+String titulo = "Revisar guía Kotlin";
+String categoria = "estudio";
+boolean completado = false;
+```
+
+Kotlin:
+
+```kotlin
+val titulo: String = "Revisar guía Kotlin"
+val categoria: String = "estudio"
+val completado: Boolean = false
+```
+
+El tipo cambia de posición y Kotlin no exige `;`.
+
+## ¿Por qué `val`?
+
+Podríamos escribir:
+
+```kotlin
+var titulo: String = "Revisar guía Kotlin"
+```
+
+pero si no existe una razón para reasignarlo, `val` comunica mejor nuestra intención.
+
+### Ahora acortamos: inferencia
+
+Como el valor hace evidente el tipo, Kotlin puede inferirlo:
 
 ```kotlin
 val titulo = "Revisar guía Kotlin"
@@ -63,86 +127,114 @@ val categoria = "estudio"
 val completado = false
 ```
 
-## ¿Por qué `val`?
-
-Podríamos escribir:
-
-```kotlin
-var titulo = "Revisar guía Kotlin"
-```
-
-pero si no existe todavía una razón para reasignarlo, `val` comunica mejor nuestra intención.
-
-### Comparación
-
-```text
-val → la referencia no será reasignada
-var → la referencia puede cambiar
-```
+No cambiamos el tipo de las variables. Solo dejamos que el compilador lo deduzca.
 
 ### Descubre tú
 
-Cambia `val titulo` por `var titulo` y luego reasigna otro texto.
+1. deja el cursor sobre cada variable en IntelliJ;
+2. identifica el tipo inferido;
+3. cambia `val titulo` a `var titulo`;
+4. reasigna otro texto.
 
 ¿Qué permite ahora el compilador que antes no permitía?
 
 ---
 
-# Paso 2 · Mostrar información
+# Paso 2 · Mostrar información: primero concatenación
 
-Podríamos concatenar:
+Una forma familiar desde Java sería:
 
 ```kotlin
 println(titulo + " · " + categoria)
 ```
 
-pero Kotlin posee String templates:
+Funciona correctamente.
+
+Si agregamos estado:
 
 ```kotlin
-println("$titulo · $categoria")
+println(titulo + " · " + categoria + " · " + completado)
 ```
 
-### Decisión
+El resultado funciona, pero comienza a tener bastante ruido sintáctico.
 
-Usaremos String templates porque expresan mejor la intención y reducen ruido.
+## Evolucionamos a String templates
 
-Cuando hay una expresión:
+Kotlin permite:
+
+```kotlin
+println("$titulo · $categoria · $completado")
+```
+
+Y para una expresión:
 
 ```kotlin
 println("Estado: ${if (completado) "COMPLETADO" else "PENDIENTE"}")
 ```
 
+### Decisión
+
+Usaremos String templates porque expresan mejor la intención, pero primero debíamos reconocer que estamos construyendo exactamente el mismo texto.
+
 ---
 
-# Paso 3 · Tomar una decisión con `if`
+# Paso 3 · Tomar una decisión con `if`: versión larga
 
-Necesitamos presentar el estado del registro.
+Necesitamos presentar un estado legible.
+
+Primero lo hacemos explícitamente:
 
 ```kotlin
-val estado = if (completado) {
+var estado: String = ""
+
+if (completado) {
+    estado = "COMPLETADO"
+} else {
+    estado = "PENDIENTE"
+}
+
+println(estado)
+```
+
+Esta versión permite observar claramente:
+
+```text
+variable inicial
+      ↓
+condición
+      ↓
+asignación en una rama
+      ↓
+resultado
+```
+
+## Primera evolución: `if` como expresión
+
+En Kotlin `if` puede devolver un resultado:
+
+```kotlin
+val estado: String = if (completado) {
     "COMPLETADO"
 } else {
     "PENDIENTE"
 }
 ```
 
-En Kotlin `if` puede producir un valor.
+Observa que ahora podemos utilizar `val`.
 
-### Alternativa
+## Segunda evolución: forma corta
 
-Podríamos imprimir directamente dentro del `if`:
+Como las dos ramas son simples:
 
 ```kotlin
-if (completado) {
-    println("COMPLETADO")
-} else {
-    println("PENDIENTE")
-}
+val estado = if (completado) "COMPLETADO" else "PENDIENTE"
 ```
 
-### Decisión
+### Compara
 
-Preferimos calcular primero `estado` y luego mostrarlo. Así la decisión y la presentación quedan más separadas.
+Pregunta para discutir:
+
+> ¿Qué versión enseña mejor cómo funciona un condicional? ¿Qué versión resulta cómoda cuando ya entendemos el mecanismo?
 
 ---
 
@@ -150,7 +242,7 @@ Preferimos calcular primero `estado` y luego mostrarlo. Así la decisión y la p
 
 PocketLog deja de ser útil si solo puede representar una entrada.
 
-Podríamos crear:
+Podríamos escribir:
 
 ```kotlin
 val titulo1 = "Revisar guía Kotlin"
@@ -160,9 +252,21 @@ val titulo3 = "Practicar colecciones"
 
 Pero esta solución escala mal.
 
-### Decisión
+## Forma explícita
 
-Usaremos una colección:
+Declaramos una lista indicando su tipo:
+
+```kotlin
+val titulos: MutableList<String> = mutableListOf(
+    "Revisar guía Kotlin",
+    "Comprar alimento",
+    "Practicar colecciones"
+)
+```
+
+## Forma con inferencia
+
+Una vez entendido el tipo:
 
 ```kotlin
 val titulos = mutableListOf(
@@ -179,7 +283,7 @@ List        → colección de lectura
 MutableList → permite agregar/quitar/modificar elementos
 ```
 
-Para esta primera versión queremos poder experimentar agregando registros, por eso usamos `MutableList`.
+Para esta primera versión queremos experimentar agregando registros, por eso usamos `MutableList`.
 
 ### Descubre tú
 
@@ -198,22 +302,32 @@ titulos.add("Nuevo registro")
 Como todavía no hemos estudiado clases propias, mantendremos tres listas coordinadas:
 
 ```kotlin
-val titulos = mutableListOf(
+val titulos: MutableList<String> = mutableListOf(
     "Revisar guía Kotlin",
     "Comprar alimento",
     "Practicar colecciones"
 )
 
-val categorias = mutableListOf(
+val categorias: MutableList<String> = mutableListOf(
     "estudio",
     "personal",
     "estudio"
 )
 
-val completados = mutableListOf(
+val completados: MutableList<Boolean> = mutableListOf(
     false,
     true,
     false
+)
+```
+
+Luego podemos dejar actuar a la inferencia si todos comprenden ya los tipos:
+
+```kotlin
+val titulos = mutableListOf(
+    "Revisar guía Kotlin",
+    "Comprar alimento",
+    "Practicar colecciones"
 )
 ```
 
@@ -234,17 +348,15 @@ Podríamos equivocarnos y dejar las listas con tamaños distintos. También es f
 
 ### ¿Entonces por qué la usamos?
 
-Porque resuelve el problema con las herramientas que conocemos **hoy** y nos dejará descubrir una necesidad real de POO la próxima semana.
+Porque resuelve el problema con las herramientas que conocemos **hoy** y nos permitirá observar una limitación real.
 
-> Una buena solución depende también del conocimiento y de los requisitos disponibles en ese momento. Luego se puede refactorizar.
+No necesitamos conocer todavía la solución de la semana siguiente.
 
 ---
 
-# Paso 6 · Recorrer los registros
+# Paso 6 · Recorrer los registros: primero el ciclo
 
-Necesitamos mostrar todos los registros.
-
-Una alternativa es recorrer directamente los títulos:
+Una primera aproximación permite recorrer solo los títulos:
 
 ```kotlin
 for (titulo in titulos) {
@@ -254,9 +366,65 @@ for (titulo in titulos) {
 
 Pero necesitamos acceder también a categoría y estado.
 
-### Decisión
+## Recorrido por índices
 
-Recorreremos índices:
+```kotlin
+for (indice in titulos.indices) {
+    var estado = ""
+
+    if (completados[indice]) {
+        estado = "COMPLETADO"
+    } else {
+        estado = "PENDIENTE"
+    }
+
+    println(
+        (indice + 1) + ". " +
+        titulos[indice] + " · " +
+        categorias[indice] + " · " +
+        estado
+    )
+}
+```
+
+Esta versión es larga, pero permite ver cada paso.
+
+## Primera mejora: `if` como expresión
+
+```kotlin
+for (indice in titulos.indices) {
+    val estado = if (completados[indice]) {
+        "COMPLETADO"
+    } else {
+        "PENDIENTE"
+    }
+
+    println(
+        (indice + 1) + ". " +
+        titulos[indice] + " · " +
+        categorias[indice] + " · " +
+        estado
+    )
+}
+```
+
+## Segunda mejora: String template
+
+```kotlin
+for (indice in titulos.indices) {
+    val estado = if (completados[indice]) {
+        "COMPLETADO"
+    } else {
+        "PENDIENTE"
+    }
+
+    println("${indice + 1}. ${titulos[indice]} · ${categorias[indice]} · $estado")
+}
+```
+
+## Tercera mejora: condicional breve
+
+Cuando ya entendemos las dos ramas:
 
 ```kotlin
 for (indice in titulos.indices) {
@@ -273,9 +441,33 @@ for (indice in titulos.indices) {
 
 # Paso 7 · La lógica se repite: aparece una función
 
-Si necesitamos mostrar registros en distintos puntos, copiar el `for` sería duplicar código.
+Si necesitamos mostrar registros en distintos puntos, copiar el `for` duplicaría código.
 
-Extraemos una función:
+## Versión explícita
+
+```kotlin
+fun mostrarRegistros(
+    titulos: List<String>,
+    categorias: List<String>,
+    completados: List<Boolean>
+): Unit {
+    for (indice in titulos.indices) {
+        val estado: String
+
+        if (completados[indice]) {
+            estado = "COMPLETADO"
+        } else {
+            estado = "PENDIENTE"
+        }
+
+        println("${indice + 1}. ${titulos[indice]} · ${categorias[indice]} · $estado")
+    }
+}
+```
+
+`Unit` indica que la función no devuelve un resultado útil para el llamador, equivalente conceptualmente al uso de `void` en Java.
+
+## Kotlin permite omitir `: Unit`
 
 ```kotlin
 fun mostrarRegistros(
@@ -290,7 +482,7 @@ fun mostrarRegistros(
 }
 ```
 
-## Decisión importante
+### Decisión importante
 
 La función recibe `List`, aunque desde `main()` tengamos `MutableList`.
 
@@ -298,39 +490,64 @@ La función recibe `List`, aunque desde `main()` tengamos `MutableList`.
 
 Porque `mostrarRegistros` **solo necesita leer**.
 
-No tiene motivo para modificar las colecciones.
-
 ```text
 main posee MutableList
           ↓
 mostrarRegistros necesita solo List
 ```
 
-Esto reduce las capacidades que entregamos a una función.
+Reducimos así lo que la función tiene permitido hacer.
 
 ---
 
-# Paso 8 · Filtrar por categoría
+# Paso 8 · Filtrar por categoría: primero hacerlo manualmente
 
 Queremos responder:
 
 > “Muéstrame solamente los registros de estudio”.
 
-Una forma imperativa sería:
+## Versión 1 · Ciclo + condición
 
 ```kotlin
-val resultado = mutableListOf<String>()
+val resultado: MutableList<String> = mutableListOf()
 
 for (indice in titulos.indices) {
-    if (categorias[indice] == "estudio") {
+    if (categorias[indice].equals("estudio", ignoreCase = true)) {
         resultado.add(titulos[indice])
     }
 }
 ```
 
-Es válida.
+Antes de continuar, debemos poder explicar:
 
-Kotlin también permite expresarlo mediante operaciones sobre colecciones:
+1. por qué necesitamos una lista de resultado;
+2. qué recorre el `for`;
+3. qué evalúa el `if`;
+4. cuándo se ejecuta `add`.
+
+## Versión 2 · `filterIndexed` con parámetros nombrados
+
+Kotlin ya posee una operación que expresa la intención de filtrar:
+
+```kotlin
+val resultado = titulos.filterIndexed { indice, titulo ->
+    categorias[indice].equals("estudio", ignoreCase = true)
+}
+```
+
+Aquí `titulo` existe aunque en este caso no necesitamos usarlo.
+
+Podemos señalarlo explícitamente como parámetro ignorado:
+
+```kotlin
+val resultado = titulos.filterIndexed { indice, _ ->
+    categorias[indice].equals("estudio", ignoreCase = true)
+}
+```
+
+## Versión 3 · expresión compacta
+
+Si la lectura sigue siendo clara:
 
 ```kotlin
 val resultado = titulos.filterIndexed { indice, _ ->
@@ -340,15 +557,53 @@ val resultado = titulos.filterIndexed { indice, _ ->
 
 ### Decisión
 
-Estudiaremos **ambas formas**.
+Estudiaremos **ambas estrategias**.
 
-Primero debemos ser capaces de explicar el `for`. Después usamos `filterIndexed` para expresar la intención de “filtrar”.
-
-> No usamos funciones de colección para evitar comprender ciclos; las usamos después de comprender qué problema resuelven.
+No usamos `filterIndexed` para evitar aprender ciclos. Lo usamos después de comprender el ciclo porque expresa directamente la intención de **filtrar**.
 
 ---
 
-# Paso 9 · Convertirlo en una función reutilizable
+# Paso 9 · Convertir el filtro en función reutilizable
+
+## Forma completa
+
+```kotlin
+fun filtrarTitulosPorCategoria(
+    titulos: List<String>,
+    categorias: List<String>,
+    categoriaBuscada: String
+): List<String> {
+    val resultado: MutableList<String> = mutableListOf()
+
+    for (indice in titulos.indices) {
+        if (categorias[indice].equals(categoriaBuscada, ignoreCase = true)) {
+            resultado.add(titulos[indice])
+        }
+    }
+
+    return resultado
+}
+```
+
+Esta versión deja muy visible el proceso.
+
+## Refactor con `filterIndexed`
+
+```kotlin
+fun filtrarTitulosPorCategoria(
+    titulos: List<String>,
+    categorias: List<String>,
+    categoriaBuscada: String
+): List<String> {
+    return titulos.filterIndexed { indice, _ ->
+        categorias[indice].equals(categoriaBuscada, ignoreCase = true)
+    }
+}
+```
+
+## Expression body
+
+Cuando ya comprendemos que la función solo devuelve esa expresión:
 
 ```kotlin
 fun filtrarTitulosPorCategoria(
@@ -361,13 +616,6 @@ fun filtrarTitulosPorCategoria(
     }
 ```
 
-Ahora podemos hacer:
-
-```kotlin
-filtrarTitulosPorCategoria(titulos, categorias, "estudio")
-    .forEach { println("- $it") }
-```
-
 ### Descubre tú
 
 ¿Qué ocurre si buscas `ESTUDIO` en mayúsculas?
@@ -378,9 +626,53 @@ Explica la diferencia.
 
 ---
 
-# Paso 10 · Obtener pendientes
+# Paso 10 · Obtener pendientes: la misma evolución
 
-La idea es similar:
+## Versión explícita
+
+```kotlin
+fun titulosPendientes(
+    titulos: List<String>,
+    completados: List<Boolean>
+): List<String> {
+    val pendientes: MutableList<String> = mutableListOf()
+
+    for (indice in titulos.indices) {
+        if (!completados[indice]) {
+            pendientes.add(titulos[indice])
+        }
+    }
+
+    return pendientes
+}
+```
+
+Aquí combinamos:
+
+```text
+funciones
+listas
+Boolean
+negación !
+for
+if
+return
+```
+
+## Después usamos `filterIndexed`
+
+```kotlin
+fun titulosPendientes(
+    titulos: List<String>,
+    completados: List<Boolean>
+): List<String> {
+    return titulos.filterIndexed { indice, _ ->
+        !completados[indice]
+    }
+}
+```
+
+## Finalmente, expression body
 
 ```kotlin
 fun titulosPendientes(
@@ -390,27 +682,109 @@ fun titulosPendientes(
     titulos.filterIndexed { indice, _ -> !completados[indice] }
 ```
 
-Aquí estamos combinando:
-
-```text
-funciones
-colecciones
-Boolean
-negación !
-filterIndexed
-```
+No es una solución diferente: es la misma intención expresada con una abstracción más compacta.
 
 ---
 
-# Paso 11 · Contar y decidir con `when`
+# Paso 11 · Contar pendientes: no saltamos directamente a `count`
 
-Podemos calcular cuántos registros siguen pendientes:
+Queremos saber cuántos registros están pendientes.
+
+## Versión 1 · contador manual
+
+```kotlin
+var pendientes = 0
+
+for (completado in completados) {
+    if (!completado) {
+        pendientes = pendientes + 1
+    }
+}
+```
+
+Podemos simplificar el incremento:
+
+```kotlin
+var pendientes = 0
+
+for (completado in completados) {
+    if (!completado) {
+        pendientes++
+    }
+}
+```
+
+## Versión 2 · `count` con parámetro nombrado
+
+Kotlin puede contar directamente los elementos que cumplen una condición:
+
+```kotlin
+val pendientes = completados.count { completado ->
+    !completado
+}
+```
+
+## Versión 3 · parámetro implícito `it`
+
+Cuando ya sabemos que la lambda recibe un único elemento:
+
+```kotlin
+val pendientes = completados.count {
+    !it
+}
+```
+
+Finalmente:
 
 ```kotlin
 val pendientes = completados.count { !it }
 ```
 
-Y producir un mensaje:
+### ¿Qué representa `it`?
+
+En esta expresión:
+
+```kotlin
+completados.count { !it }
+```
+
+`it` representa **cada Boolean de la lista durante la evaluación**.
+
+No deberíamos utilizar `it` si no somos capaces de decir qué objeto representa.
+
+---
+
+# Paso 12 · Decidir el mensaje: `if` vs `when`
+
+Podríamos resolver tres casos mediante `if`:
+
+```kotlin
+var mensaje = ""
+
+if (pendientes == 0) {
+    mensaje = "No quedan pendientes"
+} else if (pendientes == 1) {
+    mensaje = "Queda 1 pendiente"
+} else {
+    mensaje = "Quedan $pendientes pendientes"
+}
+```
+
+## Primera evolución: eliminar la mutabilidad
+
+```kotlin
+val mensaje = if (pendientes == 0) {
+    "No quedan pendientes"
+} else if (pendientes == 1) {
+    "Queda 1 pendiente"
+} else {
+    "Quedan $pendientes pendientes"
+}
+```
+
+## Otra alternativa: `when`
+
+Como tenemos varias ramas:
 
 ```kotlin
 val mensaje = when {
@@ -420,25 +794,75 @@ val mensaje = when {
 }
 ```
 
-### ¿Podríamos usar `if`?
+### ¿Cuál es correcta?
 
-Sí.
+Ambas.
 
-`when` no es obligatorio.
-
-### Decisión
-
-Aquí lo usamos porque hay tres ramas y resulta legible. La elección entre `if` y `when` depende del problema, no de una regla de “siempre usar X”.
+La discusión es de legibilidad y adecuación al problema, no de “Kotlin obliga a usar `when`”.
 
 ---
 
-# Paso 12 · Integramos la versión semanal
+# Paso 13 · Mostrar una lista devuelta por una función
+
+Supongamos:
+
+```kotlin
+val pendientes = titulosPendientes(titulos, completados)
+```
+
+## Primero con `for`
+
+```kotlin
+for (titulo in pendientes) {
+    println("- $titulo")
+}
+```
+
+## Después con `forEach` y parámetro nombrado
+
+```kotlin
+pendientes.forEach { titulo ->
+    println("- $titulo")
+}
+```
+
+## Finalmente con `it`
+
+```kotlin
+pendientes.forEach {
+    println("- $it")
+}
+```
+
+Y, si sigue siendo perfectamente legible:
+
+```kotlin
+pendientes.forEach { println("- $it") }
+```
+
+La progresión vuelve a ser:
+
+```text
+for
+↓
+forEach { titulo -> ... }
+↓
+forEach { it ... }
+```
+
+---
+
+# Paso 14 · Integramos la versión semanal
 
 El checkpoint completo está en:
 
 [`../checkpoint-semana-02/PocketLog.kt`](../checkpoint-semana-02/PocketLog.kt)
 
-Ejecuta la aplicación y comprueba:
+Durante la clase no es necesario escribir inmediatamente la versión más compacta del checkpoint.
+
+La idea es llegar a ella mediante refactorizaciones pequeñas y comprobar después de cada cambio que el comportamiento sigue siendo el mismo.
+
+Comprueba:
 
 1. se muestran todos los registros;
 2. se muestran solo los de categoría `estudio`;
@@ -449,26 +873,36 @@ Ejecuta la aplicación y comprueba:
 
 # Desafío corto · Ahora tú
 
-Sin copiar una solución completa, agrega **una** de estas capacidades:
+Sin copiar una solución completa, agrega **una** de estas capacidades.
 
-### Opción A
+## Opción A
 
 Crear una función que devuelva los títulos completados.
 
-### Opción B
+Primero resuélvela con `for` + `if`.
+
+Después investiga si puedes expresarla con una operación de colección.
+
+## Opción B
 
 Crear una función que cuente registros de una categoría recibida por parámetro.
 
-### Opción C
+Primero usa un contador manual.
+
+Después compara con `count`.
+
+## Opción C
 
 Agregar un cuarto registro manteniendo correctamente sincronizadas las tres listas.
 
 Debes poder explicar:
 
-- qué función/colección utilizaste;
-- qué recibe;
+- qué estructuras utilizaste;
+- qué recibe cada función;
 - qué devuelve;
-- por qué elegiste esa solución.
+- cuál fue tu primera solución;
+- qué versión más idiomática encontraste después;
+- por qué ambas producen el mismo resultado.
 
 ---
 
@@ -482,27 +916,15 @@ mostrarRegistros(titulos, categorias, completados)
 
 Tenemos tres listas que siempre deben permanecer sincronizadas.
 
-Imagina que PocketLog crece y cada registro agrega:
+Imagina que PocketLog crece y cada registro agrega más información.
 
-```text
-descripción
-fecha
-tags
-prioridad
-foto
-```
+¿Seguiríamos creando una colección diferente por cada dato?
 
-¿Crearíamos ocho listas separadas?
+No resolvemos esa pregunta todavía.
 
-Ese será el problema de entrada de la Semana 03.
+La dejamos abierta para la próxima etapa del curso.
 
-No lo resolvemos todavía.
-
-La próxima semana podremos preguntar:
-
-> **¿Existe una forma de representar todos los datos y comportamientos de un registro como una sola unidad?**
-
-Ahí aparecerá POO por necesidad, no porque el cronograma diga “ahora toca una clase”.
+> El objetivo no es adivinar la sintaxis futura, sino reconocer que la solución actual comienza a ser difícil de mantener.
 
 ---
 
@@ -520,8 +942,21 @@ PocketLog v0.2
 - funciones
 - filtros
 - conteos
+- evolución desde sintaxis explícita hacia sintaxis idiomática
 - sin clases propias
 - sin Android
 ```
+
+Y debes poder tomar una expresión compacta como:
+
+```kotlin
+val pendientes = completados.count { !it }
+```
+
+y explicar la versión larga equivalente.
+
+Ese es el criterio de aprendizaje:
+
+> **si puedo escribir la versión corta pero no puedo explicar la versión larga, todavía no entendí la abstracción.**
 
 Este archivo **no se reemplaza** la próxima semana. Se conserva como versión histórica y se crea un nuevo checkpoint.
