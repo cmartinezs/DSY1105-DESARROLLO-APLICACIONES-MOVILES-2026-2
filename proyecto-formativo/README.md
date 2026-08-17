@@ -16,10 +16,49 @@ Cada semana debe contener:
 4. **decisión**: se explica qué opción se utilizará y por qué;
 5. **implementación paso a paso**;
 6. **pequeños espacios de descubrimiento autónomo**;
-7. **pruebas/evidencia**;
-8. **checkpoint de salida**: una nueva versión ejecutable del código.
+7. **exploración guiada opcional**, cercana al contenido de la semana y sin adelantar conceptos posteriores;
+8. **pruebas/evidencia**;
+9. **checkpoint de salida**: una nueva versión ejecutable del código.
 
 La guía no debe convertirse en “copiar y pegar hasta que funcione”. Cada decisión importante debe poder ser explicada por el estudiante.
+
+## Exploración guiada
+
+Cada semana puede incorporar un bloque **Explora un poco más**.
+
+Su objetivo es ampliar el aprendizaje sin transformar la actividad en contenido anticipado.
+
+Una exploración válida debe cumplir estas condiciones:
+
+- puede resolverse con lo ya estudiado más una investigación breve;
+- profundiza o compara herramientas cercanas al contenido actual;
+- no es necesaria para completar el checkpoint obligatorio;
+- obliga a ejecutar, observar y explicar;
+- no entrega por adelantado la solución conceptual de una semana posterior.
+
+Ejemplos apropiados:
+
+```text
+colecciones vistas esta semana
+        ↓
+investigar any / all / none / sorted
+
+funciones vistas esta semana
+        ↓
+generalizar una función con parámetros
+
+listas paralelas actuales
+        ↓
+provocar una desincronización y explicar la fragilidad
+```
+
+En cambio, si POO corresponde a la semana siguiente, la exploración puede hacer visible el problema de mantener datos relacionados separados, pero **no debe enseñar todavía `data class`, herencia ni la solución completa**.
+
+La pregunta final puede dejar una inquietud abierta:
+
+> ¿Qué característica te gustaría que tuviera el lenguaje para resolver esta limitación?
+
+Así la investigación funciona como puente, no como spoiler.
 
 ## Política de versiones
 
@@ -64,7 +103,8 @@ La arquitectura se construirá **gradualmente**. No se espera que un estudiante 
 proyecto-formativo/
 ├── README.md
 ├── semana-02/
-│   └── GUIA-PASO-A-PASO.md
+│   ├── GUIA-PASO-A-PASO.md
+│   └── EXPLORA.md
 └── checkpoint-semana-02/
     └── PocketLog.kt
 ```
