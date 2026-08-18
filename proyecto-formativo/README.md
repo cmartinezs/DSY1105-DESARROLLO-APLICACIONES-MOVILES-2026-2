@@ -24,6 +24,41 @@ la siguiente clase continúa desde ahí
 
 No se prepara una versión idealizada de toda la semana para que el estudiante la copie. Cada sesión tiene su propia guía y parte desde el resultado de la sesión anterior.
 
+## Roadmap docente del semestre
+
+El plan completo de evolución está documentado en:
+
+➡️ **[ROADMAP-SEMANAL.md](./ROADMAP-SEMANAL.md)**
+
+Ese documento mantiene alineados:
+
+- cronograma institucional;
+- incremento PocketLog de cada semana;
+- conceptos que todavía no deben adelantarse;
+- checkpoints esperados;
+- separación progresiva de responsabilidades;
+- compatibilidad futura con **Mobile-Compose**.
+
+> El roadmap orienta; el contenido institucional y el avance real de la sección siguen siendo la fuente de verdad.
+
+## Alineación con Mobile-Compose
+
+PocketLog debe llegar a la etapa Android sin obligarnos a desechar la lógica Kotlin construida antes.
+
+La dirección objetivo es mantener separables:
+
+```text
+presentación Android / Compose
+        ↓
+lógica y dominio Kotlin reutilizable
+        ↓
+acceso a datos
+        ↓
+implementaciones locales/remotas
+```
+
+Los nombres concretos de paquetes, módulos y componentes **no se fijarán artificialmente antes de revisar Mobile-Compose**. Cuando ese proyecto esté disponible para inspección, su estructura se reconciliará con el roadmap y se adoptarán sus convenciones cuando corresponda.
+
 ## Estructura pedagógica de cada semana
 
 Como referencia, una semana puede quedar así:
