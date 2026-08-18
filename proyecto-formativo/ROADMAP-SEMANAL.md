@@ -10,7 +10,7 @@ No reemplaza el cronograma institucional ni las guías de cada semana. Su funci�
 
 # 1. Principio de compatibilidad con Mobile-Compose
 
-PocketLog debe evolucionar de manera que la lógica construida antes de Android pueda reutilizarse cuando el curso llegue a Compose/MVVM.
+PocketLog debe evolucionar de manera que la lógica construida durante la **Unidad 1 y EV1 permanezca 100% en Kotlin de consola**, y recién después se reutilice cuando el curso entre formalmente a Android/Compose.
 
 La dirección arquitectónica objetivo es:
 
@@ -25,19 +25,20 @@ flowchart TD
     DATA_CONTRACT --> REST[REST]
 ```
 
-Esta figura es una **dirección docente**, no una estructura que deba implementarse completa desde la Semana 02.
+Esta figura es una **dirección docente**, no una estructura que deba implementarse completa antes de que el contenido institucional llegue a Android.
 
 ## Contrato de compatibilidad
 
 A medida que PocketLog crezca, se intentará preservar estas reglas:
 
 1. **El dominio y las reglas de negocio usan Kotlin puro.**
-2. **El dominio no importa `android.*`, Compose, SQLite, Retrofit ni clases visuales.**
-3. **La UI no contiene reglas de negocio que deban sobrevivir fuera de Android.**
-4. **La persistencia y la red se mantienen fuera del dominio.**
-5. **Los modelos del dominio no se diseñan alrededor de widgets, JSON o tablas.**
-6. **Los cambios de tecnología deberían afectar principalmente a adaptadores/capas externas.**
-7. **La separación concreta de paquetes/módulos se introduce solo cuando el contenido de la asignatura la justifica.**
+2. **Hasta EV1, PocketLog se ejecuta exclusivamente como aplicación de consola.**
+3. **El dominio no importa `android.*`, Compose, SQLite, Retrofit ni clases visuales.**
+4. **La UI Android no aparece antes de la etapa móvil del curso.**
+5. **La persistencia y la red se mantienen fuera del dominio cuando sean incorporadas.**
+6. **Los modelos del dominio no se diseñan alrededor de widgets, JSON o tablas.**
+7. **Los cambios de tecnología deberían afectar principalmente a capas externas.**
+8. **La separación concreta de paquetes/módulos se introduce solo cuando el contenido de la asignatura la justifica.**
 
 Cuando el proyecto Mobile-Compose esté disponible para inspección, este contrato debe reconciliarse con sus nombres reales de módulos, paquetes y convenciones sin alterar innecesariamente el dominio ya construido.
 
@@ -82,7 +83,7 @@ Todavía no se construye formalmente.
 
 Puede presentarse únicamente como contexto futuro:
 
-> Durante el semestre construiremos una misma aplicación que comenzará como Kotlin de consola y terminará convertida en una app móvil integrada.
+> Durante el semestre construiremos una misma solución que comenzará como Kotlin de consola y, después de EV1, evolucionará hacia una aplicación móvil.
 
 ### No adelantar
 
@@ -93,7 +94,7 @@ Puede presentarse únicamente como contexto futuro:
 
 ---
 
-# Unidad 1 · Kotlin y fundamentos
+# Unidad 1 · Kotlin de consola
 
 ## Semana 02 · 17–22 agosto · PocketLog v0.2
 
@@ -227,13 +228,13 @@ Practicar manejo de errores con situaciones reales del dominio.
 
 #### Tercer incremento · corrutinas
 
-Usar corrutinas **solo en un caso didáctico coherente con el material institucional**, sin inventar todavía red o base de datos.
+Usar corrutinas **solo en un caso didáctico coherente con el material institucional**, sin inventar todavía red, Android ni base de datos.
 
 Por ejemplo, simular una operación que demora para observar ejecución suspendible.
 
 ### Estado de salida
 
-La lógica deja de depender de listas paralelas y comienza a tener un modelo de dominio reconocible.
+La lógica deja de depender de listas paralelas y comienza a tener un modelo de dominio reconocible, **todavía dentro de una aplicación de consola**.
 
 ### Separación que conviene cuidar
 
@@ -249,12 +250,13 @@ que:
 mostrarPendientes() → imprime directamente
 ```
 
-Esta separación facilitará la futura UI Android.
+Esto prepara reutilización futura sin introducir Android.
 
 ### No adelantar
 
-- ViewModel;
+- Activity;
 - Compose;
+- ViewModel;
 - SQLite;
 - Retrofit;
 - Repository como obligación arquitectónica, salvo que aparezca justificadamente en el material real.
@@ -263,65 +265,82 @@ Esta separación facilitará la futura UI Android.
 
 ## Semana 04 · 31 agosto–5 septiembre · PocketLog v0.4
 
-### Contenido institucional
+### Alcance de PocketLog
 
-- introducción práctica a Android Studio;
-- Kotlin + Android Studio;
-- primer aplicativo Android.
+**PocketLog permanece en Kotlin de consola.**
 
-### Problema de entrada
+Aunque el cronograma general pueda comenzar a introducir herramientas o contexto de Android en esta zona del semestre, la evolución formativa de PocketLog se mantiene deliberadamente dentro del alcance evaluable de **EV1: Kotlin consola**.
 
-PocketLog funciona en consola.
+### Objetivo
 
-Pregunta central:
+Consolidar una aplicación de consola suficientemente completa para integrar los contenidos de Unidad 1 sin agregar tecnología nueva ajena a EV1.
 
-> ¿Tenemos que reescribir toda la lógica solo porque ahora la entrada/salida será Android?
+### Evolución posible, según material realmente visto
 
-### Evolución PocketLog
+- mejorar organización de funciones/clases;
+- reforzar POO;
+- incorporar validaciones y manejo de errores;
+- aplicar sintaxis Kotlin avanzada ya estudiada;
+- practicar colecciones y transformaciones;
+- utilizar corrutinas únicamente si forman parte del alcance real de Unidad 1;
+- mejorar el flujo de consola si ayuda a integrar lo aprendido.
 
-Crear el primer proyecto Android y **reutilizar el mayor volumen posible del Kotlin puro de v0.3**.
+### Criterio
 
-La implementación concreta se mantiene sencilla y alineada al primer aplicativo Android del material institucional.
-
-### Separación clave
-
-Distinguir por primera vez:
-
-```text
-lógica que sirve sin Android
-vs
-código necesario únicamente para mostrar/interactuar en Android
-```
-
-No es necesario introducir todavía toda una arquitectura de capas formal.
+La Semana 04 debe funcionar como **consolidación e integración**, no como anticipo de la Unidad móvil.
 
 ### Estado de salida
 
-- proyecto Android ejecutable;
-- una pantalla mínima;
-- parte del dominio Kotlin reutilizado;
-- consola v0.3 conservada como evidencia histórica.
+PocketLog v0.4 es la **última versión formativa de consola antes de EV1**.
+
+Debe poder ejecutarse sin:
+
+```text
+Android Studio runtime
+android.*
+Compose
+ViewModel
+SQLite
+Retrofit
+```
 
 ### No adelantar
 
-- MVVM si aún no corresponde;
-- navegación compleja;
-- persistencia;
-- REST.
+- Android aplicado a PocketLog;
+- Compose;
+- MVVM;
+- persistencia móvil;
+- navegación móvil.
 
 ---
 
-## Semana 05 · 7–12 septiembre · EP1
+## Semana 05 · 7–12 septiembre · EV1
 
-PocketLog se pausa.
+### Alcance de evaluación
 
-No se usa como plantilla ni dominio equivalente de la evaluación.
+**Kotlin de consola. Android no forma parte de EV1.**
 
-Checkpoint estable de retorno: **v0.4**.
+PocketLog se pausa como proyecto guiado durante la evaluación.
+
+No se utiliza como plantilla ni dominio equivalente de la EV1.
+
+Checkpoint estable de retorno: **PocketLog v0.4, Kotlin consola**.
+
+Este hito divide explícitamente el semestre:
+
+```text
+Unidad 1
+Kotlin consola
+      ↓
+EV1
+      ↓
+Unidad 2
+Android / Compose
+```
 
 ---
 
-# Unidad 2 · Aplicación móvil con Compose/MVVM
+# Unidad 2 · Aplicación móvil con Android, Compose y MVVM
 
 ## Semana 06 · 14–19 septiembre · PocketLog v0.6
 
@@ -332,9 +351,19 @@ Checkpoint estable de retorno: **v0.4**.
 - componentes básicos de diseño visual;
 - Jetpack Compose.
 
-### Hito arquitectónico principal
+### Problema de entrada
 
-Esta es la semana adecuada para formalizar la separación que se venía preparando.
+Tenemos una aplicación funcional en Kotlin de consola que ya integró los aprendizajes de Unidad 1.
+
+La nueva pregunta es:
+
+> ¿Cómo llevamos esa misma lógica a una aplicación Android sin reescribir las reglas que ya funcionan?
+
+### Primer hito móvil
+
+**Aquí comienza formalmente la migración de PocketLog hacia Mobile-Compose.**
+
+Se crea/configura la aplicación Android según el material institucional y se reutiliza el Kotlin puro de v0.4 cuando sea pertinente.
 
 Dirección esperada:
 
@@ -368,7 +397,7 @@ Todavía puede usar memoria si la persistencia real aún no corresponde.
 
 ### Estado de salida
 
-PocketLog ya tiene una UI Compose estructurada y consume lógica reutilizable.
+PocketLog tiene por primera vez una UI Compose estructurada que consume lógica reutilizable proveniente de la etapa consola.
 
 ### No adelantar
 
@@ -666,9 +695,9 @@ Puede utilizarse únicamente como material histórico de repaso de conceptos ya 
 
 # 4. Evolución de las responsabilidades
 
-La separación no aparece completa en Semana 02. Evoluciona con el conocimiento.
+La separación no aparece completa en Semana 02. Evoluciona con el conocimiento y respetando la frontera de EV1.
 
-## Etapa A · Semanas 02–03
+## Etapa A · Semanas 02–04
 
 ```text
 Kotlin consola
@@ -676,19 +705,20 @@ Kotlin consola
 main
 + funciones
 + modelo Kotlin
++ validaciones/errores
++ colecciones
++ POO
 ```
 
-Meta silenciosa docente: evitar que reglas reutilizables queden inevitablemente amarradas a `println`/entrada de consola.
+Meta silenciosa docente: evitar que reglas reutilizables queden inevitablemente amarradas a `println`/entrada de consola, pero **sin introducir Android**.
 
-## Etapa B · Semana 04
+## Etapa B · EV1
 
 ```text
-Android mínimo
-        ↓
-Kotlin reutilizable
+Kotlin consola únicamente
 ```
 
-Comenzamos a distinguir UI de lógica.
+Hito de cierre de Unidad 1.
 
 ## Etapa C · Semana 06 en adelante
 
@@ -700,7 +730,7 @@ domain/core
 data
 ```
 
-Solo cuando MVVM/arquitectura ya forman parte del contenido.
+Solo cuando Android, MVVM y Compose ya forman parte del contenido.
 
 ## Etapa D · Semana 10
 
@@ -734,9 +764,9 @@ Registro
 
 ## Modelo de UI
 
-Se introduce únicamente si la pantalla necesita una representación distinta.
+Se introduce únicamente cuando la etapa Android/Compose lo necesite.
 
-No se crea por ceremonia.
+No existe antes de EV1 por anticipación arquitectónica.
 
 ## Modelo de persistencia/red
 
@@ -750,15 +780,11 @@ Evitar que anotaciones, DTOs o detalles externos dicten el diseño de las reglas
 
 No se debe imponer una estructura compleja durante Kotlin básico.
 
-La evolución prevista es:
+## Semanas 02–04
 
-## Semanas 02–03
+Estructura de consola simple y comprensible.
 
-Estructura simple y comprensible.
-
-## Semana 04
-
-Separar al menos código Android de Kotlin reutilizable de una forma compatible con lo que el proyecto Android permita enseñar en ese momento.
+Puede evolucionar gradualmente hacia paquetes Kotlin cuando POO/organización lo justifiquen, pero no hacia módulos Android.
 
 ## Semana 06
 
@@ -782,13 +808,14 @@ Antes de escribir una nueva guía PocketLog:
 
 1. revisar el cronograma institucional;
 2. revisar material institucional de esa semana;
-3. revisar qué se alcanzó realmente en la clase anterior;
-4. abrir el checkpoint actual de PocketLog;
-5. identificar el problema que permitirá introducir el contenido nuevo;
-6. comprobar que no estamos adelantando contenido posterior;
-7. revisar compatibilidad con la dirección Mobile-Compose;
-8. definir el estado de salida de cada clase;
-9. recién entonces escribir la guía y el código nuevo.
+3. revisar el alcance de la evaluación próxima;
+4. revisar qué se alcanzó realmente en la clase anterior;
+5. abrir el checkpoint actual de PocketLog;
+6. identificar el problema que permitirá introducir el contenido nuevo;
+7. comprobar que no estamos adelantando contenido posterior;
+8. revisar compatibilidad con la dirección Mobile-Compose;
+9. definir el estado de salida de cada clase;
+10. recién entonces escribir la guía y el código nuevo.
 
 ---
 
@@ -797,15 +824,13 @@ Antes de escribir una nueva guía PocketLog:
 PocketLog debe poder contar al terminar el semestre una historia visible:
 
 ```text
-"al principio sabía hacer esto"
+"primero aprendí Kotlin construyendo una aplicación de consola"
         ↓
-"apareció este problema"
+"cerré esa etapa en EV1"
         ↓
-"aprendí este concepto"
+"después reutilicé esa lógica al entrar a Android/Compose"
         ↓
-"refactoricé la misma aplicación"
-        ↓
-"y lo anterior siguió sirviendo"
+"incorporé persistencia, REST y pruebas sin partir de cero"
 ```
 
 La arquitectura no se enseña como una receta adelantada. Se descubre progresivamente a medida que el proyecto y el plan de DSY1105 crean la necesidad de separar responsabilidades.
