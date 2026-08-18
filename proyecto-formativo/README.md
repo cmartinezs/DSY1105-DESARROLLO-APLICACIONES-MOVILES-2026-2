@@ -2,162 +2,196 @@
 
 PocketLog es el proyecto formativo longitudinal de **DSY1105 Desarrollo de Aplicaciones Móviles**.
 
-Su objetivo es que la lógica construida durante Kotlin de consola evolucione hacia Android, persistencia, REST y pruebas **sin reescribir el dominio desde cero**.
+Su objetivo es que el código construido durante Kotlin de consola evolucione hacia Android, persistencia, REST y pruebas **sin comenzar un proyecto distinto en cada unidad**.
 
 ## Cómo se trabaja PocketLog
 
-PocketLog se desarrolla como una **guía paso a paso longitudinal**.
-
-Cada semana debe contener:
-
-1. **checkpoint de entrada**: la versión terminada la semana anterior;
-2. **problema nuevo**: una limitación o necesidad observable;
-3. **alternativas**: al menos dos formas razonables de resolverla cuando tenga sentido;
-4. **decisión**: se explica qué opción se utilizará y por qué;
-5. **implementación paso a paso**;
-6. **pequeños espacios de descubrimiento autónomo**;
-7. **exploración guiada opcional**, cercana al contenido de la semana y sin adelantar conceptos posteriores;
-8. **pruebas/evidencia**;
-9. **checkpoint de salida**: una nueva versión ejecutable del código.
-
-La guía no debe convertirse en “copiar y pegar hasta que funcione”. Cada decisión importante debe poder ser explicada por el estudiante.
-
-## Exploración guiada
-
-Cada semana puede incorporar un bloque **Explora un poco más**.
-
-Su objetivo es ampliar el aprendizaje sin transformar la actividad en contenido anticipado.
-
-Una exploración válida debe cumplir estas condiciones:
-
-- puede resolverse con lo ya estudiado más una investigación breve;
-- profundiza o compara herramientas cercanas al contenido actual;
-- no es necesaria para completar el checkpoint obligatorio;
-- obliga a ejecutar, observar y explicar;
-- no entrega por adelantado la solución conceptual de una semana posterior.
-
-Ejemplos apropiados:
+PocketLog avanza siguiendo el ritmo real de la asignatura:
 
 ```text
-colecciones vistas esta semana
-        ↓
-investigar any / all / none / sorted
-
-funciones vistas esta semana
-        ↓
-generalizar una función con parámetros
-
-listas paralelas actuales
-        ↓
-provocar una desincronización y explicar la fragilidad
+semana
+  ↓
+clase real
+  ↓
+contenido visto en esa sesión
+  ↓
+incremento pequeño del mismo software
+  ↓
+estado funcional de salida
+  ↓
+la siguiente clase continúa desde ahí
 ```
 
-En cambio, si POO corresponde a la semana siguiente, la exploración puede hacer visible el problema de mantener datos relacionados separados, pero **no debe enseñar todavía `data class`, herencia ni la solución completa**.
+No se prepara una versión idealizada de toda la semana para que el estudiante la copie. Cada sesión tiene su propia guía y parte desde el resultado de la sesión anterior.
 
-La pregunta final puede dejar una inquietud abierta:
+## Estructura pedagógica de cada semana
 
-> ¿Qué característica te gustaría que tuviera el lenguaje para resolver esta limitación?
-
-Así la investigación funciona como puente, no como spoiler.
-
-## Política de versiones
-
-Los checkpoints **no se sobrescriben**.
+Como referencia, una semana puede quedar así:
 
 ```text
-PocketLog v0.2 · Semana 02 · fundamentos Kotlin
-        ↓
-PocketLog v0.3 · Semana 03 · POO / errores / Kotlin avanzado
-        ↓
-PocketLog v0.4 · Semana 04 · primer consumidor Android
-        ↓
-EP1 · pausa del proyecto formativo
-        ↓
-PocketLog v0.6 · Semana 06 · Compose / MVVM
-        ↓
-...
+semana-XX/
+├── README.md                    # mapa de la semana
+├── 00-punto-de-partida.md       # qué recibimos y qué NO sabemos todavía
+├── 01-clase-01-....md           # sesión real 1
+├── 02-clase-02-....md           # sesión real 2
+├── 03-cierre-y-checkpoint.md    # síntesis y versión estable
+└── EXPLORA.md                   # profundización opcional
 ```
 
-Cada semana conserva su código final como evidencia histórica. Esto permite comparar cómo evoluciona una solución cuando aparecen nuevos requisitos y nuevos conocimientos.
+La cantidad de archivos de clase depende del horario y del avance real. Una semana con una sola sesión no necesita inventar dos guías; una semana con más sesiones puede tener más pasos.
 
-> La numeración sigue la semana (`v0.2`, `v0.3`, etc.) durante la fase formativa inicial. Podemos cambiar a una versión `1.0` cuando exista una app móvil funcional consolidada.
+## Anatomía de una guía de clase
 
-## Arquitectura objetivo
+Cada guía debería hacer visible:
 
-```mermaid
-flowchart LR
-    CLI[Consola] --> CORE[Core Kotlin puro]
-    ANDROID[Android / Compose] --> CORE
-    TESTS[Tests] --> CORE
-    CORE --> REPO[RegistroRepository]
-    REPO --> MEMORY[Memoria]
-    REPO --> SQLITE[SQLite]
-    REPO --> REST[REST]
-```
+1. **punto de entrada**: qué código debe funcionar antes de comenzar;
+2. **objetivo de la sesión**;
+3. **contenido del plan que corresponde hoy**;
+4. **ruta de la clase** con etapas pequeñas;
+5. **primera solución explícita**, especialmente cuando el concepto es nuevo;
+6. **comparación/refactor** hacia sintaxis o diseño más idiomático;
+7. **decisiones y alternativas**;
+8. **prueba autónoma breve**;
+9. **checkpoint de salida de la clase**;
+10. **pregunta o limitación abierta**, solo si prepara de forma natural lo que viene después.
 
-La arquitectura se construirá **gradualmente**. No se espera que un estudiante de Semana 2 implemente todas estas piezas.
-
-## Estructura actual
+La experiencia deseada es:
 
 ```text
-proyecto-formativo/
-├── README.md
-├── semana-02/
-│   ├── GUIA-PASO-A-PASO.md
-│   └── EXPLORA.md
-└── checkpoint-semana-02/
-    └── PocketLog.kt
+PARTIMOS CON...
+      ↓
+HOY NECESITAMOS...
+      ↓
+LO HACEMOS DE LA FORMA MÁS EXPLÍCITA
+      ↓
+ENTENDEMOS EL MECANISMO
+      ↓
+COMPARAMOS OTRA FORMA
+      ↓
+APLICAMOS EN POCKETLOG
+      ↓
+PRUEBA TÚ
+      ↓
+HOY TERMINAMOS AQUÍ
 ```
 
-En semanas posteriores se incorporarán:
+## Regla principal: el plan manda
+
+PocketLog **no define el contenido del curso**.
+
+El cronograma y el avance real de la sección determinan qué puede incorporarse.
+
+Antes de crear una nueva guía se revisa:
 
 ```text
-semana-03/GUIA-PASO-A-PASO.md
-checkpoint-semana-03/...
-semana-04/GUIA-PASO-A-PASO.md
-checkpoint-semana-04/...
+¿Qué corresponde esta semana?
+¿Qué se alcanzó realmente en la clase anterior?
+¿Qué herramientas conoce el estudiante?
+¿Qué incremento de PocketLog permite practicar exactamente eso?
+¿Qué concepto futuro debemos evitar adelantar?
 ```
 
-## Regla de continuidad
+Si una modificación no puede justificarse por contenido ya visto o correspondiente a la sesión actual, se posterga.
 
-Cada checkpoint debe poder responder:
+## Sintaxis: primero entender, después acortar
 
-1. ¿qué recibimos de la semana anterior?;
-2. ¿qué problema nuevo apareció?;
-3. ¿qué alternativas consideramos?;
-4. ¿qué decisión tomamos y por qué?;
-5. ¿qué concepto nuevo incorporamos?;
-6. ¿qué cambió en PocketLog?;
-7. ¿qué evidencia deja el estudiante?;
-8. ¿qué limitación queda preparada para la semana siguiente?
+Especialmente en Kotlin, PocketLog seguirá esta progresión:
 
-## Regla pedagógica
-
-Una abstracción nueva debe aparecer preferentemente porque **resuelve una incomodidad visible de la versión anterior**.
+```text
+forma explícita
+→ mecanismo visible
+→ comparación con Java cuando aporte valor
+→ forma Kotlin equivalente
+→ forma idiomática más corta
+→ decisión de legibilidad
+```
 
 Ejemplo:
 
-```text
-Semana 02
-3 listas paralelas
-        ↓
-problema: mantener los datos sincronizados es frágil
-        ↓
-Semana 03
-Registro como una sola unidad
-        ↓
-POO tiene una razón concreta de existir
+```kotlin
+var pendientes = 0
+for (completado in completados) {
+    if (!completado) {
+        pendientes = pendientes + 1
+    }
+}
 ```
 
-No adelantaremos arquitectura solo porque sabemos que será necesaria después.
+solo después puede evolucionar a:
+
+```kotlin
+val pendientes = completados.count { !it }
+```
+
+El objetivo no es escribir menos caracteres; es poder explicar qué abstracción reemplazó al mecanismo anterior.
+
+## Exploración guiada opcional
+
+Cada semana puede incorporar `EXPLORA.md`.
+
+Debe ser cercana al contenido actual, breve y no necesaria para completar el checkpoint.
+
+Puede:
+
+- profundizar una función o construcción recién vista;
+- comparar otra alternativa;
+- hacer visible una limitación;
+- investigar una herramienta vecina.
+
+No debe enseñar anticipadamente la solución conceptual completa de una semana posterior.
+
+## Política de checkpoints
+
+Los estados semanales **no se sobrescriben**.
+
+```text
+checkpoint-semana-02/   PocketLog v0.2
+checkpoint-semana-03/   PocketLog v0.3
+checkpoint-semana-04/   PocketLog v0.4
+...
+```
+
+Además, dentro de cada guía se deja claro cuál es el **estado de salida de cada clase**, aunque el checkpoint versionado formal se consolide al cierre semanal.
+
+Esto permite distinguir:
+
+```text
+lo planificado para la semana
+≠
+lo que efectivamente alcanzamos hoy
+```
+
+Si una clase avanza menos de lo previsto, la siguiente guía se ajusta desde el estado real.
+
+## Arquitectura objetivo docente
+
+A largo plazo buscamos que la lógica reutilizable no dependa de quien la consume:
+
+```mermaid
+flowchart LR
+    CLI[Consola] --> CORE[Core Kotlin]
+    ANDROID[Android] --> CORE
+    TESTS[Pruebas] --> CORE
+    CORE --> DATA[Acceso a datos]
+    DATA --> SQLITE[SQLite]
+    DATA --> REST[REST]
+```
+
+Pero esta imagen es **dirección docente**, no contenido que deba implementarse anticipadamente.
+
+Las abstracciones aparecen solamente cuando el plan y una necesidad observable del código permiten enseñarlas con sentido.
 
 ## Evaluaciones
 
-PocketLog es **formativo**.
+PocketLog es formativo.
 
-Durante EP1, EP2 y EP3 se pausa. No se usa como solución, plantilla ni dominio equivalente de la evaluación sumativa.
+Durante EP1, EP2 y EP3 se pausa. No se utiliza como plantilla de la evaluación ni se hace evolucionar mientras corresponde desarrollar evidencia sumativa.
 
-Después de cada evaluación se retoma desde el último checkpoint formativo estable.
+Después se retoma desde el último checkpoint formativo estable.
+
+## Semana actual
+
+➡️ [PocketLog · Semana 02](./semana-02/README.md)
 
 ## Documento de diseño docente
 
