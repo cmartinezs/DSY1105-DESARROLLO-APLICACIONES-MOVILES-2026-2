@@ -12,23 +12,20 @@ Consolidar fundamentos de Kotlin mediante práctica incremental:
 
 **Variables → Entrada/Salida → Operadores → Condicionales → Ciclos → Funciones → Colecciones → Integración.**
 
+> Esta secuencia es el mapa semanal. El avance real de la sección determina hasta dónde llega cada sesión; no se marca contenido como visto solo porque aparezca en la planificación.
+
 ## Proyecto formativo transversal · PocketLog
 
 Esta semana comienza formalmente **PocketLog**, el proyecto formativo que evolucionará durante el semestre desde Kotlin de consola hasta una aplicación móvil con persistencia, REST y pruebas.
 
-El trabajo principal no consiste en recibir una solución terminada. Se sigue una guía en la que cada paso presenta:
-
-```text
-problema → alternativas → decisión → código → prueba → reflexión
-```
+La experiencia se trabaja clase a clase desde el estado real del código.
 
 Material principal:
 
-- [PocketLog · Guía paso a paso Semana 02](../../proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md)
+- [PocketLog · Semana 02](../../proyecto-formativo/semana-02/README.md)
 - [PocketLog · checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
+- [Roadmap semestral PocketLog](../../proyecto-formativo/ROADMAP-SEMANAL.md)
 - [Diseño transversal del proyecto](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
-
-> El checkpoint de esta semana se conserva. En Semana 03 no se sobrescribe: se crea una nueva versión y se compara la evolución.
 
 ## Contenidos oficiales
 
@@ -37,119 +34,130 @@ Material principal:
 - **1.2.3** Colecciones y funciones en Kotlin.
 - **1.2.4** Guía 3 – Aplicando Colecciones.
 
-## Patrón estándar de trabajo
+## Estado real al cierre del lunes 17
 
-Cada contenido importante se aborda con:
+La sección avanzó principalmente en **fundamentos Kotlin**.
 
-1. explicación breve;
-2. ejemplo guiado ejecutable;
-3. aplicación del concepto sobre PocketLog;
-4. una pequeña decisión o descubrimiento que el estudiante debe resolver;
-5. evidencia y explicación de decisiones;
-6. actualización del checkpoint semanal cuando corresponda.
+### Contenido efectivamente trabajado
 
-La práctica no queda como actividad opcional al final de la teoría.
+- variables;
+- `val` / `var`;
+- inferencia de tipos;
+- tipos básicos;
+- introducción a null safety / valores anulables, todavía **sin cerrar el concepto completo**;
+- operadores aritméticos;
+- operadores de comparación;
+- operadores lógicos;
+- String templates.
+
+Los estudiantes además **continuaron el laboratorio iniciado en la clase anterior**.
+
+### Estado pedagógico
+
+No se debe asumir todavía como visto en profundidad:
+
+- condicionales Kotlin;
+- `when`;
+- ciclos;
+- funciones;
+- colecciones;
+- lambdas y operaciones `filter/map/count`.
+
+PocketLog debe avanzar solo hasta los conceptos que hayan sido trabajados realmente.
 
 ## Material complementario
 
-Además de PocketLog quedan disponibles ejercicios de transferencia con dominios distintos:
-
 - [Guía práctica · fundamentos Kotlin](./01-guia-kotlin-fundamentos.md)
+- [Kotlin avanzado · lambdas y trailing lambda](./02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
 - [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
 - [Laboratorio de transferencia · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
 
-Estos materiales sirven para comprobar que el estudiante puede aplicar Kotlin fuera del dominio PocketLog. **No reemplazan el hilo longitudinal.**
+## Lunes 17 · registro real
 
-## Lunes 17 · 19:01–21:10
+### Se alcanzó
 
-### Bloque 1 · 19:01–19:40
+```text
+variables
+→ tipos explícitos e inferencia
+→ val / var
+→ tipos básicos
+→ null safety (introducción parcial)
+→ operadores aritméticos
+→ operadores de comparación
+→ operadores lógicos
+→ String templates
+→ continuidad laboratorio anterior
+```
 
-- `val` y `var`;
-- inferencia de tipos;
-- tipos básicos;
-- `println`;
-- String templates;
-- conversiones simples/seguras.
+### No se fuerza como pendiente inmediato
 
-**PocketLog:** pasos 0–3 de la guía. Construir el primer registro de forma procedural y discutir decisiones `val` vs `var`, concatenación vs String templates e `if` como expresión.
+El material planificado inicialmente incluía más contenido, pero se priorizó comprensión. La sesión del jueves debe continuar desde este checkpoint real.
 
-### Bloque 2 · 19:41–20:20
+## Jueves 20 · plan ajustado · 21:11–22:30
 
-- operadores;
-- `if`;
-- `when`;
+El objetivo no será intentar cubrir todo lo originalmente planificado a velocidad excesiva.
+
+### Primera parte · cerrar fundamentos pendientes
+
+- retomar null safety y completar el concepto necesario para esta etapa;
+- conversión de tipos cuando corresponda;
+- `if` explícito;
+- `if` como expresión;
+- `when` si el ritmo permite llegar con comprensión.
+
+Mantener la estrategia:
+
+```text
+forma explícita
+→ comprender mecanismo
+→ comparación con Java cuando aporte valor
+→ forma idiomática Kotlin
+```
+
+### Segunda parte · comenzar repetición
+
+Si los condicionales están consolidados:
+
+- `while`;
 - `for` y rangos;
-- `while`.
+- diferencias relevantes con Java;
+- ejercicios pequeños sobre el mismo laboratorio/PocketLog.
 
-**PocketLog:** ampliar de un registro a varios y recorrerlos. Comparar variables individuales vs colecciones.
+### Extensión solo si el ritmo lo permite
 
-### Bloque 3 · 20:31–21:10
+- primera función;
+- parámetros/retorno.
 
-- funciones;
-- parámetros y retorno;
-- primera colección con `listOf` / `mutableListOf`;
-- extracción de lógica repetida.
+Las colecciones y sus funciones avanzadas **no se fuerzan el jueves** si todavía faltan bases. Pueden continuar en la siguiente experiencia de aprendizaje antes de entrar a POO.
 
-**PocketLog:** comenzar a separar `mostrarRegistros(...)` y observar por qué una función que solo lee puede recibir `List` aunque `main` tenga `MutableList`.
+## PocketLog · checkpoint real
 
-## Jueves 20 · 21:11–22:30
+PocketLog de Semana 02 no debe entregarse como una solución completa para copiar antes de haber estudiado sus piezas.
 
-- `List` vs `MutableList`;
-- mutabilidad/inmutabilidad;
-- iteraciones;
-- `filter` / `filterIndexed`;
-- `map`;
-- `count`;
-- cierre del checkpoint PocketLog v0.2;
-- laboratorio de transferencia si el avance lo permite.
-
-### Cierre PocketLog
-
-La versión final de Semana 02 debe poder:
+La versión se construye por tramos:
 
 ```text
-listar registros
-filtrar por categoría
-identificar pendientes
-contar pendientes
-producir un resumen
+variables y estado simple
+→ decisiones
+→ repetición
+→ funciones
+→ colecciones
 ```
 
-Todavía utiliza tres listas coordinadas:
+Si al cierre del jueves la sección todavía no llega a colecciones, el checkpoint v0.2 queda **en progreso** y se termina en la siguiente clase antes de evolucionar a POO.
 
-```text
-títulos
-categorías
-completados
-```
+## Evidencia mínima de esta etapa
 
-Esto es intencional.
+El estudiante debe poder explicar y ejecutar lo que efectivamente haya sido cubierto:
 
-La pregunta de salida es:
-
-> **¿Qué problema aparece cuando un mismo concepto está dividido entre varias listas que siempre deben mantenerse sincronizadas?**
-
-Esa limitación será la entrada pedagógica de Semana 03 para introducir POO.
-
-## Evidencia mínima semanal
-
-El estudiante debe poder:
-
-1. elegir razonadamente entre `val` y `var`;
-2. aplicar tipos y conversiones;
-3. usar `if` y `when`;
-4. implementar ciclos;
-5. escribir funciones con parámetros/retorno;
-6. trabajar con colecciones;
-7. explicar `List` vs `MutableList`;
-8. explicar una versión imperativa de un filtro y luego `filter`/`filterIndexed`;
-9. ejecutar PocketLog v0.2;
-10. explicar al menos dos decisiones tomadas durante la guía;
-11. identificar una limitación de la versión actual que motive una mejora futura.
+1. `val` vs `var`;
+2. tipos explícitos vs inferencia;
+3. operadores aritméticos, relacionales y lógicos;
+4. String templates;
+5. null safety en el nivel trabajado;
+6. progresivamente condicionales y ciclos cuando se incorporen.
 
 ## Material institucional
 
 - [Biblioteca pública](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing)
 - [Semana 02 en Drive](https://drive.google.com/drive/folders/1dNgCNnnCU5aURfT_5qlU7NH9RQYNe8bj)
-
-El puente Java → Kotlin de Semana 01 sigue disponible como apoyo cuando una comparación ayude, pero la prioridad esta semana es escribir y razonar directamente en Kotlin.
