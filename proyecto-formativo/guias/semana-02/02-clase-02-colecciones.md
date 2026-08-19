@@ -168,7 +168,7 @@ Las llaves contienen una **lambda**. No son una sintaxis especial de `filter`.
 
 Si quieres comprender desde la forma completa por qué Kotlin permite sacar esa lambda fuera de los paréntesis, consulta:
 
-➡️ [Kotlin avanzado · lambdas y trailing lambda](../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
+➡️ [Kotlin avanzado · lambdas y trailing lambda](../../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
 
 Para continuar la clase basta entender:
 
@@ -309,9 +309,13 @@ Al finalizar la clase, la aplicación debería poder demostrar al menos:
 
 La versión final de la semana está disponible como referencia en:
 
-➡️ [`../checkpoint-semana-02/PocketLog.kt`](../checkpoint-semana-02/PocketLog.kt)
+➡️ [`../../checkpoints/semana-02/PocketLog.kt`](../../checkpoints/semana-02/PocketLog.kt)
 
-No la copies antes de intentar construir cada parte.
+El proyecto vivo que continúa evolucionando está en:
+
+➡️ [`../../pocketlog/`](../../pocketlog/)
+
+No copies el checkpoint antes de intentar construir cada parte.
 
 ---
 
