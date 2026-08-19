@@ -4,12 +4,26 @@ Este directorio funciona como índice de conocimientos y decisiones que atravies
 
 El contenido específico de cada semana continúa viviendo en `semanas/semana-XX/`. Aquí se mantiene material que conviene reutilizar durante distintas experiencias de aprendizaje.
 
+## Estándares y canon
+
+- [Canon transversal de repositorios docentes](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, fuente canónica y reconciliación semanal.
+- [Estándar de repositorio del estudiante](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — estructura de entrega Kotlin/Android, packages, Git y Markdown.
+
 ## Proyecto formativo transversal
 
 - [PocketLog · diseño longitudinal del semestre](./PROYECTO-FORMATIVO-TRANSVERSAL.md)
-- [Código/checkpoints de PocketLog](../proyecto-formativo/README.md)
+- [PocketLog · punto de entrada canónico](../proyecto-formativo/README.md)
+- [PocketLog vivo](../proyecto-formativo/pocketlog/)
+- [Checkpoints históricos](../proyecto-formativo/checkpoints/)
+- [Guías por semana](../proyecto-formativo/guias/)
 
 PocketLog permite reutilizar el core Kotlin construido en la Unidad 1 posteriormente desde consola, Android/Compose, persistencia local, REST y pruebas.
+
+La estructura distingue explícitamente:
+
+```text
+guía ≠ proyecto vivo ≠ checkpoint histórico
+```
 
 ## Otros recursos
 
