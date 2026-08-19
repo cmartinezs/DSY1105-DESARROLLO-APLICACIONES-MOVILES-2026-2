@@ -27,6 +27,10 @@ estado anterior
 
 El código final de Semana 02 se conserva en:
 
-[`../checkpoint-semana-02/PocketLog.kt`](../checkpoint-semana-02/PocketLog.kt)
+[`../../checkpoints/semana-02/PocketLog.kt`](../../checkpoints/semana-02/PocketLog.kt)
+
+El estado vivo que continúa evolucionando se encuentra en:
+
+[`../../pocketlog/`](../../pocketlog/)
 
 > No leas el checkpoint final como punto de partida. La intención pedagógica está en construirlo siguiendo las clases en orden.
