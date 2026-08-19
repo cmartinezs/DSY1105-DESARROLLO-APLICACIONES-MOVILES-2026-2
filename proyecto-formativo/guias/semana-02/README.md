@@ -82,8 +82,9 @@ Es opcional. Profundiza en herramientas cercanas al contenido ya visto sin adela
 
 ## Material de apoyo
 
-- [Guía general de fundamentos Kotlin](../../semanas/semana-02/01-guia-kotlin-fundamentos.md)
-- [Kotlin avanzado · lambdas y trailing lambda](../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
-- [Checkpoint final de la semana](../checkpoint-semana-02/PocketLog.kt)
+- [Guía general de fundamentos Kotlin](../../../semanas/semana-02/01-guia-kotlin-fundamentos.md)
+- [Kotlin avanzado · lambdas y trailing lambda](../../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
+- [Checkpoint final de la semana](../../checkpoints/semana-02/PocketLog.kt)
+- [PocketLog vivo](../../pocketlog/)
 
 > La guía general explica el lenguaje. **PocketLog muestra cómo ese conocimiento se incorpora, clase a clase, al mismo software.**
