@@ -1,0 +1,1 @@
+../guias/semana-02/GUIA-PASO-A-PASO.md
