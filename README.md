@@ -11,7 +11,8 @@ Este repositorio reúne contenido de clases, ejemplos, ejercicios, guías y recu
 - [`docs/`](docs/) — índice de conocimientos y guías transversales reutilizables durante el semestre.
 - [`labs/`](labs/) — índice de ejercicios y laboratorios prácticos, manteniendo cada laboratorio dentro de su semana de origen.
 - [`examples/`](examples/) — índice de ejemplos de código desarrollados en clases.
-- [`page/`](page/) — base del portal web del curso; se habilitará progresivamente.
+- [`page/`](page/) — portal web del curso.
+- [**Estándar de repositorio del estudiante**](docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — nombre, estructura, packages, Markdown y entregas Kotlin/Android.
 - [**Material público del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) — biblioteca de archivos originales organizada semana a semana.
 
 ## Proyecto formativo transversal
@@ -56,6 +57,15 @@ Los directorios [`docs/`](docs/), [`labs/`](labs/) y [`examples/`](examples/) fu
 ### Material original
 
 Los archivos institucionales se mantienen como fuente de referencia en la [biblioteca pública de Google Drive](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) y se organizan semana a semana para su consulta. El repositorio no reemplaza AVA ni los recursos oficiales; los complementa con el material consolidado utilizado efectivamente en clases.
+
+## Repositorio personal del estudiante
+
+La estructura usada para **publicar material docente** no es la estructura que el estudiante debe copiar en su repositorio personal.
+
+Cada estudiante mantiene un único repositorio `DSY1105-009V-nombre-apellido`, usa `cl.duoc.<usuario-duoc-sin-puntos>` como raíz de package y documenta su repo y entregas mediante `README.md`.
+
+→ [Ver estándar completo](docs/ESTANDAR-REPOSITORIO-ESTUDIANTE.md)  
+→ [Versión web](page/repositorio-estudiante.html)
 
 ## Cómo obtener el repositorio
 
