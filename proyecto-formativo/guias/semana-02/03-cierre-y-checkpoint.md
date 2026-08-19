@@ -71,11 +71,15 @@ Debe poder responder, por ejemplo:
 
 La versión de referencia se conserva en:
 
-➡️ [`../checkpoint-semana-02/PocketLog.kt`](../checkpoint-semana-02/PocketLog.kt)
+➡️ [`../../checkpoints/semana-02/PocketLog.kt`](../../checkpoints/semana-02/PocketLog.kt)
 
 Este archivo representa **el estado de PocketLog al cierre de Semana 02**.
 
-La siguiente semana no lo reemplazará. Se copiará/evolucionará hacia un nuevo checkpoint.
+El proyecto que seguirá evolucionando está en:
+
+➡️ [`../../pocketlog/`](../../pocketlog/)
+
+La siguiente semana no crea otro proyecto PocketLog: parte desde el proyecto vivo y, al cerrar un hito relevante, deja un nuevo checkpoint histórico.
 
 ---
 
