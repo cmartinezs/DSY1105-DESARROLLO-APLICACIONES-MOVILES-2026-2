@@ -22,10 +22,19 @@ La experiencia se trabaja clase a clase desde el estado real del código.
 
 Material principal:
 
-- [PocketLog · Semana 02](../../proyecto-formativo/semana-02/README.md)
-- [PocketLog · checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
+- [Guías PocketLog · Semana 02](../../proyecto-formativo/guias/semana-02/)
+- [PocketLog vivo](../../proyecto-formativo/pocketlog/)
+- [Checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoints/semana-02/)
 - [Roadmap semestral PocketLog](../../proyecto-formativo/ROADMAP-SEMANAL.md)
 - [Diseño transversal del proyecto](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
+
+La distinción es importante:
+
+```text
+guía = cómo avanzamos
+proyecto vivo = lo que continuamos modificando
+checkpoint = fotografía histórica estable
+```
 
 ## Contenidos oficiales
 
