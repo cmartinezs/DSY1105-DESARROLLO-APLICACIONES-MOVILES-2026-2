@@ -7,6 +7,7 @@ El contenido específico de cada semana continúa viviendo en `semanas/semana-XX
 ## Estándares y canon
 
 - [Canon transversal de repositorios docentes](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, fuente canónica y reconciliación semanal.
+- [Checklist operativo semanal](./CHECKLIST-OPERACION-SEMANAL.md) — ciclo mínimo para preparar, ejecutar y cerrar cada semana manteniendo alineados curso, PocketLog, web y Drive.
 - [Estándar de repositorio del estudiante](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — estructura de entrega Kotlin/Android, packages, Git y Markdown.
 
 ## Proyecto formativo transversal
