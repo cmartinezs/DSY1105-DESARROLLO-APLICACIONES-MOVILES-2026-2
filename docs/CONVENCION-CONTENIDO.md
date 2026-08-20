@@ -6,7 +6,7 @@ Esta asignatura organiza el material con **lectura por capas**. El objetivo es q
 
 > **La carpeta no reemplaza al `.md` base: lo expande.**
 
-El archivo individual del tema debe contener todo lo necesario para comprender los conceptos, vocabulario, relaciones y flujo exigidos por la asignatura. Un estudiante que estudie solamente ese `.md` debe disponer de la base académica requerida.
+El archivo individual del tema debe contener todo lo necesario para comprender los conceptos, vocabulario, relaciones, sintaxis y flujo exigidos por la asignatura. Un estudiante que estudie solamente ese `.md` debe disponer de la base académica requerida.
 
 La carpeta asociada es una segunda capa opcional: explica con más detalle partes del tema, responde dudas frecuentes, desarrolla procesos paso a paso, incorpora ejemplos adicionales o profundiza aspectos técnicos.
 
@@ -131,6 +131,21 @@ Agregarla cuando:
 
 El tamaño del documento por sí solo no obliga a crear una carpeta.
 
+## Aplicación retroactiva
+
+Esta convención **también aplica al contenido ya publicado**. Cuando un tema didáctico existente tenga suficiente riqueza para una segunda capa, se conserva su `.md` base y se agrega la carpeta homónima de profundización.
+
+La retroactividad no significa crear carpetas mecánicamente para todo archivo Markdown. No corresponde aplicarla por defecto a:
+
+- planificación semanal;
+- resúmenes de clase;
+- dinámicas;
+- instrucciones operativas;
+- laboratorios que ya son experiencias de aplicación;
+- ejemplos que ya están organizados como artefactos prácticos.
+
+El criterio es pedagógico: **temas de contenido base pueden expandirse; artefactos operativos o de práctica mantienen su estructura propia**.
+
 ## Principio editorial
 
 El repositorio debe funcionar como **documentación técnica educativa de profundidad progresiva**:
@@ -140,5 +155,3 @@ base obligatoria → profundización voluntaria → observación → aplicación
 ```
 
 La profundidad puede crecer tanto como resulte útil, pero nunca a costa de vaciar el archivo principal.
-
-Esta convención aplica al material nuevo y se adoptará progresivamente en el contenido existente.
