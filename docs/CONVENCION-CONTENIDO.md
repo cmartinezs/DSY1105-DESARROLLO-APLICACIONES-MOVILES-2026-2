@@ -1,103 +1,144 @@
 # Convención transversal de contenido didáctico
 
-Esta asignatura organiza el material con **lectura por capas**. El objetivo es que un estudiante pueda comprender un tema leyendo su `README.md` y, cuando necesite mayor profundidad, acceder a documentos especializados sin que el flujo principal dependa de ellos.
+Esta asignatura organiza el material con **lectura por capas**. El objetivo es que cada tema tenga un **archivo Markdown base suficiente para la asignatura** y, cuando el estudiante quiera profundizar, pueda acceder a una carpeta asociada con material extendido.
 
 ## Regla principal
 
-> Un tema relevante se modela como una unidad autocontenida. Su `README.md` debe ser suficiente para comprender el tema; los documentos secundarios existen para profundizar.
+> **La carpeta no reemplaza al `.md` base: lo expande.**
 
-No todo concepto debe convertirse en carpeta. La estructura crece de forma orgánica según complejidad pedagógica.
+El archivo individual del tema debe contener todo lo necesario para comprender los conceptos, vocabulario, relaciones y flujo exigidos por la asignatura. Un estudiante que estudie solamente ese `.md` debe disponer de la base académica requerida.
 
-## Niveles de complejidad
+La carpeta asociada es una segunda capa opcional: explica con más detalle partes del tema, responde dudas frecuentes, desarrolla procesos paso a paso, incorpora ejemplos adicionales o profundiza aspectos técnicos.
+
+## Modelo canónico
 
 ### Tema pequeño
 
 ```text
-tema.md
+01-tema.md
 ```
 
-### Tema mediano
+### Tema con profundización
 
 ```text
-tema/
-├── README.md
+01-tema.md                 ← BASE: suficiente para la asignatura
+01-tema/                   ← PROFUNDIZACIÓN: opcional
+├── README.md              ← mapa de la profundización
 ├── 01-subtema.md
 ├── 02-subtema.md
 └── 03-errores-frecuentes.md
 ```
 
-### Tema complejo
+### Subtema complejo dentro de la profundización
 
 ```text
-tema/
+01-tema.md
+01-tema/
 ├── README.md
-├── 01-concepto-base.md
+├── 01-concepto.md
 └── 02-subtema-complejo/
     ├── README.md
     ├── 01-parte.md
     └── 02-parte.md
 ```
 
-## Responsabilidad del README
+## Responsabilidad del `.md` base
 
-El `README.md` debe poder leerse por sí solo e incluir, cuando corresponda:
+El archivo individual es el material principal y debe poder leerse por sí solo. Debe incluir, cuando corresponda:
 
 1. objetivo de aprendizaje;
 2. problema o contexto;
 3. conceptos fundamentales;
-4. flujo o proceso general;
+4. sintaxis o reglas esenciales;
 5. ejemplo contextualizado;
-6. conceptos que se deben recordar;
-7. errores frecuentes;
-8. preguntas de comprobación;
-9. enlaces de profundización;
+6. relaciones importantes entre conceptos;
+7. errores o confusiones fundamentales;
+8. conceptos que el estudiante debe recordar;
+9. vínculo hacia la profundización, si existe;
 10. siguiente paso práctico.
+
+El `.md` base puede ser resumido respecto de la carpeta, pero **no puede ser incompleto respecto de lo que la asignatura espera que el estudiante aprenda**.
+
+## Responsabilidad de la carpeta de profundización
+
+La carpeta existe para explicar con más detalle:
+
+- cómo funciona exactamente una construcción;
+- por qué Kotlin permite determinada sintaxis;
+- diferencias con Java u otras formas equivalentes;
+- evolución desde una sintaxis explícita a una idiomática;
+- dudas frecuentes;
+- ejemplos adicionales;
+- detalles útiles que no son indispensables para la lectura base.
+
+Su `README.md` actúa como mapa de profundización, no como reemplazo del material principal.
 
 ## Regla de navegación
 
-Nunca obligar al estudiante a abrir varios archivos para comprender el flujo principal.
+```text
+.md base
+   │
+   ├── suficiente para aprender lo requerido
+   │
+   └── "Si quieres profundizar..."
+             ↓
+        carpeta asociada
+             ↓
+        detalles específicos
+```
 
-Los enlaces secundarios deben responder a:
-
-> "Entendí la idea general y quiero profundizar esta parte."
+Nunca obligar al estudiante a abrir la carpeta para entender la base exigida.
 
 ## Etiqueta de profundización
 
 ```markdown
-> **Si quieres profundizar:** revisa [Nombre del subtema](ruta/al/documento.md).
+> **Si quieres profundizar:** este tema cuenta con material extendido en [Profundización: Nombre del tema](./01-tema/README.md).
 ```
 
-## Numeración
+También pueden existir enlaces directos a una duda concreta:
 
-Usar `01-`, `02-`, `03-`, etc. cuando exista un orden pedagógico recomendado.
+```markdown
+> **Para profundizar:** revisa [Trailing lambda](./01-tema/trailing-lambda.md).
+```
+
+## Correspondencia de nombres
+
+Siempre que sea razonable, el archivo y la carpeta comparten el mismo nombre base:
+
+```text
+01-guia-kotlin-fundamentos.md
+01-guia-kotlin-fundamentos/
+```
 
 ## Relación entre material
 
 ```text
-COMPRENDER  → README del tema
-PROFUNDIZAR → documentos secundarios
-OBSERVAR    → ejemplos
-APLICAR     → laboratorios / desafíos / proyecto formativo
+APRENDER LA BASE → archivo .md del tema
+PROFUNDIZAR      → carpeta homónima
+OBSERVAR         → ejemplos
+APLICAR          → laboratorios / desafíos / proyecto formativo
 ```
 
-## Cuándo dividir
+## Cuándo crear una carpeta de profundización
 
-Considerar migrar un `.md` a carpeta cuando:
+Agregarla cuando:
 
-- mezcla varios conceptos consultables por separado;
-- contiene secciones extensas con ejemplos propios;
-- navegar el documento se vuelve incómodo;
-- aparecen dudas recurrentes sobre una sección;
-- requiere separar explicación conceptual, sintaxis, ejemplos y errores frecuentes.
+- un concepto necesita explicación paso a paso;
+- aparecen dudas recurrentes;
+- existen detalles técnicos útiles pero no indispensables;
+- hacen falta comparaciones o ejemplos adicionales;
+- desarrollar todo en el `.md` sobrecargaría innecesariamente la lectura obligatoria.
 
-El tamaño por sí solo no obliga a dividir: prima la coherencia pedagógica.
+El tamaño del documento por sí solo no obliga a crear una carpeta.
 
 ## Principio editorial
 
-El repositorio debe funcionar como **documentación técnica educativa** y ofrecer un recorrido progresivo:
+El repositorio debe funcionar como **documentación técnica educativa de profundidad progresiva**:
 
 ```text
-orientación → comprensión → profundización → aplicación
+base obligatoria → profundización voluntaria → observación → aplicación
 ```
 
-Esta convención aplica al material nuevo y se adoptará progresivamente en contenido existente cuando sea modificado o cuando su complejidad lo justifique.
+La profundidad puede crecer tanto como resulte útil, pero nunca a costa de vaciar el archivo principal.
+
+Esta convención aplica al material nuevo y se adoptará progresivamente en el contenido existente.
