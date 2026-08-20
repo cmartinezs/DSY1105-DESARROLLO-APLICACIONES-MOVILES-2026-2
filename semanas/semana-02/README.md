@@ -81,6 +81,14 @@ PocketLog debe avanzar solo hasta los conceptos que hayan sido trabajados realme
 - [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
 - [Laboratorio de transferencia · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
 
+## Dinámica viva de la semana
+
+Esta semana queda preparada **Predice Kotlin antes de ejecutar**.
+
+➡️ [Abrir dinámica](./dinamica-viva-predice-kotlin.md)
+
+La actividad usa casos de inferencia, `val`/`var`, operadores y String templates. El caso de null safety se utiliza únicamente cuando el concepto haya sido cerrado suficientemente en clase.
+
 ## Lunes 17 · registro real
 
 ### Se alcanzó
