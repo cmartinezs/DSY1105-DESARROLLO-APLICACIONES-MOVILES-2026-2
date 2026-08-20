@@ -8,6 +8,7 @@ El contenido específico de cada semana continúa viviendo en `semanas/semana-XX
 
 - [Canon transversal de repositorios docentes](./CANON-REPOSITORIO-DOCENTE.md) — estructura común, fuente canónica y reconciliación semanal.
 - [Checklist operativo semanal](./CHECKLIST-OPERACION-SEMANAL.md) — ciclo mínimo para preparar, ejecutar y cerrar cada semana manteniendo alineados curso, PocketLog, web y Drive.
+- [Banco de dinámicas vivas](./BANCO-DINAMICAS-VIVAS.md) — Java vs Kotlin duel, bugs, predicción, forma explícita → idiomática, feature sorpresa PocketLog, UI usable, mini defensas y boss fights.
 - [Estándar de repositorio del estudiante](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — estructura de entrega Kotlin/Android, packages, Git y Markdown.
 
 ## Proyecto formativo transversal
