@@ -110,69 +110,90 @@ variables
 
 El material planificado inicialmente incluía más contenido, pero se priorizó comprensión. La sesión del jueves debe continuar desde este checkpoint real.
 
-## Jueves 20 · plan ajustado · 21:11–22:30
+## Jueves 20 · registro real
 
-El objetivo no será intentar cubrir todo lo originalmente planificado a velocidad excesiva.
+La sesión tuvo dos objetivos simultáneos: continuar fundamentos Kotlin y dejar operacional el estándar de trabajo del estudiante para el resto del semestre.
 
-### Primera parte · cerrar fundamentos pendientes
+### Trabajo transversal realizado
 
-- retomar null safety y completar el concepto necesario para esta etapa;
-- conversión de tipos cuando corresponda;
-- `if` explícito;
-- `if` como expresión;
-- `when` si el ritmo permite llegar con comprensión.
+Se presentó y trabajó en clase:
 
-Mantener la estrategia:
+- estructura del repositorio personal del estudiante;
+- propósito y organización del repositorio semestral;
+- ubicación y uso del `README`;
+- DevLog como bitácora técnica semanal;
+- creación y registro del **primer DevLog** de cada estudiante.
+
+Esta actividad consumió una parte relevante del tiempo de clase, pero se considera inversión operacional: en las próximas semanas el estudiante ya debería llegar con su repositorio creado y limitarse a actualizar código, documentación y DevLog.
+
+### Avance técnico real
+
+Se continuó profundizando en los fundamentos de Kotlin hasta dejar la sección preparada para iniciar **colecciones** en la próxima clase.
+
+El checkpoint de continuidad queda así:
 
 ```text
-forma explícita
-→ comprender mecanismo
-→ comparación con Java cuando aporte valor
-→ forma idiomática Kotlin
+fundamentos Kotlin
+→ condicionales
+→ ciclos
+→ funciones básicas
+→ PRÓXIMA CLASE: colecciones
 ```
 
-### Segunda parte · comenzar repetición
+No se considera todavía cubierto en profundidad:
 
-Si los condicionales están consolidados:
+- `List` y `MutableList`;
+- iteración sobre colecciones;
+- `map`;
+- `filter`;
+- integración completa de PocketLog v0.2 con colecciones.
 
-- `while`;
-- `for` y rangos;
-- diferencias relevantes con Java;
-- ejercicios pequeños sobre el mismo laboratorio/PocketLog.
+## Próxima clase · punto de arranque
 
-### Extensión solo si el ritmo lo permite
+La siguiente sesión debe comenzar directamente desde **colecciones**, sin volver a dedicar un bloque significativo a creación de repositorio o introducción al DevLog.
 
-- primera función;
-- parámetros/retorno.
+Secuencia recomendada:
 
-Las colecciones y sus funciones avanzadas **no se fuerzan el jueves** si todavía faltan bases. Pueden continuar en la siguiente experiencia de aprendizaje antes de entrar a POO.
+```text
+List
+→ MutableList
+→ recorrido con for
+→ forEach
+→ filter
+→ map
+→ aplicación en PocketLog
+```
+
+El objetivo es recuperar velocidad curricular ahora que la infraestructura de trabajo del estudiante ya quedó instalada.
 
 ## PocketLog · checkpoint real
 
-PocketLog de Semana 02 no debe entregarse como una solución completa para copiar antes de haber estudiado sus piezas.
+PocketLog de Semana 02 permanece **en progreso**. No se fuerza una versión completa antes de que la sección estudie las piezas que utiliza.
 
-La versión se construye por tramos:
+La evolución real queda:
 
 ```text
 variables y estado simple
 → decisiones
 → repetición
 → funciones
-→ colecciones
+→ colecciones (siguiente paso)
 ```
 
-Si al cierre del jueves la sección todavía no llega a colecciones, el checkpoint v0.2 queda **en progreso** y se termina en la siguiente clase antes de evolucionar a POO.
+El checkpoint v0.2 debe cerrarse cuando las colecciones hayan sido trabajadas y aplicadas con comprensión.
 
 ## Evidencia mínima de esta etapa
 
-El estudiante debe poder explicar y ejecutar lo que efectivamente haya sido cubierto:
+El estudiante debe poder explicar y ejecutar lo efectivamente cubierto y, además, mantener su repositorio bajo el estándar del curso con un primer DevLog registrado.
 
-1. `val` vs `var`;
-2. tipos explícitos vs inferencia;
-3. operadores aritméticos, relacionales y lógicos;
-4. String templates;
-5. null safety en el nivel trabajado;
-6. progresivamente condicionales y ciclos cuando se incorporen.
+Al continuar desde colecciones deberá poder conectar:
+
+1. datos individuales;
+2. agrupación de múltiples valores;
+3. recorrido;
+4. filtrado;
+5. transformación;
+6. aplicación al proyecto formativo.
 
 ## Material institucional
 
