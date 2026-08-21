@@ -1,0 +1,47 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 1
+period:
+  start: 2026-08-10
+  end: 2026-08-15
+
+sections:
+  - id: 009V
+    sessions:
+      planned: null
+      completed: null
+    blocks:
+      planned: null
+      completed: null
+    curricular_progress:
+      planned_topics:
+        - introduccion a la asignatura
+        - panorama de desarrollo movil
+        - puente Java a Kotlin
+      covered_topics:
+        - organizacion del curso y evaluaciones
+        - herramientas y entorno
+        - comparacion Java y Kotlin
+        - variables e inferencia como puente inicial
+      pending_topics: []
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: null
+    devlog:
+      expected: null
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: introduced
+      checkpoint: null
+    blockers: []
+    next_week_focus:
+      - fundamentos Kotlin
+      - control de flujo
+      - funciones y colecciones
+
+course_specific:
+  transition: "Java -> Kotlin"
