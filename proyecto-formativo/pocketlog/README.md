@@ -1,20 +1,18 @@
-# PocketLog · proyecto vivo
+# PocketLog vivo
 
-Esta carpeta representa el **estado actual reutilizable de PocketLog**. No corresponde a una copia por semana.
+Esta carpeta contiene la **versión actual** del proyecto formativo.
 
-La regla del semestre es:
+## Archivo actual
+
+- [PocketLog.kt](./PocketLog.kt)
+
+## Regla
+
+PocketLog continúa evolucionando aquí durante el semestre.
 
 ```text
-proyecto vivo → incremento curricular → nuevo estado vivo
-                     ↓
-                checkpoint histórico
+NO crear pocketlog-semana-03/
+NO crear pocketlog-semana-04/
 ```
 
-El archivo `PocketLog.kt` corresponde al estado actual disponible en Semana 2. A medida que el curso avance, esta carpeta evolucionará hacia la estructura real requerida por Kotlin/Android, preservando el core cuando corresponda.
-
-## Historial
-
-- [Checkpoint Semana 2](../checkpoints/semana-02/)
-- [Guías de trabajo Semana 2](../guias/semana-02/)
-
-No se deben crear carpetas `pocketlog-semana-03`, `pocketlog-semana-04`, etc. El proyecto vivo continúa aquí.
+Las instrucciones están en `../guias/` y los estados históricos en `../checkpoints/`.
