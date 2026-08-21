@@ -83,10 +83,10 @@ Cada guía semanal debe contener:
 Cada semana de trabajo formativo deja una versión completa y preserva las anteriores.
 
 ```text
-checkpoint-semana-02/   PocketLog v0.2
-checkpoint-semana-03/   PocketLog v0.3
-checkpoint-semana-04/   PocketLog v0.4
-...
+checkpoints/
+├── semana-02/   PocketLog v0.2
+├── semana-03/   PocketLog v0.3
+└── semana-04/   PocketLog v0.4
 ```
 
 Las semanas de evaluación no generan artificialmente una nueva versión solo para mantener el número correlativo.
@@ -183,8 +183,9 @@ La limitación queda visible, pero **la solución se enseña recién en Semana 0
 
 Material:
 
-- [`proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md`](../proyecto-formativo/semana-02/GUIA-PASO-A-PASO.md)
-- [`proyecto-formativo/checkpoint-semana-02/PocketLog.kt`](../proyecto-formativo/checkpoint-semana-02/PocketLog.kt)
+- [Guía PocketLog · Semana 02](../proyecto-formativo/guias/semana-02/)
+- [Checkpoint PocketLog · Semana 02](../proyecto-formativo/checkpoints/semana-02/)
+- [PocketLog vivo](../proyecto-formativo/pocketlog/)
 
 ## Semana 03 · PocketLog v0.3
 
@@ -272,7 +273,7 @@ Regla:
 
 # Regla para preparar cada semana futura
 
-Antes de crear `checkpoint-semana-XX` debemos responder:
+Antes de crear `checkpoints/semana-XX/` debemos responder:
 
 ```text
 1. ¿Qué dice exactamente el cronograma esta semana?
