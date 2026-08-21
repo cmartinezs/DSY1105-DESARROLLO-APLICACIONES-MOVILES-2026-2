@@ -1,14 +1,9 @@
 # Guías de PocketLog
 
-Esta carpeta contiene la **ruta didáctica** utilizada para evolucionar PocketLog clase a clase.
+Aquí están las instrucciones para avanzar PocketLog por semana.
 
-```text
-guias/
-├── semana-02/
-├── semana-03/
-└── ...
-```
+## Disponibles
 
-Las guías explican qué recibe el estudiante, qué concepto incorpora, cómo lo aplica, cómo lo prueba y cuál es el estado esperado al terminar.
+- [Semana 02](./semana-02/)
 
-Una guía **no es una copia del proyecto**. El software que continúa evolucionando está en [`../pocketlog/`](../pocketlog/) y los estados históricos estables se conservan en [`../checkpoints/`](../checkpoints/).
+Las guías explican **cómo avanzar**. El código que continúa evolucionando vive en `../pocketlog/`.
