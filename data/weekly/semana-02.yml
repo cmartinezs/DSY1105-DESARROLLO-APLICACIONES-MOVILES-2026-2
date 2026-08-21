@@ -1,0 +1,56 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 2
+period:
+  start: 2026-08-17
+  end: 2026-08-22
+
+sections:
+  - id: 009V
+    sessions:
+      planned: 2
+      completed: 1
+    blocks:
+      planned: 5
+      completed: 3
+    curricular_progress:
+      planned_topics:
+        - fundamentos Kotlin
+        - control de flujo
+        - funciones
+        - colecciones
+        - map y filter
+      covered_topics:
+        - variables
+        - inferencia de tipos
+        - null-safety parcial
+        - operadores aritmeticos
+        - operadores de comparacion
+        - operadores logicos
+        - string templates
+      pending_topics:
+        - cierre de null-safety
+        - if y when
+        - ciclos
+        - funciones
+        - List y MutableList
+        - map y filter
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: null
+    devlog:
+      expected: null
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: in_progress
+      checkpoint: v0.2
+    blockers: []
+    next_week_focus: []
+
+course_specific:
+  language: Kotlin
+  progression_rule: "forma explicita -> comprension -> forma idiomatica"
