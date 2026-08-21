@@ -1,1 +1,0 @@
-../checkpoints/semana-02/PocketLog.kt
