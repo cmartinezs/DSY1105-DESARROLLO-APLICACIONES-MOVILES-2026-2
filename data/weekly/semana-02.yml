@@ -10,10 +10,10 @@ sections:
   - id: 009V
     sessions:
       planned: 2
-      completed: 1
+      completed: 2
     blocks:
       planned: 5
-      completed: 3
+      completed: 5
     curricular_progress:
       planned_topics:
         - fundamentos Kotlin
@@ -23,19 +23,22 @@ sections:
         - map y filter
       covered_topics:
         - variables
+        - val y var
         - inferencia de tipos
-        - null-safety parcial
+        - tipos basicos
+        - null-safety al nivel trabajado
         - operadores aritmeticos
         - operadores de comparacion
         - operadores logicos
         - string templates
-      pending_topics:
-        - cierre de null-safety
-        - if y when
+        - condicionales Kotlin
         - ciclos
-        - funciones
+        - funciones basicas
+      pending_topics:
         - List y MutableList
+        - iteracion sobre colecciones
         - map y filter
+        - integracion PocketLog v0.2 con colecciones
     evidence:
       class_practice_available: true
       labs_available: true
@@ -48,9 +51,17 @@ sections:
       name: PocketLog
       status: in_progress
       checkpoint: v0.2
-    blockers: []
-    next_week_focus: []
+    blockers:
+      - parte del tiempo de la sesion del 20-08 se uso para crear y normalizar el repositorio personal del estudiante
+      - parte del tiempo de la sesion del 20-08 se uso para crear y registrar el primer DevLog
+    next_week_focus:
+      - comenzar desde colecciones
+      - recuperar ritmo curricular sin sacrificar comprension
+      - aplicar List y MutableList antes de map y filter
+      - continuar PocketLog desde el estado real alcanzado
 
 course_specific:
   language: Kotlin
   progression_rule: "forma explicita -> comprension -> forma idiomatica"
+  repository_student_standard_introduced: true
+  devlog_introduced: true
