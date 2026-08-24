@@ -1,53 +1,48 @@
-# Laboratorio corto · Resolver en Java y luego en Kotlin
+# Laboratorio semanal · Semana 1 · Control de batería Java → Kotlin
 
-**Duración objetivo:** 15 minutos  
+**Duración sugerida:** 25–35 minutos  
 **Modalidad:** individual  
-**Requisito:** haber revisado la [guía paso a paso Java → Kotlin](../guia-java-kotlin-paso-a-paso.md)
+**Prerrequisito:** completar o comprender los [ejercicios básicos de Semana 1](../ejercicios-basicos.md)
 
 ← [Volver a Semana 01](../README.md)
 
 ## Objetivo
 
-Resolver un problema pequeño primero en Java y luego reproducir exactamente el mismo comportamiento en Kotlin, aplicando:
+Construir un programa pequeño primero en Java y luego en Kotlin, manteniendo la misma lógica y aplicando los conceptos introductorios de la semana:
 
-- variables;
-- tipos e inferencia;
-- `val` y `var`;
+- variables y tipos;
+- `val` / `var`;
+- inferencia;
 - salida por consola;
 - `if/else`;
 - funciones;
 - String templates;
-- un dato nullable en Kotlin.
+- `String?` y operador Elvis `?:`.
 
-> No se busca desarrollar una aplicación Android. El objetivo es practicar el cambio de sintaxis Java → Kotlin sin cambiar la lógica del problema.
+> No se busca Android todavía. El foco es comprender el cambio de sintaxis y de estilo entre Java y Kotlin.
 
 ---
 
-## Problema · Control de batería de un teléfono
+# Problema
 
-Un teléfono tiene los siguientes datos:
+Un teléfono tiene estos datos iniciales:
 
-- modelo: `Galaxy A55`;
-- porcentaje de batería: `18`;
-- modo ahorro de energía: `false`;
-- nombre del propietario: dato opcional.
+```text
+modelo = Galaxy A55
+bateria = 18
+modoAhorro = false
+propietario = sin dato
+```
 
-Debes crear un programa que muestre la información del teléfono y determine el estado de la batería.
+El programa debe mostrar un resumen y clasificar la batería:
 
-### Reglas
-
-Crea una función llamada `obtenerEstadoBateria` que reciba el porcentaje de batería y retorne:
-
-- menos de `20` → `Batería baja`;
+- menor a `20` → `Batería baja`;
 - entre `20` y `79` → `Batería suficiente`;
 - `80` o más → `Batería alta`.
 
-Además:
+Si no hay propietario, mostrar `Sin propietario`.
 
-- si no existe nombre de propietario, debe mostrarse `Sin propietario`;
-- Java y Kotlin deben producir conceptualmente la misma salida.
-
-Ejemplo aproximado:
+Salida esperada aproximada:
 
 ```text
 === TELÉFONO ===
@@ -60,7 +55,25 @@ Propietario: Sin propietario
 
 ---
 
-# Parte A · Java — 7 minutos
+# Parte 0 · Preparación
+
+Antes de escribir lógica:
+
+1. abre el proyecto indicado por el docente;
+2. ejecuta un `Hello World` en Java;
+3. ejecuta un `Hello World` en Kotlin;
+4. recién después continúa.
+
+### Si algo falla
+
+- **No aparece el botón Run:** verifica que exista `main`.
+- **El archivo Kotlin no compila:** confirma que la extensión sea `.kt`.
+- **Java no encuentra la clase:** revisa package y ubicación del archivo.
+- **Kotlin no reconoce sintaxis:** no pegues código Java dentro del archivo `.kt`.
+
+---
+
+# Parte A · Java
 
 Trabaja en:
 
@@ -68,103 +81,185 @@ Trabaja en:
 src/main/java/cl/duoc/dsy1105/lab/LaboratorioJava.java
 ```
 
-## Debes implementar
+## Paso 1 · Declara los datos
 
-1. Declara las cuatro variables indicadas.
-2. Imprime modelo y porcentaje de batería.
-3. Crea `obtenerEstadoBateria(int bateria)`.
-4. Usa `if/else` para implementar las tres reglas.
-5. Muestra el estado retornado.
-6. Comprueba si el propietario es `null` antes de mostrarlo.
+Crea las variables del teléfono. El propietario puede ser `null`.
 
-### Restricciones
+Ejecuta. Aunque todavía no muestre todo, el programa debe compilar.
 
-- No usar `Scanner`.
-- Los datos quedan definidos directamente en el código.
-- No crear clases adicionales.
-- No buscar una solución Kotlin todavía.
+## Paso 2 · Muestra los datos básicos
 
-Cuando funcione, ejecútalo y observa la salida.
+Imprime modelo, batería y modo ahorro.
+
+Ejecuta nuevamente.
+
+## Paso 3 · Crea la función de clasificación
+
+Crea:
+
+```text
+obtenerEstadoBateria(int bateria)
+```
+
+Debe retornar un `String`.
+
+Implementa las tres reglas usando `if / else if / else`.
+
+## Paso 4 · Usa la función
+
+Guarda o imprime el resultado de `obtenerEstadoBateria`.
+
+Ejecuta con batería `18`.
+
+Debe aparecer:
+
+```text
+Batería baja
+```
+
+## Paso 5 · Controla propietario nulo
+
+Antes de imprimir el propietario, comprueba si es `null`.
+
+Si lo es, imprime `Sin propietario`.
+
+## Checkpoint Java
+
+No avances a Kotlin hasta cumplir:
+
+- [ ] compila;
+- [ ] muestra los datos;
+- [ ] clasifica `18` como batería baja;
+- [ ] muestra `Sin propietario`;
+- [ ] puedes explicar dónde está la función.
 
 ---
 
-# Parte B · Kotlin — 7 minutos
+# Parte B · Kotlin
 
-Ahora reproduce el mismo programa en:
+Trabaja en:
 
 ```text
 src/main/kotlin/cl/duoc/dsy1105/lab/LaboratorioKotlin.kt
 ```
 
-No traduzcas carácter por carácter. Piensa en los conceptos vistos en la guía.
+La meta es reproducir el comportamiento, no traducir línea por línea.
 
-## Debes utilizar
+## Paso 1 · Declara los datos
 
-- `val` para datos que no cambian;
-- inferencia de tipos donde sea fácil de entender;
-- String templates al imprimir;
-- una función `obtenerEstadoBateria`;
-- `String?` para el propietario;
-- `?:` para mostrar `Sin propietario` si corresponde.
+- usa `val` por defecto;
+- usa inferencia donde sea clara;
+- declara propietario como `String?`.
 
-La función debe mantener exactamente las mismas reglas de la versión Java.
+Ejecuta inmediatamente.
+
+## Paso 2 · Imprime con String templates
+
+Evita concatenar si puedes expresar el dato como:
+
+```kotlin
+"Modelo: $modelo"
+```
+
+## Paso 3 · Crea `obtenerEstadoBateria`
+
+Debe recibir un `Int` y retornar un `String`.
+
+Usa `if / else if / else`.
+
+No uses `when` si todavía no fue trabajado.
+
+## Paso 4 · Resuelve el propietario
+
+Utiliza el operador Elvis:
+
+```text
+valorNullable ?: valorAlternativo
+```
+
+No necesitas `if` para este punto.
+
+## Paso 5 · Ejecuta y compara
+
+Java y Kotlin deben producir resultados conceptualmente equivalentes.
 
 ---
 
-# Parte C · Comprobación — 1 minuto
+# Parte C · Pruebas manuales
 
-Ejecuta ambos programas y verifica:
-
-- ¿los dos clasifican `18` como `Batería baja`?;
-- ¿los dos muestran `Sin propietario`?;
-- ¿los datos mostrados son equivalentes?;
-- ¿la solución Kotlin utiliza `val`, String templates y null safety?
-
-Luego cambia temporalmente la batería a:
+Cambia solo la batería y ejecuta ambos programas con:
 
 ```text
+18
 55
-```
-
-y después a:
-
-```text
 90
 ```
 
-Comprueba que ambas versiones produzcan respectivamente:
+Resultados esperados:
 
 ```text
-Batería suficiente
-Batería alta
+18 -> Batería baja
+55 -> Batería suficiente
+90 -> Batería alta
 ```
+
+Luego asigna un propietario real y comprueba que deje de aparecer `Sin propietario`.
 
 ---
 
-## Si terminas antes
+# Parte D · Mini extensión
 
-Agrega una variable llamada `cargando`.
+Agrega:
 
-Si es `true`, muestra al final:
+```text
+cargando = true
+```
+
+Si está cargando, muestra:
 
 ```text
 El teléfono está conectado al cargador
 ```
 
-Hazlo primero en Java y después en Kotlin.
+Hazlo primero en Java y luego en Kotlin.
 
 ---
 
+## Errores frecuentes
+
+### `Val cannot be reassigned`
+
+Intentaste modificar un `val`. Decide si realmente el dato debe cambiar. Si debe cambiar, usa `var`.
+
+### `Null can not be a value of a non-null type String`
+
+Declaraste un `String` normal y luego intentaste asignar `null`. Si el dato puede faltar, debe ser `String?`.
+
+### Resultado incorrecto en 20 u 80
+
+Revisa los límites de las condiciones. Prueba explícitamente `19`, `20`, `79` y `80`.
+
+### Java y Kotlin muestran cosas distintas
+
+No corrijas ambas versiones a la vez. Primero define cuál salida es la correcta y luego ajusta la otra.
+
+---
+
+## Evidencia mínima
+
+- archivo Java ejecutable;
+- archivo Kotlin ejecutable;
+- salida de al menos una ejecución de cada uno;
+- respuesta breve a:
+  1. ¿qué dato dejaste con `val` y por qué?;
+  2. ¿para qué utilizaste `String?`?;
+  3. ¿qué reemplazó el operador Elvis respecto de la versión Java?;
+  4. menciona dos diferencias de sintaxis Java ↔ Kotlin.
+
 ## Criterio de éxito
 
-El laboratorio está completo cuando:
-
-1. ambas versiones ejecutan sin errores;
-2. ambas implementan las tres reglas de batería;
-3. Kotlin usa correctamente `String?` y `?:`;
-4. Java y Kotlin producen resultados equivalentes;
-5. puedes explicar al menos **dos diferencias de sintaxis** entre ambas soluciones.
-
-## Importante
-
-No hay solución terminada dentro de esta carpeta. El objetivo es que construyas ambas versiones a partir de lo aprendido en la guía y del ejemplo desarrollado en clases.
+- [ ] ambas versiones ejecutan sin errores;
+- [ ] ambas implementan las tres reglas;
+- [ ] Kotlin usa `val`, String templates, `String?` y `?:`;
+- [ ] se probaron al menos tres valores de batería;
+- [ ] el estudiante puede explicar el código sin depender de una solución copiada.
