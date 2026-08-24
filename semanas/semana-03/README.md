@@ -2,60 +2,101 @@
 
 **Periodo:** 24 al 29 de agosto de 2026  
 **Sección:** DSY1105-009V  
-**Actividad institucional:** Aplicación Orientada a Objetos
+**Actividad institucional:** **1.3 · Aplicación Orientada a Objetos**
 
 ← [Volver al índice](../README.md)
 
-## Particularidad de esta sección
+## Alineación con coordinación
 
-La Semana 2 cerró realmente en **funciones básicas → próxima clase: colecciones**. Por eso esta semana no salta artificialmente a POO: primero cierra `List`, `MutableList`, recorridos y operaciones funcionales; luego aplica ese conocimiento a PocketLog y recién después introduce objetos.
+Esta semana corresponde trabajar la Actividad 1.3 utilizando como referencia los recursos institucionales:
 
-## Ruta real
+- **1.3.1** POO y Control de errores en Kotlin.
+- **1.3.2** Guía 4 – Aplicando POO y control de errores.
+- **1.3.3** Corrutinas y sintaxis avanzada Kotlin.
+- **1.3.4** Guía 5 – Aplicando corrutinas y sintaxis avanzada.
+
+La progresión conceptual esperada es:
+
+```text
+clase → atributos/propiedades → métodos → objetos → encapsulamiento
+→ herencia → sobrescritura → polimorfismo
+→ control de errores
+→ data class / sealed class
+→ asincronía → corrutinas
+```
+
+El foco no es volver a enseñar POO desde cero, sino **reconocer conceptos ya conocidos y aprender cómo Kotlin los expresa**.
+
+## Particularidad real de esta sección
+
+La Semana 2 cerró realmente en **funciones básicas → próxima clase: colecciones**. Por eso no se fingirá un avance inexistente. Antes de entrar a POO se cerrará `List`, `MutableList`, recorridos y operaciones funcionales esenciales. Ese cierre sirve además como puente hacia colecciones de objetos.
+
+La secuencia real queda así:
 
 ```text
 List / MutableList
 → for / forEach
 → filter / map / count
-→ PocketLog con colecciones
-→ checkpoint real v0.2
-→ problema de listas paralelas
-→ clases y objetos
-→ propiedades y comportamiento
+→ problema de datos relacionados
+→ clases y objetos en Kotlin
 → encapsulamiento
+→ herencia / override / polimorfismo
 → control de errores
-→ sintaxis avanzada según ritmo
-→ corrutinas solo con prerrequisitos cerrados
+→ data class / sealed class
+→ corrutinas si los prerrequisitos están cerrados
 ```
 
-## Material
+## Material de la semana
 
 1. [Colecciones Kotlin · cierre pendiente](./01-colecciones-kotlin.md)
-2. [POO en Kotlin](./02-poo-kotlin.md)
-3. [Control de errores y puente a corrutinas](./03-errores-corrutinas.md)
-4. [Laboratorio y práctica](./04-laboratorio.md)
-5. [Dinámica viva · Tres listas son una pista](./dinamica-viva-tres-listas.md)
+2. [POO en Kotlin · de clases a polimorfismo](./02-poo-kotlin.md)
+3. [Control de errores y corrutinas](./03-errores-corrutinas.md)
+4. [Laboratorio incremental](./04-laboratorio.md)
+5. [Sintaxis avanzada · data class y sealed class](./05-sintaxis-avanzada.md)
+6. [Dinámica viva · Tres listas son una pista](./dinamica-viva-tres-listas.md)
 
-## Objetivos
+## Objetivos de aprendizaje
 
-El estudiante deberá poder agrupar y procesar datos con colecciones; reconocer cuándo múltiples datos relacionados deberían convertirse en un objeto; declarar clases e instancias Kotlin; usar propiedades y métodos; aplicar encapsulamiento básico; manejar errores previsibles sin esconderlos; y comprender conceptualmente por qué una aplicación móvil necesita trabajo asíncrono antes de entrar a corrutinas.
+Al finalizar la semana, según el avance efectivamente alcanzado, el estudiante debería poder:
 
-## PocketLog
+- crear clases, propiedades, métodos e instancias en Kotlin;
+- aplicar encapsulamiento y controlar la mutabilidad del estado;
+- implementar una relación de herencia simple con `open`, `:` y `override`;
+- observar polimorfismo mediante referencias de un tipo general;
+- distinguir validación preventiva de manejo de excepciones con `try/catch`;
+- explicar cuándo una `data class` resulta apropiada;
+- comprender el propósito de una `sealed class` para modelar conjuntos cerrados de estados o resultados;
+- explicar qué problema resuelven las corrutinas y qué significa realmente `suspend`.
 
-PocketLog es proyecto formativo transversal y evoluciona desde el **estado realmente alcanzado**, no desde código objetivo adelantado. La promoción del checkpoint v0.2 ocurre después de demostrar colecciones. El siguiente incremento transforma el modelo hacia objetos, evitando mantener listas paralelas de títulos, categorías y estados.
+## Regla pedagógica
+
+Se mantiene una separación explícita entre tres capas:
+
+1. **Contenido:** ejemplos pequeños, neutrales y progresivos para aprender Kotlin.
+2. **Práctica:** ejercicios breves donde el estudiante programa sin copiar una solución completa.
+3. **PocketLog:** proyecto formativo transversal que aplica lo aprendido después de comprenderlo; no es la ejemplificación principal del contenido.
+
+## Kotlin no es «Java con menos líneas»
+
+Durante los ejemplos se compararán conceptos conocidos con su implementación Kotlin, destacando diferencias como constructor primario, propiedades, `open`, `override`, null-safety, expresiones, `data class` y `sealed class`. Se evita traducir mecánicamente código Java línea por línea.
+
+## Criterio sobre corrutinas
+
+Las corrutinas forman parte del contenido institucional de la semana, pero no se enseñan como magia sintáctica. Antes de usarlas se debe comprender el problema de bloquear una aplicación, el flujo normal de una función y el significado de suspensión.
+
+Si el ritmo real obliga a priorizar POO y control de errores, debe registrarse explícitamente qué parte de corrutinas queda pendiente. Publicar material no equivale a haberlo trabajado en aula.
 
 ## Evidencia mínima
 
 - código Kotlin ejecutable;
-- una colección creada, recorrida, filtrada y transformada;
-- PocketLog actualizado al concepto efectivamente cubierto;
-- una clase propia con instancias y comportamiento;
-- manejo razonable de al menos un error cuando ese contenido sea alcanzado;
+- una clase propia con al menos dos instancias;
+- propiedades y comportamiento coherentes;
+- encapsulamiento básico;
+- herencia/sobrescritura/polimorfismo cuando ese bloque sea alcanzado;
+- manejo razonable de al menos un error;
+- uso o explicación justificada de `data class` y `sealed class` cuando corresponda;
 - DevLog semanal con aprendizaje, dificultad, error real y siguiente paso.
-
-## Criterio sobre corrutinas
-
-Las corrutinas forman parte del horizonte curricular, pero **no se enseñan como magia sintáctica**. Si colecciones, funciones y POO consumen la semana, el cierre docente debe registrar corrutinas como pendiente real. Si se alcanzan, se introduce `suspend`, coroutine scope y una demostración controlada, sin convertir la sesión en un catálogo de operadores.
 
 ## Cierre docente obligatorio
 
-Registrar último concepto efectivamente alcanzado, estado real de PocketLog, checkpoint promovido o no promovido, errores/bloqueos frecuentes y punto exacto de inicio de la próxima clase.
+Registrar: último concepto efectivamente alcanzado, práctica realizada, estado real de PocketLog, errores/bloqueos frecuentes, contenidos institucionales pendientes y punto exacto de inicio de la próxima clase.
