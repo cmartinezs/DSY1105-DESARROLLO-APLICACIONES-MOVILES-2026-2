@@ -10,6 +10,23 @@
 
 Comprender el ecosistema de aplicaciones móviles y diferenciar plataforma, lenguaje, framework/toolkit e IDE. Como transición inicial se incorpora un puente breve Java → Kotlin y se inicia la Guía 1 junto con la organización de parejas del proyecto semestral.
 
+## Ruta práctica semanal
+
+La práctica de contenido de esta semana queda separada en dos niveles:
+
+1. 🧩 [**Ejercicios básicos · Semana 1**](./ejercicios-basicos.md) — problemas breves para reconocer conceptos y practicar Java ↔ Kotlin sin contexto de proyecto.
+2. 🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md) — integración guiada paso a paso, con checkpoints, pruebas y errores frecuentes.
+
+Secuencia recomendada:
+
+```text
+contenido / ejemplo docente
+→ ejercicios básicos
+→ laboratorio semanal guiado
+```
+
+> Esta ruta pertenece a la vertical semanal de aprendizaje. No corresponde al proyecto formativo transversal.
+
 ## Distribución horaria real
 
 La sección tiene **5 bloques pedagógicos** esta semana:
@@ -61,7 +78,7 @@ El contenido práctico se organiza en tres capas:
 
 1. **Guía explicada:** conceptos Java → Kotlin desarrollados paso a paso y en lenguaje simple.
 2. **Ejemplo acompañado:** mismo programa construido en Java y Kotlin dentro del mismo proyecto IntelliJ.
-3. **Laboratorio autónomo:** problema nuevo de aproximadamente 15 minutos, resuelto primero en Java y luego en Kotlin por cada estudiante.
+3. **Laboratorio autónomo:** problema nuevo resuelto primero en Java y luego en Kotlin por cada estudiante.
 
 #### 1. Guía paso a paso
 
@@ -92,19 +109,23 @@ Proyecto Gradle ejecutable en IntelliJ IDEA con:
 
 La recomendación para la clase es mantener ambos archivos abiertos mediante **Split Right**, construir primero cada fragmento en Java y escribir inmediatamente su equivalente Kotlin.
 
-#### 3. Laboratorio autónomo · 15 minutos
+#### 3. Práctica autónoma
 
-🧪 [**Laboratorio · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md)
+Antes del laboratorio integrador se recomienda resolver los [**ejercicios básicos de Semana 1**](./ejercicios-basicos.md).
 
-Los estudiantes reciben un problema diferente al ejemplo y deben:
+Luego continuar con:
 
-1. resolverlo primero en Java;
-2. comprobar su ejecución;
-3. reproducir la misma lógica en Kotlin;
+🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md)
+
+Los estudiantes deben:
+
+1. comprobar primero que Java y Kotlin ejecutan;
+2. construir la solución Java por pequeños pasos;
+3. reproducir el comportamiento en Kotlin;
 4. aplicar `val`, inferencia, String templates, funciones y null safety;
-5. comparar ambas salidas.
+5. probar valores límite y comparar ambas salidas.
 
-La carpeta contiene solamente estructura inicial y `TODO`; **no contiene la solución terminada**.
+La carpeta no contiene una solución terminada para copiar.
 
 ### Bloque 2 · 21:51–22:30 · Guía 1 + proyecto
 
