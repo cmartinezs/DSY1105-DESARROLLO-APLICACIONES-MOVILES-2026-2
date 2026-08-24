@@ -1,45 +1,17 @@
 # Semanas · DSY1105 Desarrollo de Aplicaciones Móviles
 
-Este directorio organiza el contenido de la asignatura semana a semana.
+Este directorio organiza el contenido de la asignatura semana a semana. Cada semana contiene material consolidado; el registro de avance real determina qué contenidos se consideran efectivamente trabajados.
 
-Cada semana dispone de dos recursos complementarios:
+## Índice
 
-- **Contenido consolidado en GitHub:** material de estudio desarrollado para la semana, incluyendo explicaciones, ejemplos, ejercicios, aclaraciones y ajustes técnicos cuando el material institucional lo requiere.
-- **Material público en Google Drive:** archivos originales de la asignatura y recursos entregados para esa semana, disponibles para consulta.
+| Semana | Periodo | Actividad / contenido | Contenido consolidado |
+|---|---|---|---|
+| **01** | 10–15 agosto 2026 | Panorama del desarrollo de aplicaciones | [Abrir Semana 01](semana-01/) |
+| **02** | 17–22 agosto 2026 | Programación de Kotlin y sus fundamentos | [Abrir Semana 02](semana-02/) |
+| **03** | 24–29 agosto 2026 | **Aplicación Orientada a Objetos · colecciones, POO, errores y puente a corrutinas** | [Abrir Semana 03](semana-03/) |
 
-📁 [**Biblioteca pública de materiales del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing)
+## Cómo estudiar
 
-## Índice de semanas
+Comienza por el `README.md` semanal y sigue la ruta indicada. En Semana 3 la ruta incorpora explícitamente la deuda real de colecciones antes de POO. PocketLog avanza por checkpoints promovidos con evidencia, no por anticipación del código objetivo.
 
-| Semana | Periodo | Actividad / contenido | Contenido consolidado | Material original |
-|---|---|---|---|---|
-| **01** | 10–15 agosto 2026 | **1.1 Panorama del desarrollo de aplicaciones** | [Abrir Semana 01](semana-01/) | [Abrir Drive](https://drive.google.com/drive/folders/1ieL6EOF475qNxCErYrQfjqw8EL-GXeiV) |
-| **02** | 17–22 agosto 2026 | **1.2 Programación de Kotlin y sus fundamentos** | [Abrir Semana 02](semana-02/) | [Abrir Drive](https://drive.google.com/drive/folders/1dNgCNnnCU5aURfT_5qlU7NH9RQYNe8bj) |
-
-## Cómo utilizar este índice
-
-Para estudiar una semana se recomienda comenzar por su `README.md`. Allí se encuentra:
-
-1. el objetivo y avance esperado;
-2. el índice de contenidos de la semana;
-3. los enlaces al material original disponible en Drive;
-4. las aclaraciones técnicas incorporadas;
-5. los ejercicios, ejemplos y evidencias solicitadas cuando corresponda.
-
-Las semanas se agregarán progresivamente de acuerdo con el avance oficial de la asignatura.
-
-## Estructura esperada
-
-```text
-semanas/
-├── README.md
-├── semana-01/
-│   ├── README.md
-│   └── ...
-├── semana-02/
-│   ├── README.md
-│   └── ...
-└── ...
-```
-
-Cada carpeta semanal debe mantener su propio `README.md` como punto de entrada al contenido de esa semana.
+Cada estudiante mantiene código, README y DevLog semanal como evidencia de proceso.
