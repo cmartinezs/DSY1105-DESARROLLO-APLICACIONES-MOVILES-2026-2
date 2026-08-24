@@ -14,6 +14,24 @@ Consolidar fundamentos de Kotlin mediante práctica incremental:
 
 > Esta secuencia es el mapa semanal. El avance real de la sección determina hasta dónde llega cada sesión; no se marca contenido como visto solo porque aparezca en la planificación.
 
+## Ruta práctica semanal
+
+La práctica de contenido queda organizada en dos niveles:
+
+1. 🧩 [**Ejercicios básicos · Semana 2**](./ejercicios-basicos.md) — ejercicios cortos de variables, operadores, condicionales, ciclos, funciones, null safety y colecciones cuando corresponda.
+2. 🧪 [**Laboratorio semanal · Analizador de temperaturas**](./laboratorio-temperaturas/README.md) — integración guiada por checkpoints, desde un programa mínimo ejecutable hasta `List`, `MutableList`, `filter`, `map` y `count`.
+
+Secuencia recomendada:
+
+```text
+contenido / ejemplos pequeños
+→ ejercicios básicos
+→ laboratorio semanal guiado
+→ transferencia posterior a PocketLog
+```
+
+> PocketLog no reemplaza esta práctica. Primero se aprende el concepto en problemas neutrales y luego se aplica al proyecto transversal.
+
 ## Proyecto formativo transversal · PocketLog
 
 Esta semana comienza formalmente **PocketLog**, el proyecto formativo que evolucionará durante el semestre desde Kotlin de consola hasta una aplicación móvil con persistencia, REST y pruebas.
@@ -78,8 +96,9 @@ PocketLog debe avanzar solo hasta los conceptos que hayan sido trabajados realme
 
 - [Guía práctica · fundamentos Kotlin](./01-guia-kotlin-fundamentos.md)
 - [Kotlin avanzado · lambdas y trailing lambda](./02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
+- [Ejercicios básicos · Semana 2](./ejercicios-basicos.md)
 - [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
-- [Laboratorio de transferencia · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
+- [Laboratorio semanal · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
 
 ## Dinámica viva de la semana
 
