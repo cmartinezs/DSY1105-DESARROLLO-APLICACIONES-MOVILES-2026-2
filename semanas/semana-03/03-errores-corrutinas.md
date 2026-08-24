@@ -1,10 +1,8 @@
-# 3 · Control de errores y puente a corrutinas
+# 3 · Control de errores y corrutinas
 
-> Este contenido se ejecuta según avance real. No se considera visto solo por estar publicado.
+> Este contenido se ejecuta según avance real. Publicarlo no significa que haya sido trabajado en aula.
 
-## Errores previsibles
-
-Kotlin permite validar antes de ejecutar una operación peligrosa y también capturar excepciones cuando corresponde.
+## 1. Primero: prevenir errores cuando sea razonable
 
 ```kotlin
 val texto = "123"
@@ -17,7 +15,9 @@ if (numero == null) {
 }
 ```
 
-Para entrada de usuario, `toIntOrNull()` suele expresar mejor el problema que provocar deliberadamente una excepción.
+`toIntOrNull()` permite representar el fallo esperado sin usar una excepción como control normal del flujo.
+
+## 2. `try-catch`: cuando una operación puede lanzar una excepción
 
 ```kotlin
 try {
@@ -28,15 +28,37 @@ try {
 }
 ```
 
-## Principios
+Reglas:
 
-No usar `try/catch` para esconder cualquier fallo. Captura solo aquello que puedas interpretar o recuperar razonablemente. Evita `catch (e: Exception)` como solución automática.
+- captura una excepción que puedas interpretar o recuperar;
+- evita `catch (e: Exception)` por defecto;
+- no uses `try-catch` para esconder errores de programación;
+- distingue un dato inválido esperado de un fallo inesperado.
 
-## ¿Por qué hablar de asincronía en móviles?
+## Mini práctica
 
-Una aplicación no debería congelar su interfaz mientras espera una operación lenta como red o persistencia. Las corrutinas de Kotlin permiten expresar trabajo suspendible de forma estructurada.
+Implementa una función que reciba un texto y devuelva el doble de un entero válido. Haz dos versiones:
 
-## Primera lectura, solo si se alcanza
+1. usando `toIntOrNull()`;
+2. usando `try-catch` con `NumberFormatException`.
+
+Explica cuál usarías en una entrada habitual de usuario y por qué.
+
+---
+
+# 4 · ¿Por qué una aplicación necesita asincronía?
+
+Supón que una aplicación debe consultar una API. Si la operación tarda varios segundos y bloquea el hilo que atiende la interfaz, la aplicación parece congelada.
+
+```text
+trabajo rápido → respuesta inmediata
+trabajo lento bloqueante → interfaz congelada
+trabajo suspendible → la aplicación puede seguir respondiendo
+```
+
+Las corrutinas permiten expresar trabajo suspendible de forma estructurada y legible.
+
+## `suspend` no significa «otro hilo»
 
 ```kotlin
 suspend fun cargarDatos(): String {
@@ -44,10 +66,51 @@ suspend fun cargarDatos(): String {
 }
 ```
 
-`suspend` no significa «ejecutar en otro hilo» ni «hacerlo más rápido». Indica que la función puede suspenderse y reanudarse dentro de un contexto de corrutina.
+`suspend` indica que una función **puede suspenderse y reanudarse** dentro de una corrutina. No significa automáticamente:
 
-Antes de profundizar se debe comprender: funciones, retorno, lambdas básicas y flujo normal de ejecución. En una sesión inicial interesa el modelo mental, no memorizar `launch`, `async`, dispatchers y scopes simultáneamente.
+- crear un hilo;
+- ejecutar en paralelo;
+- ejecutar más rápido;
+- evitar por sí sola toda operación bloqueante.
+
+## Primera demostración controlada
+
+Para una aplicación de consola que tenga `kotlinx-coroutines` disponible:
+
+```kotlin
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+
+suspend fun cargarDatos(): String {
+    delay(1000)
+    return "Datos cargados"
+}
+
+fun main() = runBlocking {
+    println("Inicio")
+    println(cargarDatos())
+    println("Fin")
+}
+```
+
+`delay()` suspende la corrutina sin representar un `Thread.sleep()` bloqueante. `runBlocking` se utiliza aquí únicamente como puente didáctico para ejecutar una corrutina desde una consola.
+
+## Qué NO hacer todavía
+
+No memorices simultáneamente `launch`, `async`, `Dispatchers`, scopes, jobs y manejo avanzado de concurrencia. Primero comprende:
+
+1. qué problema queremos resolver;
+2. qué significa suspensión;
+3. que una función `suspend` debe ejecutarse dentro de un contexto de corrutina;
+4. que asincronía y paralelismo no son sinónimos.
 
 ## Checkpoint
 
-Distingue validación de captura de excepciones; explica por qué una UI móvil no debe bloquearse; explica qué **no** significa `suspend`. Si no se alcanzó corrutinas en aula, registra este bloque como material disponible pendiente.
+Debes poder explicar:
+
+- validación vs excepción;
+- cuándo `try-catch` es razonable;
+- por qué una UI móvil no debe bloquearse;
+- qué significa `suspend`;
+- qué **no** garantiza una corrutina;
+- por qué `runBlocking` es aceptable para una demostración de consola pero no representa el patrón normal de una UI Android.
