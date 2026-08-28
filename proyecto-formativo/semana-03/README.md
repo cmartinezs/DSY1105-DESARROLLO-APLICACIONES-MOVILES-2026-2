@@ -1,31 +1,22 @@
-# PocketLog · Guía Semana 03 · v0.3
+# PocketLog · Semana 03
 
-## Punto de partida
+## Objetivo del incremento
+Evolucionar PocketLog desde estructuras de datos simples hacia objetos con comportamiento, colecciones tipadas y control explícito de errores.
 
-PocketLog v0.2 mantiene datos relacionados en listas separadas. Esa deuda se usa para justificar el paso a objetos.
+## Dependencia
+**Semana 02 completada obligatoriamente.** El proyecto debe partir desde el estado funcional dejado por el incremento anterior.
 
-## Secuencia
+## Checklist de inicio
+Ver [00-checklist-inicio.md](./00-checklist-inicio.md).
 
-1. Cierra `List` / `MutableList`, recorridos y operaciones funcionales pendientes.
-2. Identifica el problema de las listas paralelas.
-3. Modela un `Registro` como objeto.
-4. Reemplaza las listas paralelas por `MutableList<Registro>`.
-5. Separa operaciones que retornan datos de las que imprimen.
-6. Incorpora validación y manejo explícito de errores.
-7. Usa `data class` y `sealed class` cuando hayan sido explicadas.
-8. Introduce `suspend`/corrutinas sólo después de comprender el problema de bloqueo.
+## Secuencia de implementación
+1. [De datos a objetos](./01-de-datos-a-objetos.md)
+2. [Comportamiento y colecciones](./02-comportamiento-y-colecciones.md)
+3. [Control de errores](./03-control-de-errores.md)
+4. [Checklist final](./04-checklist-final.md)
 
-## Resultado objetivo
+## Contenidos aplicados
+Colecciones, clases, objetos, propiedades, métodos, comportamiento, encapsulamiento básico y manejo de errores según el contenido realmente trabajado.
 
-Una aplicación Kotlin de consola con un dominio reconocible y reutilizable, todavía sin dependencias Android.
-
-## No adelantar
-
-- Activity;
-- Compose;
-- ViewModel;
-- SQLite;
-- Retrofit;
-- Repository como requisito arquitectónico.
-
-El código vivo está en `../../pocketlog/` y el estado objetivo histórico en `../../checkpoints/semana-03/`.
+## Resultado esperado
+PocketLog mantiene una única base viva, ejecutable y preparada para continuar en Semana 04 sin duplicar código ni adelantar contenidos no enseñados.
