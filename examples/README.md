@@ -1,12 +1,15 @@
-# Ejemplos de código
+# Ejemplos · DSY1105 Desarrollo de Aplicaciones Móviles
 
-Índice transversal de ejemplos desarrollados en clases.
+`examples/` es una vertical independiente y la fuente canónica de ejemplos breves, concretos y ejecutables.
 
-Los ejemplos viven dentro de la semana correspondiente para que mantengan su contexto pedagógico. Este directorio funciona solo como índice de acceso rápido.
+## Semanas disponibles
 
-## Ejemplos disponibles
+- [Semana 01](./semana-01/) · equivalencias y transición Java ↔ Kotlin.
+- [Semana 02](./semana-02/) · fundamentos Kotlin.
+- [Semana 03](./semana-03/) · colecciones, clases y manejo explícito de errores.
 
-- [Semana 01 · Ejemplo Java ↔ Kotlin](../semanas/semana-01/ejemplo-java-kotlin/)
-- [Semana 02 · Ejemplos Kotlin](../semanas/semana-02/ejemplos/)
+## Reglas
 
-Los nuevos ejemplos se incorporarán aquí a medida que avance el semestre.
+Cada `semana-XX/` tiene `README.md` índice. Cada ejemplo persigue un solo objetivo demostrativo, debe poder ejecutarse independientemente y no sustituye un lab ni una etapa de PocketLog.
+
+Los ejemplos ya no viven dentro de `semanas/`: esa vertical queda reservada para contenido curricular.
