@@ -51,7 +51,7 @@ List / MutableList
 La práctica queda dividida explícitamente en dos niveles:
 
 1. 🧩 [**Ejercicios básicos · Semana 3**](./ejercicios-basicos.md) — problemas pequeños y neutrales para cerrar colecciones y practicar clase/objeto, encapsulamiento, herencia, polimorfismo, errores y sintaxis avanzada cuando corresponda.
-2. 🧪 [**Laboratorio semanal · De datos sueltos a objetos**](./04-laboratorio.md) — problema integrador guiado por checkpoints, desde `MutableList` hasta modelado con objetos y control de errores.
+2. 🧪 [**Laboratorio semanal · De datos sueltos a objetos**](../../labs/semana-03-de-datos-a-objetos/README.md) — problema integrador guiado por checkpoints, desde `MutableList` hasta modelado con objetos y control de errores.
 
 Secuencia recomendada:
 
@@ -70,9 +70,28 @@ contenido / ejemplo pequeño
 2. [POO en Kotlin · de clases a polimorfismo](./02-poo-kotlin.md)
 3. [Control de errores y corrutinas](./03-errores-corrutinas.md)
 4. [Ejercicios básicos · Semana 3](./ejercicios-basicos.md)
-5. [Laboratorio semanal guiado](./04-laboratorio.md)
+5. [Laboratorio semanal guiado](../../labs/semana-03-de-datos-a-objetos/README.md)
 6. [Sintaxis avanzada · data class y sealed class](./05-sintaxis-avanzada.md)
 7. [Dinámica viva · Tres listas son una pista](./dinamica-viva-tres-listas.md)
+
+## Proyecto formativo transversal · PocketLog
+
+PocketLog llega a esta semana desde la evolución acumulada de Semanas 1 y 2:
+
+```text
+datos + funciones sueltas
+→ múltiples registros + colecciones
+→ objetos + responsabilidades + control de errores
+```
+
+La meta no es reescribir el proyecto, sino refactorizarlo usando el contenido nuevo. Los requerimientos funcionales permanecen estables; cambia la calidad del modelo y la forma de implementarlos.
+
+Material principal:
+
+- [Guía PocketLog · Semana 03](../../proyecto-formativo/guias/semana-03/)
+- [PocketLog vivo](../../proyecto-formativo/pocketlog/)
+- [Checkpoint Semana 03 · v0.3](../../proyecto-formativo/checkpoints/semana-03/)
+- [Requerimientos PocketLog](../../proyecto-formativo/REQUERIMIENTOS.md)
 
 ## Objetivos de aprendizaje
 
