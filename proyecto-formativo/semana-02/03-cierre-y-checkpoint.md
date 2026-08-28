@@ -1,131 +1,31 @@
 # PocketLog · Semana 02 · Cierre y checkpoint
 
-## Qué debería existir al terminar la semana
+## Estado esperado
 
-PocketLog v0.2 debe ser una aplicación de consola sencilla, pero funcional.
+PocketLog v0.2 debe demostrar únicamente contenidos trabajados hasta esta semana: variables, tipos, `val`/`var`, salida por consola, condicionales, ciclos, funciones, `List`, `MutableList` y operaciones de colección cuando hayan sido comprendidas.
 
-Debe demostrar únicamente contenidos trabajados esta semana:
+## Checklist de cierre
 
-```text
-variables y tipos
-val / var
-salida por consola
-String templates
-if / when cuando corresponda
-ciclos
-funciones
-List / MutableList
-filter / map / count después de comprender su equivalente manual
-```
+- [ ] El proyecto ejecuta desde el estado vivo en [`../pocketlog/`](../pocketlog/).
+- [ ] Muestra todos los registros correctamente.
+- [ ] Un filtro por categoría entrega los resultados esperados.
+- [ ] El conteo de pendientes coincide con los datos.
+- [ ] Una transformación con `map` conserva la cantidad de elementos.
+- [ ] Puedo explicar la diferencia entre resolver manualmente con ciclos y usar `filter`, `map` o `count`.
+- [ ] Identifico la fragilidad de mantener listas paralelas sin adelantar todavía la solución de POO.
 
-No necesita clases propias, Android ni arquitectura futura.
+## Checkpoint histórico
 
----
+La referencia estable de cierre está en:
 
-# Del lunes al jueves
+➡️ [`../checkpoints/semana-02/PocketLog.kt`](../checkpoints/semana-02/PocketLog.kt)
 
-## Estado después de Clase 01
+El checkpoint es una evidencia histórica; la Semana 03 continúa modificando el proyecto vivo, no una copia nueva.
 
-```text
-varios registros
-→ almacenados en listas
-→ asociados por índice
-→ recorridos con for
-→ mostrados mediante una función
-```
+## Deuda observable
 
-## Estado después de Clase 02
+Actualmente `titulos`, `categorias` y `completados` dependen de índices sincronizados. Registra por qué esto puede fallar si las colecciones se desalinean.
 
-Sobre la misma base agregamos:
+**Checkpoint final:** ejecuta PocketLog, cambia al menos un dato, vuelve a ejecutar y confirma que el comportamiento sigue siendo coherente.
 
-```text
-filtrar
-contar
-transformar
-```
-
-Primero mediante mecanismos explícitos y después, cuando el patrón ya era reconocible, con operaciones de colección de Kotlin.
-
----
-
-# Qué debe poder explicar el estudiante
-
-No basta con ejecutar el código.
-
-Debe poder responder, por ejemplo:
-
-1. ¿por qué empezamos con tipos explícitos y luego usamos inferencia?;
-2. ¿qué diferencia existe entre `val` y `var`?;
-3. ¿por qué `if` puede asignarse a una variable en Kotlin?;
-4. ¿qué problema resolvió la primera colección?;
-5. ¿qué hace manualmente un filtro?;
-6. ¿qué reemplaza `filter`?;
-7. ¿qué reemplaza `count`?;
-8. ¿qué diferencia conceptual existe entre `filter` y `map`?;
-9. ¿por qué las lambdas aparecen entre llaves?;
-10. ¿qué fragilidad tienen las listas paralelas actuales?
-
----
-
-# Checkpoint ejecutable
-
-La versión de referencia se conserva en:
-
-➡️ [`../../checkpoints/semana-02/PocketLog.kt`](../../checkpoints/semana-02/PocketLog.kt)
-
-Este archivo representa **el estado de PocketLog al cierre de Semana 02**.
-
-El proyecto que seguirá evolucionando está en:
-
-➡️ [`../../pocketlog/`](../../pocketlog/)
-
-La siguiente semana no crea otro proyecto PocketLog: parte desde el proyecto vivo y, al cerrar un hito relevante, deja un nuevo checkpoint histórico.
-
----
-
-# Regla antes de cerrar
-
-Ejecuta el proyecto y verifica:
-
-- muestra todos los registros;
-- un filtro por categoría devuelve resultados correctos;
-- el conteo de pendientes coincide con los datos;
-- la transformación de estados conserva la cantidad de elementos;
-- no hay excepciones por índices desalineados en el ejemplo base.
-
-Luego cambia un dato y vuelve a probar.
-
----
-
-# Una deuda visible
-
-La versión funciona, pero mantener tres colecciones coordinadas exige disciplina manual:
-
-```text
-titulos
-categorias
-completados
-```
-
-Mientras todas tengan el mismo tamaño y orden, funciona.
-
-Si una se descoordina, la aplicación puede mezclar información o fallar.
-
-No solucionaremos ese problema con contenido futuro adelantado.
-
-Lo guardamos como **deuda observable** para retomarla cuando el plan de la asignatura introduzca herramientas apropiadas.
-
----
-
-# Versión
-
-```text
-PocketLog v0.2
-Estado: checkpoint formativo estable
-Interfaz: consola
-Persistencia: memoria durante ejecución
-Modelo: colecciones básicas
-Objetivo: demostrar fundamentos Kotlin de Semana 02
-```
-
-➡️ Si quieres experimentar sin modificar el checkpoint obligatorio, usa [EXPLORA.md](./EXPLORA.md).
+➡️ [Exploración opcional](./EXPLORA.md)
