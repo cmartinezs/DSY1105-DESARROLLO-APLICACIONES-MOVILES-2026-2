@@ -1,1 +1,0 @@
-Este archivo temporal no debe existir.
