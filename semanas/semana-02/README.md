@@ -38,7 +38,7 @@ PocketLog continúa esta semana como el mismo proyecto iniciado en Semana 1. La 
 
 Material principal:
 
-- [Guías PocketLog · Semana 02](../../proyecto-formativo/guias/semana-02/)
+- [Guía PocketLog · Semana 02](../../proyecto-formativo/semana-02/)
 - [PocketLog vivo](../../proyecto-formativo/pocketlog/)
 - [Checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoints/semana-02/)
 - [Requerimientos PocketLog](../../proyecto-formativo/REQUERIMIENTOS.md)
@@ -96,7 +96,7 @@ PocketLog debe avanzar solo hasta los conceptos que hayan sido trabajados realme
 - [Guía práctica · fundamentos Kotlin](./01-guia-kotlin-fundamentos.md)
 - [Kotlin avanzado · lambdas y trailing lambda](./02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
 - [Ejercicios básicos · Semana 2](./ejercicios-basicos.md)
-- [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
+- [Ejemplo complementario · Productos](../../examples/semana-02/Productos.kt)
 - [Laboratorio semanal · Analizador de temperaturas](../../labs/semana-02-analizador-temperaturas/README.md)
 
 ## Dinámica viva de la semana

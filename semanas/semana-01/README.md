@@ -98,7 +98,7 @@ Explica con detalle:
 
 #### 2. Ejemplo práctico acompañado
 
-📁 [**Ejemplo práctico · Java → Kotlin**](./ejemplo-java-kotlin/README.md)
+📁 [**Ejemplo práctico · Java → Kotlin**](../../examples/semana-01/ejemplo-java-kotlin/README.md)
 
 Proyecto Gradle ejecutable en IntelliJ IDEA con:
 
