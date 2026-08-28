@@ -36,7 +36,9 @@ sections:
     formative_project:
       name: PocketLog
       status: introduced
-      checkpoint: null
+      checkpoint: v0.1
+      target_state: conceptual_baseline
+      confirmed_reached: true
     blockers: []
     next_week_focus:
       - fundamentos Kotlin
@@ -45,3 +47,7 @@ sections:
 
 course_specific:
   transition: "Java -> Kotlin"
+  pocketlog_target:
+    version: v0.1
+    implementation_required: false
+    note: "PocketLog se presenta como proyecto longitudinal; no se implementa formalmente durante Semana 1."
