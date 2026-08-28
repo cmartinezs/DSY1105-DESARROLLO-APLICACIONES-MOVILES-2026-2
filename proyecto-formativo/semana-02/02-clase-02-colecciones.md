@@ -1,384 +1,69 @@
 # PocketLog · Semana 02 · Clase 02
 
-**Sesión:** Jueves 20 de agosto  
-**Foco:** Funciones y colecciones  
-**Duración docente disponible:** 2 bloques  
-**Punto de partida:** resultado funcional de la [Clase 01](./01-clase-01-fundamentos.md)
+**Foco:** funciones y colecciones  
+**Punto de partida:** [Clase 01](./01-clase-01-fundamentos.md)
 
-## Objetivo de la clase
+## Objetivo
 
 Tomar el PocketLog que ya lista registros y agregar operaciones sobre la información sin esconder el mecanismo detrás de sintaxis corta demasiado pronto.
 
-La progresión será:
+La progresión es:
 
 ```text
 recorrer manualmente
 → resolver con ciclos y condiciones
 → extraer función
-→ reconocer el patrón
+→ reconocer patrón
 → usar operación de colección equivalente
-→ comparar ambas soluciones
+→ comparar soluciones
 ```
 
----
+## 1. Recuperar estado anterior
 
-# Ruta de la clase
+Ejecuta PocketLog antes de modificarlo.
 
-| Etapa | Contenido | Qué cambia en PocketLog |
-|---|---|---|
-| 1 | repaso | comprobamos el checkpoint anterior |
-| 2 | filtros con `for` | obtenemos registros por categoría |
-| 3 | funciones | reutilizamos el filtro |
-| 4 | `filterIndexed` | expresamos la misma intención con Kotlin |
-| 5 | conteo manual | calculamos pendientes |
-| 6 | `count` | sustituimos el patrón conocido |
-| 7 | transformación | preparamos `map` con un caso simple |
+**Checkpoint:** muestra correctamente todos los registros creados en Clase 01.
 
----
+## 2. Filtrar manualmente
 
-# Etapa 1 · Recuperar el estado anterior
+Crea una colección `resultados`, recorre índices y agrega sólo títulos cuya categoría corresponda a la buscada.
 
-Antes de agregar código, ejecuta PocketLog.
+**Checkpoint:** puedes explicar `for → if → add` y obtienes sólo registros de la categoría elegida.
 
-Debe mostrar todos los registros.
+## 3. Extraer una función
 
-No continúes si el checkpoint anterior no funciona.
+Crea `filtrarTitulosPorCategoria(titulos, categorias, categoriaBuscada)` y úsala con al menos dos categorías.
 
-## Preguntas rápidas
+**Checkpoint:** la misma función funciona para distintos valores del parámetro.
 
-Debes poder responder:
+## 4. Reconocer `filter` / `filterIndexed`
 
-1. ¿por qué existen tres listas?;
-2. ¿qué representa el mismo índice en cada una?;
-3. ¿qué hace `mostrarRegistros`?;
-4. ¿por qué recibe `List` y no necesita `MutableList`?
+Cuando el patrón manual ya sea comprendido, expresa la misma intención con una operación de colección.
 
----
+Para profundizar en lambdas y trailing lambda consulta [Kotlin avanzado · lambdas y trailing lambda](../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md).
 
-# Etapa 2 · Mostrar solo una categoría
+**Checkpoint:** puedes explicar qué parte de la solución manual reemplaza `filter`.
 
-Nueva necesidad:
+## 5. Contar pendientes manualmente
 
-> Queremos ver solamente los registros de categoría `estudio`.
+Usa un contador, un `for` y una condición.
 
-No comenzamos con `filter`.
+**Checkpoint:** el resultado coincide con los datos de entrada.
 
-Primero resolvemos el problema con las herramientas conocidas.
+## 6. Reconocer `count`
 
-```kotlin
-val resultados: MutableList<String> = mutableListOf()
+Reemplaza el patrón manual por `count` sólo después de comprenderlo.
 
-for (indice in titulos.indices) {
-    if (categorias[indice].equals("estudio", ignoreCase = true)) {
-        resultados.add(titulos[indice])
-    }
-}
+**Checkpoint:** puedes explicar por qué ambas soluciones producen el mismo resultado.
 
-for (titulo in resultados) {
-    println(titulo)
-}
-```
+## 7. Transformar con `map`
 
-## Explica antes de avanzar
+Convierte estados Boolean a textos `PENDIENTE` / `COMPLETADO`, primero manualmente y después con `map`.
 
-```text
-resultados
-    ↓
-for
-    ↓
-if
-    ↓
-add
-```
+**Checkpoint:** la colección transformada conserva la cantidad de elementos y puedes explicar que `map` produce otra colección.
 
-¿Qué papel cumple cada parte?
+## Cierre
 
----
+No continúes si una operación corta funciona pero no puedes explicar el algoritmo equivalente.
 
-# Etapa 3 · Generalizar con una función
-
-El código anterior solo sirve para `estudio`.
-
-Movemos la categoría a un parámetro:
-
-```kotlin
-fun filtrarTitulosPorCategoria(
-    titulos: List<String>,
-    categorias: List<String>,
-    categoriaBuscada: String
-): List<String> {
-    val resultado: MutableList<String> = mutableListOf()
-
-    for (indice in titulos.indices) {
-        if (categorias[indice].equals(categoriaBuscada, ignoreCase = true)) {
-            resultado.add(titulos[indice])
-        }
-    }
-
-    return resultado
-}
-```
-
-Ahora:
-
-```kotlin
-val estudio = filtrarTitulosPorCategoria(titulos, categorias, "estudio")
-val personal = filtrarTitulosPorCategoria(titulos, categorias, "personal")
-```
-
-## Prueba tú
-
-Agrega una categoría distinta y comprueba que la misma función siga sirviendo.
-
----
-
-# Etapa 4 · Reconocer el patrón: filtrar
-
-Lo que acabamos de programar manualmente hace esto:
-
-```text
-recorrer una colección
-→ evaluar una condición
-→ conservar solo elementos que cumplen
-```
-
-Ese patrón tiene un nombre: **filtrar**.
-
-Kotlin ofrece una operación para expresarlo.
-
-Forma explícita de la lambda:
-
-```kotlin
-val resultado = titulos.filterIndexed { indice, titulo ->
-    categorias[indice].equals("estudio", ignoreCase = true)
-}
-```
-
-En este caso `titulo` no se utiliza:
-
-```kotlin
-val resultado = titulos.filterIndexed { indice, _ ->
-    categorias[indice].equals("estudio", ignoreCase = true)
-}
-```
-
-## Importante: ¿por qué aparecen llaves?
-
-Las llaves contienen una **lambda**. No son una sintaxis especial de `filter`.
-
-Si quieres comprender desde la forma completa por qué Kotlin permite sacar esa lambda fuera de los paréntesis, consulta:
-
-➡️ [Kotlin avanzado · lambdas y trailing lambda](../../../semanas/semana-02/02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
-
-Para continuar la clase basta entender:
-
-```text
-versión manual → recorre, decide y agrega
-filter/filterIndexed → expresa directamente esa intención
-```
-
----
-
-# Etapa 5 · Contar pendientes manualmente
-
-Nueva pregunta:
-
-> ¿Cuántos registros siguen pendientes?
-
-Primero:
-
-```kotlin
-var pendientes: Int = 0
-
-for (completado in completados) {
-    if (!completado) {
-        pendientes = pendientes + 1
-    }
-}
-```
-
-Primera abreviación:
-
-```kotlin
-pendientes++
-```
-
-Antes de avanzar explica por qué ambas instrucciones producen el mismo incremento.
-
----
-
-# Etapa 6 · Reconocer otro patrón: contar
-
-La operación anterior hace:
-
-```text
-recorrer
-→ evaluar condición
-→ aumentar contador cuando cumple
-```
-
-Kotlin permite expresar esa intención mediante `count`:
-
-```kotlin
-val pendientes = completados.count { completado ->
-    !completado
-}
-```
-
-Cuando ya se comprende el parámetro:
-
-```kotlin
-val pendientes = completados.count { !it }
-```
-
-## Regla
-
-No reemplazamos el ciclo porque esté "mal".
-
-Lo reemplazamos porque ya entendemos el mecanismo y `count` comunica mejor la intención.
-
----
-
-# Etapa 7 · Primera transformación con `map`
-
-Ahora queremos producir textos legibles a partir de los Boolean:
-
-```text
-false → PENDIENTE
-true  → COMPLETADO
-```
-
-Primero manualmente:
-
-```kotlin
-val estados: MutableList<String> = mutableListOf()
-
-for (completado in completados) {
-    if (completado) {
-        estados.add("COMPLETADO")
-    } else {
-        estados.add("PENDIENTE")
-    }
-}
-```
-
-Observa el patrón:
-
-```text
-recorrer cada elemento
-→ producir un nuevo valor
-→ guardar un resultado por cada elemento
-```
-
-Eso es una **transformación**.
-
-Con `map`:
-
-```kotlin
-val estados = completados.map { completado ->
-    if (completado) {
-        "COMPLETADO"
-    } else {
-        "PENDIENTE"
-    }
-}
-```
-
-Luego podemos simplificar el `if`:
-
-```kotlin
-val estados = completados.map { completado ->
-    if (completado) "COMPLETADO" else "PENDIENTE"
-}
-```
-
-No es necesario llegar hoy a la versión más compacta si todavía no resulta clara.
-
----
-
-# Integramos PocketLog
-
-Al finalizar la clase, la aplicación debería poder demostrar al menos:
-
-```text
-1. listar todos los registros
-2. filtrar títulos por una categoría
-3. contar pendientes
-4. transformar estados a texto
-```
-
-La versión final de la semana está disponible como referencia en:
-
-➡️ [`../../checkpoints/semana-02/PocketLog.kt`](../../checkpoints/semana-02/PocketLog.kt)
-
-El proyecto vivo que continúa evolucionando está en:
-
-➡️ [`../../pocketlog/`](../../pocketlog/)
-
-No copies el checkpoint antes de intentar construir cada parte.
-
----
-
-# Prueba tú · 10–15 minutos
-
-Escoge una:
-
-### A · Contar por categoría
-
-Crea una función que reciba una categoría y devuelva cuántos registros pertenecen a ella.
-
-### B · Títulos completados
-
-Obtén únicamente los títulos cuyo estado sea completado.
-
-### C · Dos soluciones
-
-Resuelve un filtro primero con `for` y después con una operación de colección. Explica cuál comunica mejor la intención y por qué.
-
----
-
-# Checkpoint de salida de la Clase 02
-
-Al terminar deberías poder explicar esta evolución:
-
-```text
-for + if + add
-      ↓
-filter
-
-for + if + contador
-      ↓
-count
-
-for + producir nuevo valor
-      ↓
-map
-```
-
-Si solo recuerdas `filter { ... }` pero no puedes reconstruir la versión manual, vuelve un paso atrás.
-
----
-
-# Una incomodidad que NO resolveremos hoy
-
-Nuestro código sigue dependiendo de que:
-
-```text
-titulos[0]
-categorias[0]
-completados[0]
-```
-
-pertenezcan siempre al mismo registro.
-
-¿Qué pasa si agregamos un título y olvidamos agregar su categoría?
-
-No respondas todavía con una tecnología que no hemos estudiado.
-
-Solo registra la observación:
-
-> **hay datos que pertenecen juntos, pero nuestra estructura actual obliga a mantenerlos separados y sincronizados manualmente.**
-
-Esa será una excelente pregunta para retomar cuando el contenido del curso nos entregue nuevas herramientas.
-
-➡️ Termina con [Cierre y checkpoint de Semana 02](./03-cierre-y-checkpoint.md).
+➡️ Continúa con [Cierre y checkpoint](./03-cierre-y-checkpoint.md).
