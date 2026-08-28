@@ -1,19 +1,17 @@
-# Laboratorios
+# Laboratorios · DSY1105 Desarrollo de Aplicaciones Móviles
 
-Índice transversal de laboratorios integradores de la asignatura.
-
-## Regla canónica
-
-Los laboratorios con identidad propia viven en `labs/<nombre>/README.md`. Las carpetas semanales sólo los enlazan o conservan rutas antiguas como compatibilidad de navegación, sin mantener una segunda copia activa del contenido.
+`labs/` es la fuente canónica de los laboratorios guiados de la asignatura.
 
 ## Laboratorios disponibles
 
-- Semana 01 · [Control de batería Java → Kotlin](./semana-01-java-kotlin/)
-- Semana 02 · [Analizador de temperaturas](./semana-02-analizador-temperaturas/)
-- Semana 03 · [De datos sueltos a objetos](./semana-03-de-datos-a-objetos/)
+- [Semana 01 · Control de batería Java → Kotlin](./semana-01-java-kotlin/)
+- [Semana 02 · Analizador de temperaturas](./semana-02-analizador-temperaturas/)
+- [Semana 03 · De datos sueltos a objetos](./semana-03-de-datos-a-objetos/)
 
-## Navegación
+## Contrato
 
-Cada `semanas/semana-XX/` puede enlazar el laboratorio correspondiente, pero `labs/` es la fuente canónica para el contenido y archivos reproducibles del laboratorio.
+Cada lab aplica principalmente lo aprendido esa semana, debe ser reproducible, declarar conocimientos previos y dependencia de labs anteriores, y organizar la implementación en varios Markdown secuenciales con checkpoints explícitos.
 
-Esta organización cumple la regla de fuente única del canon transversal y permite consultar los laboratorios también fuera del contexto de una semana específica.
+Los labs son independientes de PocketLog y priorizan ejecución local. Sólo usan servicios externos o infraestructura adicional cuando el contenido lo justifica.
+
+`semanas/` puede enlazarlos, pero no duplicarlos.
