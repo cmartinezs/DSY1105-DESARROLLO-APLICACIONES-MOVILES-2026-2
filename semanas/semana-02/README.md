@@ -19,7 +19,7 @@ Consolidar fundamentos de Kotlin mediante práctica incremental:
 La práctica de contenido queda organizada en dos niveles:
 
 1. 🧩 [**Ejercicios básicos · Semana 2**](./ejercicios-basicos.md) — ejercicios cortos de variables, operadores, condicionales, ciclos, funciones, null safety y colecciones cuando corresponda.
-2. 🧪 [**Laboratorio semanal · Analizador de temperaturas**](./laboratorio-temperaturas/README.md) — integración guiada por checkpoints, desde un programa mínimo ejecutable hasta `List`, `MutableList`, `filter`, `map` y `count`.
+2. 🧪 [**Laboratorio semanal · Analizador de temperaturas**](../../labs/semana-02-analizador-temperaturas/README.md) — integración guiada por checkpoints, desde un programa mínimo ejecutable hasta `List`, `MutableList`, `filter`, `map` y `count`.
 
 Secuencia recomendada:
 
@@ -34,15 +34,14 @@ contenido / ejemplos pequeños
 
 ## Proyecto formativo transversal · PocketLog
 
-Esta semana comienza formalmente **PocketLog**, el proyecto formativo que evolucionará durante el semestre desde Kotlin de consola hasta una aplicación móvil con persistencia, REST y pruebas.
-
-La experiencia se trabaja clase a clase desde el estado real del código.
+PocketLog continúa esta semana como el mismo proyecto iniciado en Semana 1. La representación evoluciona desde datos y funciones sueltas hacia múltiples registros y colecciones, sólo hasta donde el contenido realmente trabajado lo permita.
 
 Material principal:
 
 - [Guías PocketLog · Semana 02](../../proyecto-formativo/guias/semana-02/)
 - [PocketLog vivo](../../proyecto-formativo/pocketlog/)
 - [Checkpoint Semana 02 · v0.2](../../proyecto-formativo/checkpoints/semana-02/)
+- [Requerimientos PocketLog](../../proyecto-formativo/REQUERIMIENTOS.md)
 - [Roadmap semestral PocketLog](../../proyecto-formativo/ROADMAP-SEMANAL.md)
 - [Diseño transversal del proyecto](../../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
 
@@ -98,7 +97,7 @@ PocketLog debe avanzar solo hasta los conceptos que hayan sido trabajados realme
 - [Kotlin avanzado · lambdas y trailing lambda](./02-kotlin-avanzado-lambdas-y-trailing-lambda.md)
 - [Ejercicios básicos · Semana 2](./ejercicios-basicos.md)
 - [Ejemplo complementario · Productos](./ejemplos/Productos.kt)
-- [Laboratorio semanal · Analizador de temperaturas](./laboratorio-temperaturas/README.md)
+- [Laboratorio semanal · Analizador de temperaturas](../../labs/semana-02-analizador-temperaturas/README.md)
 
 ## Dinámica viva de la semana
 
@@ -192,7 +191,7 @@ PocketLog de Semana 02 permanece **en progreso**. No se fuerza una versión comp
 La evolución real queda:
 
 ```text
-variables y estado simple
+datos y funciones sueltas de Semana 1
 → decisiones
 → repetición
 → funciones
