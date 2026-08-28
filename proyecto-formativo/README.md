@@ -2,16 +2,27 @@
 
 PocketLog es el proyecto formativo longitudinal de **DSY1105 Desarrollo de Aplicaciones Móviles**.
 
-Comienza en **Semana 01** como una aplicación Kotlin de consola con datos y funciones sueltas, y evoluciona sobre el mismo problema de negocio hasta transformarse en una aplicación móvil.
+Comienza en **Semana 01** como una aplicación Kotlin de consola con datos y funciones sueltas, y evoluciona sobre la misma base de código durante el semestre.
 
-## Regla de evolución
+## Modelo de trabajo
 
-Los requerimientos funcionales se conocen desde el inicio; la técnica de implementación cambia con el contenido curricular.
+PocketLog utiliza una única base de código viva. Las carpetas semanales documentan cómo incrementarla; no contienen copias completas del proyecto.
 
-- [Requerimientos funcionales](./REQUERIMIENTOS.md)
-- [Roadmap semanal](./ROADMAP-SEMANAL.md)
+```text
+proyecto-formativo/
+├── README.md
+├── REQUERIMIENTOS.md
+├── ROADMAP-SEMANAL.md
+├── pocketlog/          # código vivo
+├── semana-01/          # guía incremental
+├── semana-02/
+├── semana-03/
+└── historicos/         # índice de hitos Git
+```
 
-Ejemplo:
+## Evolución
+
+Los requerimientos funcionales se conocen desde el inicio; la implementación cambia con el contenido curricular.
 
 ```text
 Semana 01 -> datos sueltos + funciones top-level
@@ -20,37 +31,29 @@ Semana 03 -> objetos + POO + errores
 Semana 04 -> consolidación Kotlin consola pre-EV1
 ```
 
-## ¿Qué quieres hacer?
+- [Requerimientos funcionales](./REQUERIMIENTOS.md)
+- [Roadmap semanal](./ROADMAP-SEMANAL.md)
 
-- **Continuar programando** → [pocketlog/](./pocketlog/)
-- **Seguir una guía** → [guias/](./guias/)
-- **Revisar un estado histórico** → [checkpoints/](./checkpoints/)
-- **Ver los requerimientos** → [REQUERIMIENTOS.md](./REQUERIMIENTOS.md)
-- **Ver el roadmap del semestre** → [ROADMAP-SEMANAL.md](./ROADMAP-SEMANAL.md)
+## Regla de continuidad
 
-## Estructura
+Cada semana recibe el proyecto vivo dejado por la anterior.
 
-```text
-proyecto-formativo/
-├── README.md
-├── REQUERIMIENTOS.md
-├── ROADMAP-SEMANAL.md
-├── pocketlog/          # proyecto vivo
-├── guias/              # instrucciones por semana
-└── checkpoints/        # estados históricos
-```
+Antes de comenzar debe existir un **checklist de inicio**. Durante la guía se incorporan los contenidos de la semana de manera secuencial y verificable. Al terminar debe existir un **checklist de finalización** que confirme que el estado es apto para continuar.
 
-## Regla simple
+No se reinicia PocketLog por semana.
+
+## Históricos
+
+Los estados anteriores se conservan mediante Git, no duplicando el proyecto.
+
+`historicos/` mantiene el índice de hitos y referencias de commit/tag necesarias para reconstruir versiones anteriores.
 
 ```text
-quiero programar     -> pocketlog/
-quiero seguir pasos  -> guias/
-quiero ver un hito   -> checkpoints/
-quiero saber qué debe hacer el producto -> REQUERIMIENTOS.md
+código vivo actual -> pocketlog/
+implementación semanal -> semana-XX/
+estado histórico -> Git + historicos/
 ```
 
-El proyecto vivo **no se duplica por semana**. Las guías explican cómo avanzar y los checkpoints conservan estados históricos.
-
-PocketLog no replica el caso de negocio de EV1, pero sí ejercita progresivamente las capacidades técnicas esperadas para Kotlin de consola y POO.
+PocketLog no replica el caso de negocio de EV1, pero ejercita progresivamente las capacidades técnicas esperadas para Kotlin de consola y POO.
 
 Para decisiones docentes y trazabilidad curricular, ver [Proyecto formativo transversal · PocketLog](../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md).
