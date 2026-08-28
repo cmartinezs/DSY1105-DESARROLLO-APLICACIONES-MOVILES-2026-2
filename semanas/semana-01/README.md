@@ -15,7 +15,7 @@ Comprender el ecosistema de aplicaciones móviles y diferenciar plataforma, leng
 La práctica de contenido de esta semana queda separada en dos niveles:
 
 1. 🧩 [**Ejercicios básicos · Semana 1**](./ejercicios-basicos.md) — problemas breves para reconocer conceptos y practicar Java ↔ Kotlin sin contexto de proyecto.
-2. 🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md) — integración guiada paso a paso, con checkpoints, pruebas y errores frecuentes.
+2. 🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](../../labs/semana-01-java-kotlin/README.md) — integración guiada paso a paso, con checkpoints, pruebas y errores frecuentes.
 
 Secuencia recomendada:
 
@@ -115,7 +115,7 @@ Antes del laboratorio integrador se recomienda resolver los [**ejercicios básic
 
 Luego continuar con:
 
-🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](./laboratorio-java-kotlin/README.md)
+🧪 [**Laboratorio semanal · Control de batería Java → Kotlin**](../../labs/semana-01-java-kotlin/README.md)
 
 Los estudiantes deben:
 
