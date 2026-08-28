@@ -1,0 +1,56 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 3
+period:
+  start: 2026-08-24
+  end: 2026-08-29
+
+sections:
+  - id: 009V
+    sessions:
+      planned: 2
+      completed: null
+    blocks:
+      planned: 5
+      completed: null
+    curricular_progress:
+      planned_topics:
+        - cierre de colecciones Kotlin
+        - clases y objetos
+        - encapsulamiento
+        - herencia y polimorfismo
+        - control de errores
+        - data class y sealed class
+        - corrutinas y suspend
+      covered_topics: null
+      pending_topics: null
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: null
+    devlog:
+      expected: true
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: in_progress
+      checkpoint: v0.3
+      target_state: object_model_console
+      confirmed_reached: null
+    blockers: null
+    next_week_focus:
+      - reconciliar el último concepto efectivamente alcanzado
+      - consolidar Kotlin de consola antes de la evaluación
+      - iniciar Android Studio sólo según el programa y sin migrar PocketLog prematuramente
+
+course_specific:
+  language: Kotlin
+  institutional_activity: "1.3 Aplicación Orientada a Objetos"
+  progression_rule: "contenido -> ejercicio básico -> laboratorio -> transferencia a PocketLog"
+  pocketlog_target:
+    version: v0.3
+    runtime: console
+    android_allowed: false
+  operational_note: "covered_topics y completed permanecen null hasta registrar evidencia real de aula; el objetivo curricular no sustituye el avance efectivo."
