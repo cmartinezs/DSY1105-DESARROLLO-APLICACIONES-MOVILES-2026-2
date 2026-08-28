@@ -51,6 +51,8 @@ sections:
       name: PocketLog
       status: in_progress
       checkpoint: v0.2
+      target_state: procedural_collections
+      confirmed_reached: false
     blockers:
       - parte del tiempo de la sesion del 20-08 se uso para crear y normalizar el repositorio personal del estudiante
       - parte del tiempo de la sesion del 20-08 se uso para crear y registrar el primer DevLog
@@ -65,3 +67,7 @@ course_specific:
   progression_rule: "forma explicita -> comprension -> forma idiomatica"
   repository_student_standard_introduced: true
   devlog_introduced: true
+  pocketlog_target:
+    version: v0.2
+    runtime: console
+    note: "El checkpoint v0.2 representa el objetivo curricular de Semana 2; la sección cerró antes de completar colecciones y su integración."
