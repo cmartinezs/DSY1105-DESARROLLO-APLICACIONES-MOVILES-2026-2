@@ -1,72 +1,95 @@
 package pocketlog
 
-fun mostrarRegistros(
-    titulos: List<String>,
-    categorias: List<String>,
-    completados: List<Boolean>
+data class Registro(
+    val id: Int,
+    val titulo: String,
+    val categoria: String,
+    val completado: Boolean = false
 ) {
-    for (indice in titulos.indices) {
-        val estado = if (completados[indice]) "COMPLETADO" else "PENDIENTE"
-        println("${indice + 1}. ${titulos[indice]} · ${categorias[indice]} · $estado")
+    fun completar(): Registro = copy(completado = true)
+
+    fun resumen(): String {
+        val estado = if (completado) "COMPLETADO" else "PENDIENTE"
+        return "$id. $titulo · $categoria · $estado"
     }
 }
 
-fun filtrarTitulosPorCategoria(
-    titulos: List<String>,
-    categorias: List<String>,
+sealed class ResultadoOperacion {
+    data class Exito(val mensaje: String) : ResultadoOperacion()
+    data class Error(val mensaje: String) : ResultadoOperacion()
+}
+
+fun mostrarRegistros(registros: List<Registro>) {
+    registros.forEach { println(it.resumen()) }
+}
+
+fun filtrarPorCategoria(
+    registros: List<Registro>,
     categoriaBuscada: String
-): List<String> =
-    titulos.filterIndexed { indice, _ ->
-        categorias[indice].equals(categoriaBuscada, ignoreCase = true)
+): List<Registro> =
+    registros.filter { it.categoria.equals(categoriaBuscada, ignoreCase = true) }
+
+fun obtenerPendientes(registros: List<Registro>): List<Registro> =
+    registros.filter { !it.completado }
+
+fun completarPorId(
+    registros: MutableList<Registro>,
+    id: Int
+): ResultadoOperacion {
+    val indice = registros.indexOfFirst { it.id == id }
+
+    if (indice == -1) {
+        return ResultadoOperacion.Error("No existe un registro con id $id")
     }
 
-fun titulosPendientes(
-    titulos: List<String>,
-    completados: List<Boolean>
-): List<String> =
-    titulos.filterIndexed { indice, _ -> !completados[indice] }
+    registros[indice] = registros[indice].completar()
+    return ResultadoOperacion.Exito("Registro $id marcado como completado")
+}
+
+fun buscarPorId(
+    registros: List<Registro>,
+    id: Int
+): Registro? = registros.find { it.id == id }
+
+// Semana 3 introduce el concepto de suspensión. Esta función es deliberadamente
+// simple: permite discutir `suspend` sin adelantar Android, red ni persistencia.
+suspend fun obtenerCantidadSimulada(registros: List<Registro>): Int = registros.size
 
 fun main() {
-    val titulos = mutableListOf(
-        "Revisar guía Kotlin",
-        "Comprar alimento",
-        "Practicar colecciones"
+    val registros = mutableListOf(
+        Registro(1, "Revisar guía Kotlin", "estudio"),
+        Registro(2, "Comprar alimento", "personal", completado = true),
+        Registro(3, "Practicar POO", "estudio")
     )
 
-    val categorias = mutableListOf(
-        "estudio",
-        "personal",
-        "estudio"
-    )
-
-    val completados = mutableListOf(
-        false,
-        true,
-        false
-    )
-
-    println("=== PocketLog · checkpoint Semana 02 ===")
+    println("=== PocketLog · versión objetivo Semana 03 ===")
 
     println("\nTodos los registros:")
-    mostrarRegistros(titulos, categorias, completados)
+    mostrarRegistros(registros)
 
     println("\nRegistros de estudio:")
-    filtrarTitulosPorCategoria(titulos, categorias, "estudio")
-        .forEach { println("- $it") }
+    filtrarPorCategoria(registros, "estudio")
+        .forEach { println("- ${it.titulo}") }
 
-    println("\nTítulos pendientes:")
-    titulosPendientes(titulos, completados)
-        .forEach { println("- $it") }
+    println("\nPendientes:")
+    obtenerPendientes(registros)
+        .forEach { println("- ${it.titulo}") }
 
-    val pendientes = completados.count { !it }
-    val mensaje = when {
-        pendientes == 0 -> "No quedan pendientes"
-        pendientes == 1 -> "Queda 1 pendiente"
-        else -> "Quedan $pendientes pendientes"
+    println("\nCompletar registro 3:")
+    when (val resultado = completarPorId(registros, 3)) {
+        is ResultadoOperacion.Exito -> println(resultado.mensaje)
+        is ResultadoOperacion.Error -> println("Error: ${resultado.mensaje}")
     }
 
-    println("\nResumen: $mensaje")
+    println("\nIntentar completar registro inexistente:")
+    when (val resultado = completarPorId(registros, 99)) {
+        is ResultadoOperacion.Exito -> println(resultado.mensaje)
+        is ResultadoOperacion.Error -> println("Error: ${resultado.mensaje}")
+    }
 
-    println("\nPregunta para la próxima semana:")
-    println("¿Qué problema aparece al mantener título, categoría y estado en listas separadas?")
+    val encontrados = buscarPorId(registros, 2)
+    println("\nBúsqueda por id 2: ${encontrados?.resumen() ?: "sin resultado"}")
+
+    val pendientes = obtenerPendientes(registros).count()
+    println("\nResumen: quedan $pendientes registros pendientes")
 }
