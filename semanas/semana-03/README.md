@@ -73,6 +73,7 @@ contenido / ejemplo pequeño
 5. [Laboratorio semanal guiado](../../labs/semana-03-de-datos-a-objetos/README.md)
 6. [Sintaxis avanzada · data class y sealed class](./05-sintaxis-avanzada.md)
 7. [Dinámica viva · Tres listas son una pista](./dinamica-viva-tres-listas.md)
+8. [Ejemplos breves de Semana 03](../../examples/semana-03/)
 
 ## Proyecto formativo transversal · PocketLog
 
@@ -88,7 +89,7 @@ La meta no es reescribir el proyecto, sino refactorizarlo usando el contenido nu
 
 Material principal:
 
-- [Guía PocketLog · Semana 03](../../proyecto-formativo/guias/semana-03/)
+- [Guía PocketLog · Semana 03](../../proyecto-formativo/semana-03/)
 - [PocketLog vivo](../../proyecto-formativo/pocketlog/)
 - [Checkpoint Semana 03 · v0.3](../../proyecto-formativo/checkpoints/semana-03/)
 - [Requerimientos PocketLog](../../proyecto-formativo/REQUERIMIENTOS.md)
