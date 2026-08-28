@@ -4,16 +4,16 @@
 
 ## Regla canónica
 
-Los laboratorios con identidad propia viven en `labs/<nombre>/README.md`. Las carpetas semanales sólo deben enlazarlos o conservar rutas antiguas como compatibilidad de navegación, sin mantener una segunda copia activa del contenido.
+Los laboratorios con identidad propia viven en `labs/<nombre>/README.md`. Las carpetas semanales sólo los enlazan o conservan rutas antiguas como compatibilidad de navegación, sin mantener una segunda copia activa del contenido.
 
 ## Laboratorios disponibles
 
-- Semana 01 · [Laboratorio Java ↔ Kotlin](../semanas/semana-01/laboratorio-java-kotlin/) — ruta histórica pendiente de normalización estructural.
-- Semana 02 · [Laboratorio de temperaturas](../semanas/semana-02/laboratorio-temperaturas/) — ruta histórica pendiente de normalización estructural.
-- Semana 03 · [De datos sueltos a objetos](./semana-03-de-datos-a-objetos/) — fuente canónica normalizada.
+- Semana 01 · [Control de batería Java → Kotlin](./semana-01-java-kotlin/)
+- Semana 02 · [Analizador de temperaturas](./semana-02-analizador-temperaturas/)
+- Semana 03 · [De datos sueltos a objetos](./semana-03-de-datos-a-objetos/)
 
-## Criterio
+## Navegación
 
-Desde Semana 03 en adelante, todo laboratorio nuevo se crea directamente bajo `labs/` y la semana correspondiente lo enlaza.
+Cada `semanas/semana-XX/` puede enlazar el laboratorio correspondiente, pero `labs/` es la fuente canónica para el contenido y archivos reproducibles del laboratorio.
 
-Las rutas históricas de Semanas 01–02 se conservan temporalmente para no romper navegación existente; deben migrarse sin duplicar contenido cuando se realice la reconciliación retroactiva de esas semanas.
+Esta organización cumple la regla de fuente única del canon transversal y permite consultar los laboratorios también fuera del contexto de una semana específica.
