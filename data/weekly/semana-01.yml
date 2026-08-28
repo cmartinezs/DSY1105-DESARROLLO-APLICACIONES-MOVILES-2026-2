@@ -35,19 +35,22 @@ sections:
       reviewed: null
     formative_project:
       name: PocketLog
-      status: introduced
+      status: in_progress
       checkpoint: v0.1
-      target_state: conceptual_baseline
+      target_state: loose_data_and_top_level_functions
       confirmed_reached: true
     blockers: []
     next_week_focus:
       - fundamentos Kotlin
       - control de flujo
       - funciones y colecciones
+      - evolucionar PocketLog sin cambiar sus requerimientos
 
 course_specific:
   transition: "Java -> Kotlin"
   pocketlog_target:
     version: v0.1
-    implementation_required: false
-    note: "PocketLog se presenta como proyecto longitudinal; no se implementa formalmente durante Semana 1."
+    implementation_required: true
+    representation: loose_data_and_top_level_functions
+    requirements_defined_from_start: true
+    note: "PocketLog inicia en Semana 1 como programa Kotlin de consola ejecutable. Los requerimientos de Unidad 1/EV1 se conocen desde el inicio; la implementación mejora con el contenido semanal."
