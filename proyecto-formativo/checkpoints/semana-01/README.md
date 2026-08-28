@@ -1,23 +1,48 @@
-# PocketLog · Checkpoint Semana 01 · v0.1 conceptual
+# PocketLog · Checkpoint Semana 01 · v0.1
 
 ## Estado
 
-En Semana 01 PocketLog **se presenta como proyecto longitudinal, pero todavía no se implementa formalmente**.
+PocketLog **comienza realmente en Semana 01** como una aplicación Kotlin de consola deliberadamente simple.
 
-Esto es intencional y está alineado con el programa: la semana se concentra en el panorama del desarrollo móvil, comparación de enfoques y el puente inicial hacia Kotlin.
+No usa POO todavía. Los datos relacionados viven como variables independientes y las operaciones como funciones top-level independientes. Esa incomodidad es intencional: será la deuda técnica que permitirá justificar colecciones y luego POO sin cambiar de proyecto.
 
-## Qué existe en este hito
+## Requerimientos conocidos desde el inicio
 
-- nombre y propósito del proyecto;
-- problema general que evolucionará durante el semestre;
-- compromiso de comenzar en Kotlin de consola;
-- expectativa de reutilizar la lógica cuando el curso llegue a Android;
-- **cero clases de dominio, cero Compose, cero arquitectura adelantada**.
+PocketLog ya tiene un alcance funcional definido para la Unidad 1 / EV1. Ver [REQUERIMIENTOS.md](../../REQUERIMIENTOS.md).
 
-## Evidencia esperada
+Los requerimientos se conocen desde ahora, pero no todas las técnicas para implementarlos están habilitadas todavía.
 
-El estudiante puede explicar que PocketLog será una aplicación para registrar elementos/actividades y que el mismo producto evolucionará a medida que aparezcan nuevos contenidos.
+## Qué existe en v0.1
+
+- un registro con `id`, título, categoría y estado;
+- una función para mostrarlo;
+- una función para cambiar su estado;
+- una función simple para comprobar categoría;
+- ejecución completa por consola;
+- datos sueltos y funciones sueltas, sin clases propias.
+
+Archivo ejecutable: [PocketLog.kt](./PocketLog.kt).
+
+## Intención pedagógica
+
+El estudiante debe reconocer que:
+
+```text
+los datos pertenecen conceptualmente al mismo registro
+pero todavía están separados en variables
+```
+
+La pregunta que queda abierta es cómo escalar el mismo sistema cuando aparezcan varios registros.
+
+## No adelantar
+
+- clases/data classes;
+- herencia/polimorfismo;
+- arquitectura móvil;
+- Android/Compose;
+- persistencia;
+- APIs.
 
 ## Siguiente incremento
 
-Semana 02: construir la primera versión procedural en Kotlin usando datos simples, control de flujo, funciones y colecciones cuando correspondan.
+Semana 02 reorganiza **los mismos requerimientos** usando fundamentos Kotlin, funciones, ciclos y colecciones cuando el contenido los habilite.
