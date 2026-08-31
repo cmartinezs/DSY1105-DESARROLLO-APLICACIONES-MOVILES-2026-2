@@ -16,11 +16,11 @@ sections:
       completed: null
     curricular_progress:
       planned_topics:
-        - Kotlin y Android Studio
-        - estructura mínima de un proyecto Android
-        - ciclo build, instalación y ejecución
-        - primer aplicativo Android
-        - orientación de EF1 y preparación de Evaluación Parcial 1
+        - reconciliación y consolidación de Kotlin console para EV1
+        - ejercicio integrador Kotlin console
+        - revisión de alcance y pauta EV1
+        - introducción controlada a Kotlin y Android Studio
+        - primer aplicativo Android si el avance real lo permite
       covered_topics: null
       pending_topics: null
     evidence:
@@ -34,13 +34,13 @@ sections:
     formative_project:
       name: PocketLog
       status: in_progress
-      checkpoint: v0.4
-      target_state: android_environment_bootstrap
+      checkpoint: v0.3-to-v0.4
+      target_state: kotlin_console_ready_for_ev1_then_android_bootstrap
       confirmed_reached: null
     blockers: null
     next_week_focus:
-      - cerrar deuda real de Semana 4 antes de evaluar
-      - ejecutar Evaluación Parcial 1 según cronograma institucional
+      - ejecutar Evaluación Parcial 1 sobre Kotlin console
+      - retomar transición Android después de asegurar la evidencia evaluativa requerida
 
 course_specific:
   language: Kotlin
@@ -49,9 +49,14 @@ course_specific:
     - "1.4.1 Kotlin y Android Studio"
     - "1.4.2 Guía 6 - Mi primer aplicativo en Android Studio"
     - "EF1 - instrucciones y pauta"
-  progression_rule: "prerrequisito Kotlin -> entorno Android -> primera ejecución -> modificación verificable -> transferencia opcional a PocketLog"
+  assessment_alignment:
+    ev1_runtime: console
+    android_in_ev1: false
+    priority: kotlin_console
+  progression_rule: "reconciliar Kotlin evaluable -> práctica integradora -> orientación EV1 -> introducción Android según capacidad restante"
   pocketlog_target:
-    version: v0.4
-    runtime: android
+    version: v0.3-to-v0.4
+    runtime: console_first
     android_allowed: true
-  operational_note: "covered_topics y completed permanecen null hasta registrar evidencia real de aula. Semana 4 no adelanta MVVM, Jetpack Compose ni contenidos visuales de Semana 6."
+    android_required_before_ev1: false
+  operational_note: "El cronograma de Semana 4 se conserva, pero Android Studio no desplaza la preparación de EV1. covered_topics y completed permanecen null hasta evidencia real de aula."
