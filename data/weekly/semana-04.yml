@@ -1,0 +1,57 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 4
+period:
+  start: 2026-08-31
+  end: 2026-09-05
+
+sections:
+  - id: 009V
+    sessions:
+      planned: 2
+      completed: null
+    blocks:
+      planned: 5
+      completed: null
+    curricular_progress:
+      planned_topics:
+        - Kotlin y Android Studio
+        - estructura mínima de un proyecto Android
+        - ciclo build, instalación y ejecución
+        - primer aplicativo Android
+        - orientación de EF1 y preparación de Evaluación Parcial 1
+      covered_topics: null
+      pending_topics: null
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: false
+    devlog:
+      expected: true
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: in_progress
+      checkpoint: v0.4
+      target_state: android_environment_bootstrap
+      confirmed_reached: null
+    blockers: null
+    next_week_focus:
+      - cerrar deuda real de Semana 4 antes de evaluar
+      - ejecutar Evaluación Parcial 1 según cronograma institucional
+
+course_specific:
+  language: Kotlin
+  institutional_activity: "1.4 Introducción práctica a Android Studio y Kotlin"
+  institutional_items:
+    - "1.4.1 Kotlin y Android Studio"
+    - "1.4.2 Guía 6 - Mi primer aplicativo en Android Studio"
+    - "EF1 - instrucciones y pauta"
+  progression_rule: "prerrequisito Kotlin -> entorno Android -> primera ejecución -> modificación verificable -> transferencia opcional a PocketLog"
+  pocketlog_target:
+    version: v0.4
+    runtime: android
+    android_allowed: true
+  operational_note: "covered_topics y completed permanecen null hasta registrar evidencia real de aula. Semana 4 no adelanta MVVM, Jetpack Compose ni contenidos visuales de Semana 6."
