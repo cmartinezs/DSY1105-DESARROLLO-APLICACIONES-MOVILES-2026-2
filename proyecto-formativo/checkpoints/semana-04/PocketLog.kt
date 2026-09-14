@@ -52,15 +52,11 @@ fun leerEntero(etiqueta: String): Int? {
 }
 
 fun listar(registros: List<Registro>) {
-    if (registros.isEmpty()) {
-        println("No hay registros para mostrar.")
-    } else {
-        registros.forEach { println(it.resumen()) }
-    }
+    if (registros.isEmpty()) println("No hay registros para mostrar.")
+    else registros.forEach { println(it.resumen()) }
 }
 
-fun buscar(registros: List<Registro>, id: Int): Registro? =
-    registros.find { it.id == id }
+fun buscar(registros: List<Registro>, id: Int): Registro? = registros.find { it.id == id }
 
 fun main() {
     val registros = mutableListOf<Registro>()
@@ -80,17 +76,13 @@ fun main() {
             2 -> listar(registros)
             3 -> {
                 val id = leerEntero("ID")
-                if (id == null) {
-                    println("ID inválido.")
-                } else {
-                    println(buscar(registros, id)?.resumen() ?: "No existe el registro $id.")
-                }
+                if (id == null) println("ID inválido.")
+                else println(buscar(registros, id)?.resumen() ?: "No existe el registro $id.")
             }
             4 -> {
                 val id = leerEntero("ID")
-                if (id == null) {
-                    println("ID inválido.")
-                } else {
+                if (id == null) println("ID inválido.")
+                else {
                     val registro = buscar(registros, id)
                     when {
                         registro == null -> println("No existe el registro $id.")
@@ -101,9 +93,7 @@ fun main() {
             }
             5 -> {
                 val categoria = leerTextoNoVacio("Categoría")
-                listar(registros.filter {
-                    it.categoria.equals(categoria, ignoreCase = true)
-                })
+                listar(registros.filter { it.categoria.equals(categoria, ignoreCase = true) })
             }
             6 -> listar(registros.filter { !it.estaCompletado() })
             7 -> listar(registros.filter { it.estaCompletado() })

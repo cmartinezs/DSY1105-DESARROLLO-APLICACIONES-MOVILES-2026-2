@@ -1,98 +1,65 @@
-# PocketLog · Requerimientos funcionales y evolución curricular
+# PocketLog · Requerimientos funcionales
 
-PocketLog nace en **Semana 01** como una aplicación Kotlin de consola muy simple y evoluciona durante el semestre sin cambiar de problema de negocio.
+PocketLog es un registro personal de tareas/pendientes. Los requerimientos se conocen como producto, pero se implementan sólo cuando el conocimiento de la asignatura lo permite.
 
-La regla es:
+## Convención
 
-> Los requerimientos se conocen desde el inicio; la forma de implementarlos cambia cuando el contenido de la asignatura habilita mejores soluciones.
+- **RF**: requerimiento funcional.
+- **RN**: regla de negocio.
+- **Habilitado**: se implementa en el checkpoint de la semana.
+- **Conocido**: se explica, pero puede quedar pendiente técnicamente.
 
-Esto permite que el estudiante vea deuda técnica real y refactorice el mismo producto en lugar de comenzar ejercicios desconectados cada semana.
+## Requerimientos
 
-## Alcance base de la Unidad 1 / EV1
+### RF-01 · Registrar una entrada
+El usuario puede registrar una entrada con identificador, título, categoría y estado.
 
-Antes de EV1, PocketLog debe permitir, en consola y usando sólo Kotlin correspondiente al avance curricular:
+Reglas: identificador positivo; título y categoría obligatorios; una entrada nueva comienza pendiente.
 
-1. registrar al menos un elemento con:
-   - identificador;
-   - título;
-   - categoría;
-   - estado pendiente/completado;
-2. mostrar uno o más registros;
-3. cambiar el estado de un registro;
-4. buscar un registro por identificador;
-5. filtrar registros por categoría o estado;
-6. contar registros según una condición;
-7. validar datos y manejar al menos un error relevante;
-8. organizar el programa usando funciones y, cuando corresponda curricularmente, clases/objetos;
-9. demostrar el uso de colecciones cuando sean introducidas;
-10. incorporar corrutinas sólo en una operación didáctica coherente si el contenido institucional las ha trabajado.
+### RF-02 · Mostrar entradas
+El usuario puede visualizar una entrada y, cuando existan colecciones, listar todas.
 
-PocketLog **no es la evaluación** y no debe utilizar el mismo caso de negocio que EV1. Su función es entrenar progresivamente las mismas capacidades técnicas de la unidad.
+### RF-03 · Cambiar estado
+El usuario puede marcar una entrada pendiente como completada.
 
-## Evolución esperada de los mismos requerimientos
+### RF-04 · Buscar por identificador
+El usuario puede localizar una entrada por su ID.
 
-### Semana 01 · v0.1 · datos y funciones sueltas
+### RF-05 · Filtrar por categoría
+El usuario puede ver entradas de una categoría determinada.
 
-El producto ya existe y ejecuta en consola.
+### RF-06 · Filtrar por estado
+El usuario puede distinguir pendientes y completadas.
 
-Representación deliberadamente inicial:
+### RF-07 · Contar entradas
+El sistema informa total, pendientes y completadas.
 
-```text
-idRegistro
-tituloRegistro
-categoriaRegistro
-registroCompletado
-```
+### RF-08 · Validar datos
+El sistema rechaza valores inválidos y evita terminar abruptamente por entradas no numéricas.
 
-Las operaciones también son funciones top-level independientes.
+### RF-09 · Mantener múltiples entradas
+El sistema conserva más de una entrada durante la ejecución.
 
-El objetivo no es una buena arquitectura: es hacer visible que ya existe un sistema funcional con datos relacionados, pero todavía expresados de forma elemental.
+### RF-10 · Presentar el producto en Android
+La funcionalidad acumulada se expone mediante Jetpack Compose.
 
-### Semana 02 · v0.2 · varios registros y colecciones
+### RF-11 · Separar UI y comportamiento
+En Android, la interfaz emite eventos y observa estado; el comportamiento no queda mezclado dentro de composables.
 
-Los mismos requerimientos empiezan a necesitar:
+## Habilitación real por semana
 
-- `List` / `MutableList`;
-- ciclos;
-- funciones;
-- `filter`, `map`, `count` cuando correspondan.
+| Requerimiento | S1 | S2 | S3 | S4 | S5 | S6 |
+|---|---:|---:|---:|---:|---:|---:|
+| RF-01 registrar | parcial | sí | sí | sí | pausa | sí |
+| RF-02 mostrar/listar | parcial | parcial | sí | sí | pausa | sí |
+| RF-03 completar | sí, un registro | sí, un registro | sí | sí | pausa | sí |
+| RF-04 buscar ID | conocido | conocido | sí | sí | pausa | sí |
+| RF-05 categoría | parcial | parcial | sí | sí | pausa | sí |
+| RF-06 estado | parcial | sí | sí | sí | pausa | sí |
+| RF-07 contar | no | no | sí | sí | pausa | sí |
+| RF-08 validar | inicial | sí | sí | sí | pausa | sí |
+| RF-09 múltiples | no | no | sí | sí | pausa | sí |
+| RF-10 Android | no | no | no | exploración | pausa | sí |
+| RF-11 separación UI | no | no | no | no | pausa | sí |
 
-La deuda deliberada puede manifestarse mediante listas paralelas.
-
-### Semana 03 · v0.3 · POO y control de errores
-
-El problema de mantener datos relacionados en estructuras separadas justifica:
-
-- clase/objeto;
-- encapsulamiento;
-- `data class` cuando corresponda;
-- colecciones de objetos;
-- búsqueda y cambio de estado sobre objetos;
-- `sealed class` o mecanismo equivalente cuando haya sido estudiado;
-- manejo explícito de errores;
-- corrutinas sólo después de su introducción formal.
-
-### Semana 04 · v0.4 · consolidación previa a EV1
-
-PocketLog debe quedar como una aplicación Kotlin de consola completa y explicable, suficiente para repasar las capacidades técnicas que la Unidad 1 exige antes de EV1.
-
-## Regla de trazabilidad
-
-Cada requerimiento tiene dos estados diferentes:
-
-```text
-REQUERIMIENTO CONOCIDO
-        ≠
-TÉCNICA DE IMPLEMENTACIÓN HABILITADA
-```
-
-Ejemplo:
-
-```text
-"buscar un registro"
-Semana 01 -> una función sobre datos sueltos
-Semana 02 -> una función sobre colecciones
-Semana 03 -> una operación sobre objetos
-```
-
-No se inventan requerimientos nuevos sólo para justificar una tecnología. La tecnología aparece porque mejora la implementación de un requerimiento ya conocido.
+La tabla refleja el **avance pedagógico real**, no la arquitectura ideal. Semana 2 no utiliza colecciones porque al cierre real todavía no habían sido trabajadas; entran al comienzo de Semana 3.

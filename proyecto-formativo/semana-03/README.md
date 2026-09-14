@@ -1,22 +1,26 @@
-# PocketLog · Semana 03
+# PocketLog · Semana 03 · v0.3
 
-## Objetivo del incremento
-Evolucionar PocketLog desde estructuras de datos simples hacia objetos con comportamiento, colecciones tipadas y control explícito de errores.
+## Punto de entrada real
+Semana 2 terminó antes de colecciones. Semana 3 comienza cerrando `List`, `MutableList`, recorridos y operaciones esenciales; después se transfiere a POO.
 
-## Dependencia
-**Semana 02 completada obligatoriamente.** El proyecto debe partir desde el estado funcional dejado por el incremento anterior.
+## Evolución
+```text
+variables sueltas → MutableList → clase Registro → MutableList<Registro> → búsqueda/filtros/conteos
+```
 
-## Checklist de inicio
-Ver [00-checklist-inicio.md](./00-checklist-inicio.md).
+## Pasos
+1. crear `class Registro`;
+2. mover datos al objeto;
+3. crear `MutableList<Registro>`;
+4. registrar objetos;
+5. listar con `for`;
+6. buscar por ID;
+7. completar por ID;
+8. filtrar categoría;
+9. mostrar pendientes;
+10. contar;
+11. validar errores de entrada.
 
-## Secuencia de implementación
-1. [De datos a objetos](./01-de-datos-a-objetos.md)
-2. [Comportamiento y colecciones](./02-comportamiento-y-colecciones.md)
-3. [Control de errores](./03-control-de-errores.md)
-4. [Checklist final](./04-checklist-final.md)
+No se introducen herencia artificial, `sealed class` ni corrutinas si no resuelven un requerimiento real.
 
-## Contenidos aplicados
-Colecciones, clases, objetos, propiedades, métodos, comportamiento, encapsulamiento básico y manejo de errores según el contenido realmente trabajado.
-
-## Resultado esperado
-PocketLog mantiene una única base viva, ejecutable y preparada para continuar en Semana 04 sin duplicar código ni adelantar contenidos no enseñados.
+→ [Paso a paso](./01-paso-a-paso.md) · [Checkpoint](../checkpoints/semana-03/)

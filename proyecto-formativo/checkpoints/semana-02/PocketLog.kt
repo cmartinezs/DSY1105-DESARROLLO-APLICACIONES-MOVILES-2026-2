@@ -1,72 +1,74 @@
 package pocketlog
 
-fun mostrarRegistros(
-    titulos: List<String>,
-    categorias: List<String>,
-    completados: List<Boolean>
-) {
-    for (indice in titulos.indices) {
-        val estado = if (completados[indice]) "COMPLETADO" else "PENDIENTE"
-        println("${indice + 1}. ${titulos[indice]} · ${categorias[indice]} · $estado")
+fun estadoTexto(completado: Boolean): String =
+    if (completado) "COMPLETADO" else "PENDIENTE"
+
+fun mostrarMenu() {
+    println(
+        """
+        |=== PocketLog v0.2 ===
+        |1. Registrar/reemplazar registro
+        |2. Mostrar registro
+        |3. Completar registro
+        |4. Consultar estado
+        |0. Salir
+        """.trimMargin()
+    )
+}
+
+fun leerTextoNoVacio(etiqueta: String): String {
+    while (true) {
+        print("$etiqueta: ")
+        val valor = readln().trim()
+        if (valor.isNotEmpty()) return valor
+        println("El valor no puede quedar vacío.")
     }
 }
 
-fun filtrarTitulosPorCategoria(
-    titulos: List<String>,
-    categorias: List<String>,
-    categoriaBuscada: String
-): List<String> =
-    titulos.filterIndexed { indice, _ ->
-        categorias[indice].equals(categoriaBuscada, ignoreCase = true)
-    }
-
-fun titulosPendientes(
-    titulos: List<String>,
-    completados: List<Boolean>
-): List<String> =
-    titulos.filterIndexed { indice, _ -> !completados[indice] }
+fun mostrarRegistro(id: Int, titulo: String, categoria: String, completado: Boolean) {
+    println("$id · $titulo · $categoria · ${estadoTexto(completado)}")
+}
 
 fun main() {
-    val titulos = mutableListOf(
-        "Revisar guía Kotlin",
-        "Comprar alimento",
-        "Practicar colecciones"
-    )
+    var idRegistro = 0
+    var tituloRegistro = ""
+    var categoriaRegistro = ""
+    var registroCompletado = false
+    var existeRegistro = false
+    var siguienteId = 1
+    var ejecutando = true
 
-    val categorias = mutableListOf(
-        "estudio",
-        "personal",
-        "estudio"
-    )
+    while (ejecutando) {
+        mostrarMenu()
+        print("Opción: ")
 
-    val completados = mutableListOf(
-        false,
-        true,
-        false
-    )
-
-    println("=== PocketLog · checkpoint Semana 02 ===")
-
-    println("\nTodos los registros:")
-    mostrarRegistros(titulos, categorias, completados)
-
-    println("\nRegistros de estudio:")
-    filtrarTitulosPorCategoria(titulos, categorias, "estudio")
-        .forEach { println("- $it") }
-
-    println("\nTítulos pendientes:")
-    titulosPendientes(titulos, completados)
-        .forEach { println("- $it") }
-
-    val pendientes = completados.count { !it }
-    val mensaje = when {
-        pendientes == 0 -> "No quedan pendientes"
-        pendientes == 1 -> "Queda 1 pendiente"
-        else -> "Quedan $pendientes pendientes"
+        when (readln().toIntOrNull()) {
+            1 -> {
+                tituloRegistro = leerTextoNoVacio("Título")
+                categoriaRegistro = leerTextoNoVacio("Categoría")
+                idRegistro = siguienteId
+                siguienteId++
+                registroCompletado = false
+                existeRegistro = true
+                println("Registro creado con id $idRegistro.")
+            }
+            2 -> if (existeRegistro) {
+                mostrarRegistro(idRegistro, tituloRegistro, categoriaRegistro, registroCompletado)
+            } else println("Aún no existe un registro.")
+            3 -> {
+                if (!existeRegistro) println("No hay un registro para completar.")
+                else if (registroCompletado) println("El registro ya está completado.")
+                else {
+                    registroCompletado = true
+                    println("Registro completado.")
+                }
+            }
+            4 -> if (existeRegistro) println("Estado: ${estadoTexto(registroCompletado)}") else println("Aún no existe un registro.")
+            0 -> ejecutando = false
+            else -> println("Opción inválida.")
+        }
+        println()
     }
 
-    println("\nResumen: $mensaje")
-
-    println("\nPregunta para la próxima semana:")
-    println("¿Qué problema aparece al mantener título, categoría y estado en listas separadas?")
+    println("PocketLog finalizado.")
 }

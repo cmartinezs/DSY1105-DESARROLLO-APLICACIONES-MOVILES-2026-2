@@ -1,74 +1,57 @@
-# Laboratorio Semana 6 · PocketLog: primera pantalla Compose
+# Laboratorio Semana 6 · PocketLog Android: migrar funcionalidad, no dibujar una demo
 
-## Objetivo
+## Propósito
+Tomar **PocketLog v0.4 de consola** y llevarlo a Android/Compose conservando los requerimientos ya construidos.
 
-Construir el primer checkpoint Android de PocketLog utilizando **Jetpack Compose**, manteniendo una separación clara entre interfaz y lógica.
+Referencia: `proyecto-formativo/checkpoints/semana-04/PocketLog.kt`  
+Checkpoint Android: `proyecto-formativo/checkpoints/semana-06/android/`
 
-## Resultado esperado
+## Parte 0 · Ejecutar la versión anterior
+Probar registrar, listar, completar, filtrar y estadísticas. Anotar qué funciones deben sobrevivir al cambio de interfaz.
 
-Al finalizar, el proyecto debe:
+## Parte 1 · Crear y validar Android
+Crear Empty Activity con Compose, ejecutar el template y confirmar emulador/dispositivo antes de continuar.
 
-- compilar y ejecutar en emulador o dispositivo;
-- mostrar una pantalla inicial propia;
-- utilizar componentes Compose básicos;
-- responder al menos a una interacción simple;
-- evitar lógica de negocio incrustada directamente en composables;
-- quedar versionado en el repositorio del estudiante.
+## Parte 2 · Migrar el modelo
+Crear `domain/Registro.kt` como `data class` con id, título, categoría y completado.
 
-## Parte 1 · Crear el proyecto
+## Parte 3 · Fuente de datos en memoria
+Crear `RegistroRepository`: mantiene lista, genera IDs, agrega y completa. No agregar Room/SQLite.
 
-Crear un proyecto Android con Kotlin y Jetpack Compose. Ejecutarlo antes de modificarlo para verificar que el entorno está correctamente configurado.
+## Parte 4 · Estado de pantalla
+Crear `PocketLogUiState`: registros visibles, título, categoría, filtro, mensaje y contadores.
 
-## Parte 2 · Construir la pantalla
+## Parte 5 · ViewModel
+Implementar en orden `cambiarTitulo`, `cambiarCategoria`, `agregarRegistro`, `completarRegistro`, `cambiarFiltro`, `refrescar`. Compilar después de cada paso.
 
-Crear una pantalla inicial para PocketLog que contenga al menos:
+## Parte 6 · UI Compose
+1. encabezado y contadores;
+2. dos `OutlinedTextField`;
+3. botón agregar;
+4. tres `FilterChip`;
+5. `LazyColumn`;
+6. tarjeta por registro;
+7. botón completar sólo para pendientes.
 
-- nombre de la aplicación;
-- una breve descripción;
-- un dato o estado visible;
-- un botón o acción principal;
-- una distribución con `Column`, `Row` o equivalente.
+## Parte 7 · MainActivity
+Sólo obtiene ViewModel, observa estado y llama `PocketLogScreen`.
 
-No se evalúa diseño avanzado en esta etapa. La prioridad es comprender la construcción declarativa de la interfaz.
+## Parte 8 · Casos manuales
+| Caso | Resultado |
+|---|---|
+| guardar vacío | mensaje de validación |
+| agregar válido | aparece en lista |
+| completar | cambia a COMPLETADO |
+| pendientes | oculta completados |
+| completados | sólo completados |
+| todos | lista completa |
+| contadores | coinciden |
 
-## Parte 3 · Interacción
-
-Agregar una interacción pequeña y observable. Ejemplos válidos:
-
-- incrementar un contador;
-- cambiar un texto de estado;
-- registrar temporalmente una acción;
-- activar/desactivar una opción.
-
-Si el estado representa comportamiento de la aplicación y no sólo un detalle efímero del componente visual, moverlo hacia un `ViewModel`.
-
-## Parte 4 · Separación básica
-
-La UI debe poder leerse como una descripción visual. Evitar cálculos de negocio extensos, validaciones complejas o manipulación de datos dentro de los composables.
-
-Modelo recomendado:
-
-```text
-Composable
-   ↓ evento
-ViewModel
-   ↓
-lógica Kotlin
-   ↓ nuevo estado
-Composable
-```
-
-## Parte 5 · Evidencia
-
-Actualizar el `README.md`/DevLog del repositorio con:
-
-1. qué se construyó;
-2. captura o descripción del resultado ejecutado;
-3. componentes Compose utilizados;
-4. dónde quedó el estado y por qué;
-5. principal dificultad encontrada;
-6. commit final del checkpoint.
+## Parte 9 · DevLog
+Registrar código preservado, responsabilidades, error principal, captura y commit.
 
 ## Criterio de término
-
-El laboratorio está terminado cuando el estudiante puede ejecutar la app y explicar, mirando su propio código, qué responsabilidad tiene la UI, dónde vive el estado y qué cambiaría si la aplicación creciera.
+```text
+usuario → Composable → ViewModel → Repository → UiState → Compose redibuja
+```
+El estudiante debe poder explicar ese flujo; no basta con que la pantalla se vea bien.
