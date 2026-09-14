@@ -1,21 +1,18 @@
-# PocketLog · Semana 01
+# PocketLog · Semana 01 · v0.1
 
-## Objetivo del incremento
-Iniciar PocketLog como aplicación Kotlin de consola usando únicamente fundamentos vistos durante la semana.
+## Objetivo
+Crear la primera versión usando sólo variables, tipos, `val`/`var`, String templates, `if/else`, funciones y null safety inicial.
 
-## Dependencia
-**Ninguna semana anterior.** Este es el punto de inicio del proyecto formativo.
+## Pasos
+1. crear `PocketLog.kt`;
+2. declarar id, título, categoría y estado;
+3. imprimir;
+4. extraer la impresión a función;
+5. crear `estadoTexto`;
+6. completar el registro;
+7. usar `String?` y `?:`;
+8. ejecutar y verificar.
 
-## Checklist de inicio
-Ver [00-checklist-inicio.md](./00-checklist-inicio.md).
+No usar colecciones ni clases.
 
-## Secuencia de implementación
-1. [Datos y salida](./01-datos-y-salida.md)
-2. [Funciones y decisiones](./02-funciones-y-decisiones.md)
-3. [Checklist final](./03-checklist-final.md)
-
-## Contenidos aplicados
-Variables y tipos, `val`/`var`, salida por consola, String templates, condicionales y funciones básicas.
-
-## Resultado esperado
-PocketLog queda ejecutable y entendible, listo para ser ampliado en Semana 02 sin reiniciar el proyecto.
+→ [Paso a paso](./01-paso-a-paso.md) · [Checkpoint](../checkpoints/semana-01/)

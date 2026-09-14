@@ -1,48 +1,94 @@
 package pocketlog
 
-data class Registro(
+class Registro(
     val id: Int,
-    val titulo: String,
-    val categoria: String,
-    val completado: Boolean = false
+    var titulo: String,
+    var categoria: String,
+    var completado: Boolean = false
 ) {
-    fun completar(): Registro = copy(completado = true)
+    fun completar() {
+        completado = true
+    }
+
     fun resumen(): String {
         val estado = if (completado) "COMPLETADO" else "PENDIENTE"
-        return "$id. $titulo · $categoria · $estado"
+        return "$id · $titulo · $categoria · $estado"
     }
 }
 
-sealed class ResultadoOperacion {
-    data class Exito(val mensaje: String) : ResultadoOperacion()
-    data class Error(val mensaje: String) : ResultadoOperacion()
+fun leerTextoNoVacio(etiqueta: String): String {
+    while (true) {
+        print("$etiqueta: ")
+        val valor = readln().trim()
+        if (valor.isNotEmpty()) return valor
+        println("El valor no puede quedar vacío.")
+    }
 }
 
-fun obtenerPendientes(registros: List<Registro>): List<Registro> =
-    registros.filter { !it.completado }
-
-fun completarPorId(registros: MutableList<Registro>, id: Int): ResultadoOperacion {
-    val indice = registros.indexOfFirst { it.id == id }
-    if (indice == -1) return ResultadoOperacion.Error("No existe un registro con id $id")
-    registros[indice] = registros[indice].completar()
-    return ResultadoOperacion.Exito("Registro $id marcado como completado")
+fun registrar(registros: MutableList<Registro>, siguienteId: Int): Int {
+    val titulo = leerTextoNoVacio("Título")
+    val categoria = leerTextoNoVacio("Categoría")
+    registros.add(Registro(siguienteId, titulo, categoria))
+    println("Registro $siguienteId creado.")
+    return siguienteId + 1
 }
 
-suspend fun obtenerCantidadSimulada(registros: List<Registro>): Int = registros.size
+fun listar(registros: List<Registro>) {
+    if (registros.isEmpty()) {
+        println("No hay registros.")
+        return
+    }
+    for (registro in registros) println(registro.resumen())
+}
+
+fun buscarPorId(registros: List<Registro>, id: Int): Registro? = registros.find { it.id == id }
+
+fun completarPorId(registros: List<Registro>, id: Int) {
+    val registro = buscarPorId(registros, id)
+    if (registro == null) {
+        println("No existe un registro con id $id.")
+        return
+    }
+    registro.completar()
+    println("Registro $id completado.")
+}
+
+fun filtrarCategoria(registros: List<Registro>, categoria: String): List<Registro> =
+    registros.filter { it.categoria.equals(categoria, ignoreCase = true) }
+
+fun pendientes(registros: List<Registro>): List<Registro> = registros.filter { !it.completado }
+
+fun registrarDemo(registros: MutableList<Registro>, id: Int, titulo: String, categoria: String): Int {
+    registros.add(Registro(id, titulo, categoria))
+    return id + 1
+}
 
 fun main() {
-    val registros = mutableListOf(
-        Registro(1, "Revisar guía Kotlin", "estudio"),
-        Registro(2, "Comprar alimento", "personal", true),
-        Registro(3, "Practicar POO", "estudio")
-    )
+    val registros = mutableListOf<Registro>()
+    var siguienteId = 1
 
-    registros.forEach { println(it.resumen()) }
+    siguienteId = registrarDemo(registros, siguienteId, "Practicar colecciones", "estudio")
+    siguienteId = registrarDemo(registros, siguienteId, "Comprar alimento", "personal")
+    registrarDemo(registros, siguienteId, "Practicar POO", "estudio")
 
-    when (val resultado = completarPorId(registros, 3)) {
-        is ResultadoOperacion.Exito -> println(resultado.mensaje)
-        is ResultadoOperacion.Error -> println("Error: ${resultado.mensaje}")
-    }
+    println("=== PocketLog v0.3 ===")
+    println("\nTodos:")
+    listar(registros)
 
-    println("Pendientes: ${obtenerPendientes(registros).count()}")
+    println("\nEstudio:")
+    listar(filtrarCategoria(registros, "estudio"))
+
+    println("\nCompletar id 3:")
+    completarPorId(registros, 3)
+
+    println("\nPendientes:")
+    listar(pendientes(registros))
+
+    println("\nConteos:")
+    println("Total: ${registros.size}")
+    println("Pendientes: ${registros.count { !it.completado }}")
+    println("Completados: ${registros.count { it.completado }}")
+
+    println("\nBúsqueda id 2:")
+    println(buscarPorId(registros, 2)?.resumen() ?: "Sin resultado")
 }

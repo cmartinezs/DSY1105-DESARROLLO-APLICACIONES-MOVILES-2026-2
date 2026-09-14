@@ -1,9 +1,10 @@
-# Checkpoint · Semana 2
+# Checkpoint Semana 02 · PocketLog v0.2
 
-Este directorio conserva el **estado histórico de PocketLog al cierre de Semana 2**.
+Aplicación interactiva de consola, deliberadamente sin colecciones.
 
-- `PocketLog.kt` es el snapshot correspondiente a este hito.
-- El proyecto que sigue evolucionando está en [`../../pocketlog/`](../../pocketlog/).
-- Las instrucciones y actividades de esa semana están en [`../../guias/semana-02/`](../../guias/semana-02/).
+```bash
+kotlinc PocketLog.kt -include-runtime -d pocketlog-s2.jar
+java -jar pocketlog-s2.jar
+```
 
-Los checkpoints sirven para comparar evolución; no son nuevos proyectos que deban continuar desarrollándose por separado.
+La limitación de un único registro motiva `MutableList` en Semana 3.

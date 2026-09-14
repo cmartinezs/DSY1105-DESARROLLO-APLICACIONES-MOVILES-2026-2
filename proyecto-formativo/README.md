@@ -1,8 +1,27 @@
-# PocketLog · Proyecto formativo DSY1105
+# PocketLog · Proyecto formativo longitudinal DSY1105
 
-PocketLog es el proyecto longitudinal e incremental de **DSY1105 Desarrollo de Aplicaciones Móviles**.
+PocketLog es el proyecto transversal de **DSY1105 Desarrollo de Aplicaciones Móviles**. Su propósito no es anticipar contenido ni servir como pauta de evaluaciones: sirve para que el estudiante vea cómo un mismo producto evoluciona cuando aprende nuevas herramientas.
 
-`proyecto-formativo/` es una vertical independiente de `semanas/`, `labs/` y `examples/`.
+## Principio rector
+
+> El producto crece con el conocimiento realmente trabajado en la sección.
+
+Por eso cada semana conserva dos cosas:
+1. los mismos requerimientos funcionales, que se van habilitando gradualmente;
+2. una implementación compatible con lo que ya fue enseñado.
+
+No se usa una técnica sólo porque hoy sepamos que es mejor. Si una técnica todavía no ha sido enseñada, no pertenece al checkpoint histórico de esa semana.
+
+## Estado conciliado hasta Semana 6
+
+| Semana | Estado pedagógico real | PocketLog |
+|---|---|---|
+| 01 | Java → Kotlin; variables, tipos, `val`/`var`, String templates, `if/else`, funciones, null safety inicial | `v0.1` · un registro, datos sueltos y funciones |
+| 02 | fundamentos Kotlin; condicionales, ciclos, funciones; colecciones quedan para la siguiente clase | `v0.2` · interacción por consola, validaciones y flujo; aún sin colecciones |
+| 03 | cierre de colecciones y transición a POO/control de errores | `v0.3` · `MutableList<Registro>`, clase, búsqueda, filtro, conteo y errores |
+| 04 | consolidación Kotlin consola previa a EP1; Android sólo introducción controlada | `v0.4` · aplicación de consola completa y defendible |
+| 05 | EP1 | pausa explícita; no se entrega nuevo código |
+| 06 | transición a Android, Compose y separación inicial de responsabilidades | `v0.6` · app Android con Compose + ViewModel + dominio preservado |
 
 ## Estructura
 
@@ -11,35 +30,41 @@ proyecto-formativo/
 ├── README.md
 ├── REQUERIMIENTOS.md
 ├── ROADMAP-SEMANAL.md
-├── pocketlog/          # única base de código viva
-├── semana-01/
-├── semana-02/
-├── semana-03/
-└── historicos/
+├── TRAZABILIDAD.md
+├── pocketlog/                 # referencia del estado vigente
+├── semana-01/ ... semana-06/  # guías de implementación
+└── checkpoints/
+    ├── semana-01/
+    ├── semana-02/
+    ├── semana-03/
+    ├── semana-04/
+    ├── semana-05/
+    └── semana-06/
 ```
 
-## Regla de continuidad
+## Cómo debe trabajar un estudiante
 
-Cada semana depende obligatoriamente de la anterior. No se reinicia PocketLog ni se mantiene una copia completa del proyecto por semana.
+Cada semana:
+1. lee el `README.md` semanal;
+2. revisa qué conceptos están permitidos y cuáles todavía no;
+3. parte desde el checkpoint anterior;
+4. implementa los cambios en el orden indicado;
+5. ejecuta y prueba después de cada paso;
+6. compara su resultado con el checkpoint completo sólo al final;
+7. actualiza su DevLog.
 
-Cada `semana-XX/` debe incluir:
-- `README.md` como índice;
-- checklist de inicio;
-- varios Markdown secuenciales de implementación;
-- checkpoints verificables;
-- checklist de finalización;
-- estado esperado para iniciar la semana siguiente.
+## Reglas de continuidad
 
-## Semanas disponibles
+- No se reinicia PocketLog desde cero.
+- No se copia el checkpoint final antes de realizar los pasos.
+- Cada cambio debe poder explicarse con contenido ya trabajado.
+- Semana 5 queda congelada por evaluación.
+- Semana 6 no reescribe el dominio: lo reutiliza dentro de Android.
+- Navegación, persistencia, REST, cámara y otras tecnologías posteriores **no aparecen aún**.
 
-- [Semana 01](./semana-01/)
-- [Semana 02](./semana-02/)
-- [Semana 03](./semana-03/)
-
-## Código vivo e históricos
-
-El código vigente vive en [`pocketlog/`](./pocketlog/). Los estados anteriores se reconstruyen mediante Git y se registran en [`historicos/`](./historicos/), evitando duplicar físicamente el proyecto.
+## Enlaces
 
 - [Requerimientos funcionales](./REQUERIMIENTOS.md)
-- [Roadmap semanal](./ROADMAP-SEMANAL.md)
-- [Trazabilidad curricular](../docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
+- [Roadmap real hasta Semana 6](./ROADMAP-SEMANAL.md)
+- [Matriz de trazabilidad](./TRAZABILIDAD.md)
+- [Checkpoints completos](./checkpoints/)
