@@ -31,6 +31,7 @@ proyecto-formativo/
 ├── REQUERIMIENTOS.md
 ├── ROADMAP-SEMANAL.md
 ├── TRAZABILIDAD.md
+├── LINEAMIENTOS-EVOLUCION-FUTURA.md
 ├── pocketlog/                 # referencia del estado vigente
 ├── semana-01/ ... semana-06/  # guías de implementación
 └── checkpoints/
@@ -61,10 +62,12 @@ Cada semana:
 - Semana 5 queda congelada por evaluación.
 - Semana 6 no reescribe el dominio: lo reutiliza dentro de Android.
 - Navegación, persistencia, REST, cámara y otras tecnologías posteriores **no aparecen aún**.
+- Desde Semana 7 toda evolución debe cumplir [LINEAMIENTOS-EVOLUCION-FUTURA.md](./LINEAMIENTOS-EVOLUCION-FUTURA.md).
 
 ## Enlaces
 
 - [Requerimientos funcionales](./REQUERIMIENTOS.md)
 - [Roadmap real hasta Semana 6](./ROADMAP-SEMANAL.md)
 - [Matriz de trazabilidad](./TRAZABILIDAD.md)
+- [Lineamientos para las próximas semanas](./LINEAMIENTOS-EVOLUCION-FUTURA.md)
 - [Checkpoints completos](./checkpoints/)
