@@ -24,4 +24,15 @@ PocketLog se congela y no entrega una nueva versión.
 ## Semana 6 · v0.6 · Android + Compose
 Se toma v0.4 y se presenta en Android. Se implementan listado, formulario mínimo, completar, filtros, contadores, `ViewModel`, `UiState` y lógica fuera de composables.
 
-Todavía no se introduce navegación multipantalla, Room/SQLite, REST, DI, cámara ni animaciones complejas.
+No se introduce todavía navegación multipantalla, Room/SQLite, REST, DI, cámara ni animaciones complejas.
+
+## Semana 7 · v0.7 · diseño + navegación
+Se preserva el comportamiento de v0.6 y se reorganiza la experiencia en destinos navegables.
+
+```text
+Inicio → Registros → Detalle
+```
+
+Se incorporan jerarquía visual, ancho adaptable, `NavHost`, rutas, back stack y paso de un ID simple. El ViewModel y el dominio continúan ajenos a la infraestructura de navegación.
+
+Aún no se agregan persistencia, REST, cámara ni formularios avanzados.
