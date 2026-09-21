@@ -1,21 +1,54 @@
-# Ejemplo Semana 7 · Navegación simple
+# Ejemplo 5 · Navegación completa: Inicio → Lista → Detalle
 
-Ejemplo deliberadamente pequeño para observar sólo:
+Este ejemplo reúne las ideas de la semana en una app pequeña.
+
+## Qué integra
 
 - jerarquía visual;
 - `Scaffold`;
 - ancho adaptable;
 - `NavHost`;
 - tres destinos;
-- argumento simple;
-- retorno mediante back stack.
+- argumento simple por ID;
+- retorno mediante back stack;
+- pantallas desacopladas del `NavController`.
 
-No representa PocketLog ni el laboratorio semanal.
+No representa PocketLog ni el laboratorio semanal: es una referencia pequeña para estudiar el patrón.
 
-Agrega al módulo `app`:
+## Dependencia
+
+En el módulo `app`:
 
 ```kotlin
 implementation("androidx.navigation:navigation-compose:2.10.1")
 ```
 
-Después revisa [MainActivity.kt](./MainActivity.kt).
+## Flujo
+
+```text
+Inicio → Categorías → Detalle(id) → volver
+```
+
+El destino de detalle recibe sólo un identificador. No enviamos un objeto completo serializado dentro de la ruta.
+
+## Ejecuta y observa
+
+Sigue un elemento desde `PantallaCategorias`:
+
+```text
+onSeleccionar(id)
+→ navigate("detalle/$id")
+→ composable("detalle/{id}")
+→ buscar categoría
+→ PantallaDetalle
+```
+
+## Prueba tú
+
+1. agrega una cuarta categoría;
+2. navega a ella;
+3. prueba manualmente un ID inexistente;
+4. agrega un botón para volver también desde la lista;
+5. explica qué estado pertenece a navegación y qué datos pertenecen a la pantalla.
+
+**Pregunta clave:** ¿por qué la ruta transporta un ID y la pantalla resuelve el dato en vez de transportar el objeto completo?
