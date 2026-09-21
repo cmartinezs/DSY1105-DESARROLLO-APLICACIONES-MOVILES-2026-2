@@ -21,6 +21,7 @@ Durante el semestre se utiliza **PocketLog** como hilo conductor formativo. La l
 flowchart LR
     CONSOLE[Consola Kotlin] --> CORE[Core Kotlin puro]
     ANDROID[Android / Compose] --> CORE
+    NAV[Navigation] --> ANDROID
     TESTS[Pruebas] --> CORE
     CORE --> DATA[Persistencia / REST mediante contratos]
 ```
@@ -46,30 +47,31 @@ Cada estudiante mantiene un único repositorio `DSY1105-009V-nombre-apellido`, u
 
 ## Semana actual
 
-**Semana 6 · 14 al 19 de septiembre de 2026**
+**Semana 7 · 21 al 26 de septiembre de 2026**
 
-Foco curricular: **Fundamentos del diseño visual en apps móviles**.
+Foco curricular: **Diseño visual profesional, adaptabilidad y navegación estructurada**.
 
-- arquitectura y planificación colaborativa;
-- configuración inicial de proyecto Android;
-- introducción progresiva a **MVVM**;
-- componentes básicos de diseño visual;
-- construcción de una pantalla base con **Jetpack Compose**;
-- reactivación de PocketLog como proyecto Android.
+- jerarquía visual con Material 3;
+- layouts flexibles y ancho legible;
+- `Scaffold`, `Card`, espaciado y agrupación;
+- Navigation Compose;
+- rutas y back stack;
+- argumento simple por ID;
+- transición de PocketLog desde pantalla única a Inicio → Registros → Detalle.
 
 Objetivo de la semana:
 
 ```text
-Kotlin console
-→ Android Studio
-→ Jetpack Compose
-→ estado
-→ ViewModel
-→ separación UI / lógica
+pantalla funcional
+→ jerarquía visual
+→ diseño adaptable
+→ destinos
+→ navegación
+→ aplicación estructurada
 ```
 
-Consulta el contenido en [`semanas/semana-06/`](semanas/semana-06/) y el laboratorio en [`labs/semana-06-pocketlog-compose/`](labs/semana-06-pocketlog-compose/).
+Consulta el contenido en [`semanas/semana-07/`](semanas/semana-07/), el ejercicio en [`examples/semana-07/`](examples/semana-07/) y el laboratorio en [`labs/semana-07-rutalocal/`](labs/semana-07-rutalocal/).
 
 ## Próximo hito
 
-**Semana 7:** diseño visual profesional, adaptabilidad y navegación estructurada en aplicaciones móviles.
+**Semana 8:** formularios validados e interacción dinámica entre pantallas.

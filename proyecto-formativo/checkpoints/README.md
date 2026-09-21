@@ -8,5 +8,6 @@ Cada carpeta contiene una fotografía **completa y ejecutable** del estado pedag
 - [Semana 04 · v0.4](./semana-04/)
 - [Semana 05 · pausa EP1](./semana-05/)
 - [Semana 06 · v0.6 Android/Compose](./semana-06/)
+- [Semana 07 · v0.7 diseño + navegación](./semana-07/)
 
 El flujo correcto es guía → implementación propia → comparación final.

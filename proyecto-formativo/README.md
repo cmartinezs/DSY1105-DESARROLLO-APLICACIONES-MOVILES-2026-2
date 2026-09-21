@@ -12,7 +12,7 @@ Por eso cada semana conserva dos cosas:
 
 No se usa una técnica sólo porque hoy sepamos que es mejor. Si una técnica todavía no ha sido enseñada, no pertenece al checkpoint histórico de esa semana.
 
-## Estado conciliado hasta Semana 6
+## Estado conciliado hasta Semana 7
 
 | Semana | Estado pedagógico real | PocketLog |
 |---|---|---|
@@ -22,6 +22,7 @@ No se usa una técnica sólo porque hoy sepamos que es mejor. Si una técnica to
 | 04 | consolidación Kotlin consola previa a EP1; Android sólo introducción controlada | `v0.4` · aplicación de consola completa y defendible |
 | 05 | EP1 | pausa explícita; no se entrega nuevo código |
 | 06 | transición a Android, Compose y separación inicial de responsabilidades | `v0.6` · app Android con Compose + ViewModel + dominio preservado |
+| 07 | jerarquía visual, adaptabilidad y navegación estructurada | `v0.7` · Inicio → Registros → Detalle + back stack + argumento por ID |
 
 ## Estructura
 
@@ -33,14 +34,15 @@ proyecto-formativo/
 ├── TRAZABILIDAD.md
 ├── LINEAMIENTOS-EVOLUCION-FUTURA.md
 ├── pocketlog/                 # referencia del estado vigente
-├── semana-01/ ... semana-06/  # guías de implementación
+├── semana-01/ ... semana-07/  # guías de implementación
 └── checkpoints/
     ├── semana-01/
     ├── semana-02/
     ├── semana-03/
     ├── semana-04/
     ├── semana-05/
-    └── semana-06/
+    ├── semana-06/
+    └── semana-07/
 ```
 
 ## Cómo debe trabajar un estudiante
@@ -61,13 +63,14 @@ Cada semana:
 - Cada cambio debe poder explicarse con contenido ya trabajado.
 - Semana 5 queda congelada por evaluación.
 - Semana 6 no reescribe el dominio: lo reutiliza dentro de Android.
-- Navegación, persistencia, REST, cámara y otras tecnologías posteriores **no aparecen aún**.
+- Semana 7 agrega diseño y navegación sin introducir persistencia ni red.
+- Room/SQLite, REST, cámara y otras tecnologías posteriores aparecen sólo cuando el cronograma las habilita.
 - Desde Semana 7 toda evolución debe cumplir [LINEAMIENTOS-EVOLUCION-FUTURA.md](./LINEAMIENTOS-EVOLUCION-FUTURA.md).
 
 ## Enlaces
 
 - [Requerimientos funcionales](./REQUERIMIENTOS.md)
-- [Roadmap real hasta Semana 6](./ROADMAP-SEMANAL.md)
+- [Roadmap real hasta Semana 7](./ROADMAP-SEMANAL.md)
 - [Matriz de trazabilidad](./TRAZABILIDAD.md)
 - [Lineamientos para las próximas semanas](./LINEAMIENTOS-EVOLUCION-FUTURA.md)
 - [Checkpoints completos](./checkpoints/)

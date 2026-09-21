@@ -13,5 +13,8 @@
 | RF-09 | Múltiples entradas | `MutableList` | S3 |
 | RF-10 | Android | Android Studio + Compose | S6 |
 | RF-11 | UI/comportamiento | estado + ViewModel | S6 |
+| RF-12 | Navegación multipantalla | Navigation Compose + rutas + back stack | S7 |
+| RF-13 | Ver detalle de registro | argumento simple por ID + pantalla de detalle | S7 |
+| RF-14 | Adaptabilidad visual básica | constraints, ancho máximo y layouts flexibles | S7 |
 
-Evidencias: `checkpoints/semana-01` a `checkpoints/semana-06`. Semana 5 es pausa documentada, no código nuevo.
+Evidencias: `checkpoints/semana-01` a `checkpoints/semana-07`. Semana 5 es pausa documentada, no código nuevo.
