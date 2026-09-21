@@ -63,11 +63,19 @@ Al finalizar, el estudiante debe poder construir una app Android de una pantalla
 
 → [Profundización · estado, flujo unidireccional y MVVM](./01-compose-y-layouts/README.md)
 
-## Ejemplo corto
+## Ejemplos guiados
 
-→ [Estado + ViewModel mínimo](../../examples/semana-06/estado-viewmodel/)
+Antes del ejercicio o laboratorio, recorre los cinco ejemplos en orden:
 
-Sirve para observar el patrón sin el ruido de una aplicación completa.
+1. [Composable mínimo](../../examples/semana-06/composable-minimo/)
+2. [Layouts + Modifier](../../examples/semana-06/layouts-modifier/)
+3. [Estado local](../../examples/semana-06/estado-local/)
+4. [Formulario + callbacks](../../examples/semana-06/formulario-callbacks/)
+5. [Estado + ViewModel mínimo](../../examples/semana-06/estado-viewmodel/)
+
+→ [Ver ruta completa de ejemplos](../../examples/semana-06/)
+
+Cada ejemplo explica el problema general, qué observar, una modificación concreta y una pregunta conceptual. El código es una superficie para experimentar, no una instrucción de “anda y mira”.
 
 ## Ejercicio focalizado
 
