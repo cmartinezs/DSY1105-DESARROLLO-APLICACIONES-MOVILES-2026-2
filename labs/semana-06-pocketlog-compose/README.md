@@ -1,57 +1,100 @@
-# Laboratorio Semana 6 · PocketLog Android: migrar funcionalidad, no dibujar una demo
+# Integración Semana 6 · PocketLog v0.6 en Android/Compose
+
+Este material ya no cumple el rol de “primer lab desde cero”. Para eso usa:
+
+→ [ChecklistDiaria](../semana-06-checklist-diaria/README.md)
+
+Aquí aplicamos lo aprendido sobre el **proyecto transversal PocketLog**.
 
 ## Propósito
-Tomar **PocketLog v0.4 de consola** y llevarlo a Android/Compose conservando los requerimientos ya construidos.
 
-Referencia: `proyecto-formativo/checkpoints/semana-04/PocketLog.kt`  
+Tomar PocketLog v0.4 de consola y migrarlo a Android/Compose **conservando su comportamiento**.
+
+Referencia de consola: `proyecto-formativo/checkpoints/semana-04/PocketLog.kt`  
 Checkpoint Android: `proyecto-formativo/checkpoints/semana-06/android/`
 
-## Parte 0 · Ejecutar la versión anterior
-Probar registrar, listar, completar, filtrar y estadísticas. Anotar qué funciones deben sobrevivir al cambio de interfaz.
+## Parte 0 · Inventario funcional
 
-## Parte 1 · Crear y validar Android
-Crear Empty Activity con Compose, ejecutar el template y confirmar emulador/dispositivo antes de continuar.
+Ejecuta v0.4 y prueba:
+- registrar;
+- listar;
+- completar;
+- filtrar;
+- estadísticas;
+- validaciones.
 
-## Parte 2 · Migrar el modelo
-Crear `domain/Registro.kt` como `data class` con id, título, categoría y completado.
+Escribe una lista de lo que debe sobrevivir.
 
-## Parte 3 · Fuente de datos en memoria
-Crear `RegistroRepository`: mantiene lista, genera IDs, agrega y completa. No agregar Room/SQLite.
+## Parte 1 · Base Android
 
-## Parte 4 · Estado de pantalla
-Crear `PocketLogUiState`: registros visibles, título, categoría, filtro, mensaje y contadores.
+Crea/abre proyecto Compose y ejecuta el template.
+
+## Parte 2 · Dominio
+
+Traslada `Registro` sin introducir conceptos visuales.
+
+## Parte 3 · Repository en memoria
+
+Encapsula lista, IDs, agregar y completar.
+
+No es persistencia.
+
+## Parte 4 · UiState
+
+Incluye registros visibles, campos, filtro, mensaje y contadores.
 
 ## Parte 5 · ViewModel
-Implementar en orden `cambiarTitulo`, `cambiarCategoria`, `agregarRegistro`, `completarRegistro`, `cambiarFiltro`, `refrescar`. Compilar después de cada paso.
 
-## Parte 6 · UI Compose
-1. encabezado y contadores;
-2. dos `OutlinedTextField`;
-3. botón agregar;
-4. tres `FilterChip`;
-5. `LazyColumn`;
-6. tarjeta por registro;
-7. botón completar sólo para pendientes.
+Implementa incrementalmente:
+1. cambiar título;
+2. cambiar categoría;
+3. agregar;
+4. completar;
+5. cambiar filtro;
+6. refrescar.
 
-## Parte 7 · MainActivity
-Sólo obtiene ViewModel, observa estado y llama `PocketLogScreen`.
+Compila tras cada capacidad.
 
-## Parte 8 · Casos manuales
-| Caso | Resultado |
+## Parte 6 · UI
+
+Construye por capas:
+1. encabezado;
+2. contadores;
+3. campos;
+4. botón agregar;
+5. filtros;
+6. LazyColumn;
+7. Card;
+8. completar.
+
+## Parte 7 · Activity
+
+Sólo conecta ViewModel, estado y Screen.
+
+## Parte 8 · Equivalencia
+
+| Capacidad v0.4 | Evidencia v0.6 |
 |---|---|
-| guardar vacío | mensaje de validación |
-| agregar válido | aparece en lista |
-| completar | cambia a COMPLETADO |
-| pendientes | oculta completados |
-| completados | sólo completados |
-| todos | lista completa |
-| contadores | coinciden |
+| registrar | formulario + agregar |
+| listar | LazyColumn |
+| completar | acción por tarjeta |
+| filtrar | FilterChip |
+| contar | resumen |
+| validar | mensaje UI |
 
 ## Parte 9 · DevLog
-Registrar código preservado, responsabilidades, error principal, captura y commit.
+
+Registra:
+- qué se preservó;
+- qué cambió por pasar a Android;
+- una responsabilidad del ViewModel;
+- por qué aún no existe persistencia;
+- captura y commit.
 
 ## Criterio de término
+
 ```text
-usuario → Composable → ViewModel → Repository → UiState → Compose redibuja
+usuario → Composable → ViewModel → Repository → UiState → Compose
 ```
-El estudiante debe poder explicar ese flujo; no basta con que la pantalla se vea bien.
+
+Debes poder explicar el flujo y demostrar que el producto no perdió sus capacidades principales.
