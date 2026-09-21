@@ -50,9 +50,21 @@ Al terminar la semana el estudiante debe poder:
 → [Contenido normal](./02-navegacion-compose.md)  
 → [Profundización opcional](./02-navegacion-compose/README.md)
 
+### Ejemplos guiados
+Antes de la práctica larga, recorre la progresión completa:
+
+1. [Jerarquía visual](../../examples/semana-07/jerarquia-visual/)
+2. [Layout adaptable](../../examples/semana-07/layout-adaptable/)
+3. [Scaffold y estructura](../../examples/semana-07/scaffold-estructura/)
+4. [Navegación entre dos destinos](../../examples/semana-07/navegacion-dos-destinos/)
+5. [Inicio → Lista → Detalle](../../examples/semana-07/navegacion-simple/)
+
+→ [Ver ruta completa de ejemplos](../../examples/semana-07/)
+
+Cada ejemplo agrega una idea principal y contiene contexto, qué observar, una modificación propuesta y una pregunta conceptual.
+
 ### Práctica corta
-→ [Ejercicio de la semana](./ejercicios-basicos.md)  
-→ [Código de referencia](../../examples/semana-07/navegacion-simple/)
+→ [Ejercicio de la semana](./ejercicios-basicos.md)
 
 ### Laboratorio
 → [Laboratorio Semana 7 · RutaLocal](../../labs/semana-07-rutalocal/README.md)
@@ -64,11 +76,11 @@ Al terminar la semana el estudiante debe poder:
 
 1. observar una pantalla funcional pero visualmente plana;
 2. identificar problemas de jerarquía, densidad, alineación y lectura;
-3. refactorizar la pantalla usando `MaterialTheme`, `Card`, `Scaffold`, `padding`, `weight` y límites de ancho razonables;
+3. recorrer los ejemplos de jerarquía, adaptabilidad y Scaffold;
 4. probar la misma pantalla en más de un tamaño/orientación;
 5. modelar la app como destinos, no como funciones que “cambian de pantalla”;
-6. crear `NavController`, `NavHost` y rutas;
-7. implementar Inicio → Lista → Detalle;
+6. recorrer navegación de dos destinos;
+7. completar Inicio → Lista → Detalle con argumento por ID;
 8. resolver el ejercicio individual;
 9. construir RutaLocal desde cero;
 10. transferir el patrón a PocketLog v0.7.
@@ -85,7 +97,7 @@ Esta semana **no** necesita:
 - arquitecturas adaptativas avanzadas;
 - Navigation 3.
 
-Se utiliza **Navigation Compose 2.10.1**, versión estable disponible al 9 de septiembre de 2026, por ser suficiente para el objetivo pedagógico de rutas, back stack y argumentos simples.
+Se utiliza **Navigation Compose 2.10.1**, suficiente para el objetivo pedagógico de rutas, back stack y argumentos simples.
 
 ## Evidencia mínima de cierre
 
