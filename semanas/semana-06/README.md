@@ -20,116 +20,126 @@ No hay evaluación sumativa esta semana.
 
 ## Objetivo pedagógico
 
-Esta semana debe producir una transición explícita:
+Transformar el modelo mental del estudiante:
 
 ```text
-Kotlin console
-→ proyecto Android
-→ UI declarativa con Compose
+programa Kotlin de consola
+→ aplicación Android
+→ UI declarativa
 → estado de pantalla
-→ separación inicial View / ViewModel / lógica
+→ eventos
+→ ViewModel
+→ separación UI / comportamiento
 ```
 
-Al terminar la semana, cada estudiante debe ser capaz de crear y ejecutar un proyecto Android, construir una pantalla Compose simple y explicar por qué la lógica de negocio no debe quedar mezclada directamente con la UI.
+Al finalizar, el estudiante debe poder construir una app Android de una pantalla y explicar el flujo completo de un evento desde la UI hasta el nuevo estado.
 
-## Clase del lunes 14 de septiembre · 19:01–21:10
+## Ruta sugerida
 
-### 1. Cierre del tramo anterior
+### Bloque 1 · Entrar a Android
+1. reconocer Activity y `setContent`;
+2. ejecutar un proyecto Compose;
+3. identificar qué hace `@Composable`;
+4. modificar una pantalla mínima.
 
-- situar EP1 como cierre del primer módulo;
-- explicar el cambio de foco desde ejercicios Kotlin hacia producto móvil ejecutable;
-- recuperar sólo los conceptos Kotlin necesarios para leer y escribir Compose.
+### Bloque 2 · Construir visualmente
+1. Text y Button;
+2. Column y Row;
+3. Modifier;
+4. OutlinedTextField;
+5. LazyColumn;
+6. Card;
+7. Scaffold.
 
-### 2. Modelo mental Android
+→ [Contenido base · Compose y layouts](./01-compose-y-layouts.md)
 
-Introducir sin sobrecargar:
+### Bloque 3 · Separar responsabilidades
+1. estado;
+2. callbacks;
+3. UiState;
+4. ViewModel;
+5. StateFlow;
+6. repository temporal cuando exista una responsabilidad que separar.
+
+→ [Profundización · estado, flujo unidireccional y MVVM](./01-compose-y-layouts/README.md)
+
+## Ejemplo corto
+
+→ [Estado + ViewModel mínimo](../../examples/semana-06/estado-viewmodel/)
+
+Sirve para observar el patrón sin el ruido de una aplicación completa.
+
+## Ejercicio focalizado
+
+→ [HabitCounter](./ejercicios-basicos.md)
+
+Una sola pantalla y un ViewModel. No PocketLog, navegación ni persistencia.
+
+## Laboratorio desde cero
+
+→ [ChecklistDiaria](../../labs/semana-06-checklist-diaria/README.md)
+
+Construye una aplicación útil desde Empty Activity y llega a:
 
 ```text
-Aplicación Android
-├── UI · Jetpack Compose
-├── Estado
-├── ViewModel
-└── Modelo / lógica de negocio
+modelo → repository temporal → UiState → ViewModel → Compose
 ```
 
-Explicar MVVM como separación de responsabilidades, no como una estructura ceremonial.
+## Proyecto transversal · PocketLog v0.6
 
-### 3. Proyecto mínimo en Android Studio
+Después de practicar en un problema pequeño, se retoma PocketLog:
 
-Cada estudiante debe:
+→ [PocketLog · Semana 06](../../proyecto-formativo/semana-06/README.md)
 
-1. crear o abrir un proyecto Android con Kotlin y Compose;
-2. identificar `MainActivity` y el punto de entrada de Compose;
-3. ejecutar la aplicación en emulador o dispositivo;
-4. reemplazar la pantalla inicial por una UI propia.
+El objetivo no es “hacer otra demo Android”, sino preservar lo construido en v0.4 y cambiar su superficie desde consola hacia Compose.
 
-### 4. Componentes Compose mínimos
+## Qué NO incorporar todavía
 
-Trabajar inicialmente con:
+- Navigation Compose;
+- Room/SQLite;
+- REST;
+- DI;
+- cámara;
+- múltiples pantallas;
+- arquitectura adaptativa avanzada;
+- animaciones complejas.
 
-- `@Composable`;
-- `Text`;
-- `Button`;
-- `Column` y/o `Row`;
-- `Modifier`;
-- `MaterialTheme`;
-- estado simple sólo cuando ayude a comprender interacción.
+Estas restricciones mantienen visible el objetivo real de la semana.
 
-Ejemplo conceptual:
+## Evidencia mínima de cierre
 
-```kotlin
-@Composable
-fun PantallaInicio() {
-    Column {
-        Text("PocketLog")
-        Text("Mi primera aplicación Android")
-        Button(onClick = { }) {
-            Text("Comenzar")
-        }
-    }
-}
-```
+- [ ] proyecto Android ejecutable;
+- [ ] al menos una UI Compose construida;
+- [ ] layout con componentes básicos;
+- [ ] estado agrupado de forma comprensible;
+- [ ] comportamiento fuera del composable principal;
+- [ ] estudiante puede explicar el flujo evento → estado → UI;
+- [ ] lab ChecklistDiaria terminado o equivalente;
+- [ ] PocketLog v0.6 migrado;
+- [ ] DevLog actualizado.
 
-## MVVM · profundidad esperada esta semana
+## Definition of Done
 
-El estudiante debe comprender inicialmente:
+Puedes cerrar la semana cuando seas capaz de explicar, sin depender del código:
 
 ```text
-View (Compose)
-    ↓ observa / envía eventos
-ViewModel
-    ↓ coordina
-Modelo / lógica
+usuario
+→ composable
+→ callback
+→ ViewModel
+→ lógica / repository
+→ UiState
+→ Compose representa el cambio
 ```
 
-Todavía no se requiere una arquitectura compleja, inyección de dependencias, repositorios de datos ni persistencia. Es preferible una separación pequeña pero comprensible y defendible.
+## Puente a Semana 7
 
-## PocketLog
+Semana 6 responde:
 
-PocketLog retoma su evolución transversal en Android.
+> ¿Cómo construyo una pantalla Android y separo UI de comportamiento?
 
-Checkpoint recomendado de Semana 6:
+Semana 7 responderá:
 
-- proyecto Android ejecutable;
-- pantalla inicial Compose;
-- identidad visual mínima;
-- estado básico si existe una interacción real;
-- `ViewModel` inicial cuando haya estado o comportamiento que justifique separarlo;
-- lógica de dominio Kotlin preservada fuera de la UI.
+> ¿Cómo hago esa experiencia visualmente más clara, adaptable y navegable?
 
-## Laboratorio
-
-→ [Laboratorio Semana 6 · PocketLog: primera pantalla Compose](../../labs/semana-06-pocketlog-compose/README.md)
-
-## Evidencia mínima de cierre semanal
-
-- aplicación Android ejecutando correctamente;
-- al menos una pantalla Compose construida por el estudiante;
-- uso consciente de componentes y layout;
-- separación explícita entre UI y lógica;
-- repositorio actualizado;
-- DevLog con decisiones, dificultades y resultado alcanzado.
-
-## Próxima semana
-
-Semana 7 profundiza en **diseño visual profesional, jerarquía, adaptabilidad y navegación estructurada**. Por eso esta semana debe priorizar una base Compose limpia antes de introducir navegación multipantalla.
+Por eso **no adelantamos Navigation** aquí.

@@ -7,6 +7,8 @@
 - [Semana 01](./semana-01/) · equivalencias y transición Java ↔ Kotlin.
 - [Semana 02](./semana-02/) · fundamentos Kotlin.
 - [Semana 03](./semana-03/) · colecciones, clases y manejo explícito de errores.
+- [Semana 06](./semana-06/) · Compose, estado y ViewModel mínimo.
+- [Semana 07](./semana-07/) · navegación simple.
 
 ## Reglas
 
