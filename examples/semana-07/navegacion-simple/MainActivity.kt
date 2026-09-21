@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -124,7 +125,7 @@ fun PantallaDetalle(categoria: Categoria?, onVolver: () -> Unit) {
 }
 
 @Composable
-private fun PantallaCentrada(content: @Composable Column.() -> Unit) {
+private fun PantallaCentrada(content: @Composable ColumnScope.() -> Unit) {
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier
