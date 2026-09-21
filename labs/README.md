@@ -8,7 +8,9 @@
 - [Semana 02 · Analizador de temperaturas](./semana-02-analizador-temperaturas/)
 - [Semana 03 · De datos sueltos a objetos](./semana-03-de-datos-a-objetos/)
 - [Semana 04 · Mi primera app Android](./semana-04-primer-app-android/)
+- Semana 05 · pausa por EP1
 - [Semana 06 · PocketLog: primera pantalla Compose](./semana-06-pocketlog-compose/)
+- [Semana 07 · RutaLocal: diseño adaptable y navegación](./semana-07-rutalocal/)
 
 ## Contrato
 
