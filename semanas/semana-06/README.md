@@ -83,11 +83,13 @@ Cada ejemplo explica el problema general, qué observar, una modificación concr
 
 Una sola pantalla y un ViewModel. No PocketLog, navegación ni persistencia.
 
-## Laboratorio desde cero
+## Laboratorio independiente
 
 → [ChecklistDiaria](../../labs/semana-06-checklist-diaria/README.md)
 
-Construye una aplicación útil desde Empty Activity y llega a:
+ChecklistDiaria es un **proyecto pequeño e independiente**. Se construye desde Empty Activity para practicar la materia semanal sin depender de PocketLog ni de laboratorios anteriores.
+
+Llega a:
 
 ```text
 modelo → repository temporal → UiState → ViewModel → Compose
@@ -95,7 +97,7 @@ modelo → repository temporal → UiState → ViewModel → Compose
 
 ## Proyecto transversal · PocketLog v0.6
 
-Después de practicar en un problema pequeño, se retoma PocketLog:
+En una línea separada del laboratorio, se aplica el aprendizaje al proyecto formativo transversal:
 
 → [PocketLog · Semana 06](../../proyecto-formativo/semana-06/README.md)
 
