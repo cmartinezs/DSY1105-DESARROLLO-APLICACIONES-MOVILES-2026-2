@@ -2,6 +2,24 @@
 
 PocketLog es el proyecto transversal de **DSY1105 Desarrollo de Aplicaciones Móviles**. Su propósito no es anticipar contenido ni servir como pauta de evaluaciones: sirve para que el estudiante vea cómo un mismo producto evoluciona cuando aprende nuevas herramientas.
 
+## Relación con los laboratorios
+
+PocketLog y los laboratorios cumplen funciones distintas:
+
+```text
+laboratorio semanal
+→ proyecto pequeño e independiente
+→ practica el contenido de la semana desde cero
+
+PocketLog
+→ proyecto formativo transversal
+→ acumula capacidades y decisiones entre semanas
+```
+
+Un laboratorio no es una etapa previa, una versión reducida ni una derivación de PocketLog. Del mismo modo, PocketLog no reemplaza el laboratorio.
+
+La intención pedagógica es que el estudiante practique una técnica en un problema acotado y luego sea capaz de **transferir ese aprendizaje** al proyecto transversal sin copiar una solución equivalente.
+
 ## Principio rector
 
 > El producto crece con el conocimiento realmente trabajado en la sección.
@@ -61,6 +79,7 @@ Cada semana:
 - No se reinicia PocketLog desde cero.
 - No se copia el checkpoint final antes de realizar los pasos.
 - Cada cambio debe poder explicarse con contenido ya trabajado.
+- Los labs son proyectos independientes; no forman parte de la secuencia de versiones de PocketLog.
 - Semana 5 queda congelada por evaluación.
 - Semana 6 no reescribe el dominio: lo reutiliza dentro de Android.
 - Semana 7 agrega diseño y navegación sin introducir persistencia ni red.

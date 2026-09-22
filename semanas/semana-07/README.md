@@ -66,11 +66,15 @@ Cada ejemplo agrega una idea principal y contiene contexto, qué observar, una m
 ### Práctica corta
 → [Ejercicio de la semana](./ejercicios-basicos.md)
 
-### Laboratorio
+### Laboratorio independiente
 → [Laboratorio Semana 7 · RutaLocal](../../labs/semana-07-rutalocal/README.md)
 
-### Proyecto transversal
+RutaLocal es un proyecto pequeño y autocontenido. Practica diseño adaptable y navegación desde cero; no continúa ChecklistDiaria ni forma parte de PocketLog.
+
+### Proyecto formativo transversal
 → [PocketLog · Semana 07](../../proyecto-formativo/semana-07/README.md)
+
+PocketLog evoluciona en paralelo como producto acumulativo. Aplica los conceptos de la semana sobre el estado heredado de versiones anteriores.
 
 ## Secuencia sugerida de clase
 
@@ -82,8 +86,8 @@ Cada ejemplo agrega una idea principal y contiene contexto, qué observar, una m
 6. recorrer navegación de dos destinos;
 7. completar Inicio → Lista → Detalle con argumento por ID;
 8. resolver el ejercicio individual;
-9. construir RutaLocal desde cero;
-10. transferir el patrón a PocketLog v0.7.
+9. construir RutaLocal desde cero como laboratorio independiente;
+10. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
 
 ## Límites de alcance
 
