@@ -13,13 +13,15 @@ Construye una app de una pantalla llamada **HabitCounter**:
 - muestra un mensaje al llegar a 8.
 
 ## Debes utilizar
-- MaterialTheme;
-- Scaffold;
-- Column y/o Row;
-- Text;
-- Button;
+- `MaterialTheme`;
+- `Column` y/o `Row`;
+- `Text`;
+- `Button`;
+- `Modifier`;
 - `HabitUiState`;
 - `HabitViewModel`.
+
+`Scaffold` puede utilizarse si ya lo comprendes, pero **no es requisito** de este ejercicio. La estructura de pantalla con `Scaffold` se trabaja explícitamente en Semana 7.
 
 ## No utilizar
 Navigation Compose, Room/SQLite, REST, DI, persistencia ni múltiples pantallas.
