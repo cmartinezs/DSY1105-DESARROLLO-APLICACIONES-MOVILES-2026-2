@@ -68,9 +68,9 @@ Formulario pequeño con validación y navegación a resumen. No persistencia, re
 
 ## Laboratorio independiente
 
-→ [ReservaSimple](../../labs/semana-08-reserva-simple/README.md)
+→ [RegistroUsuario](../../labs/semana-08-registro-usuario/README.md)
 
-Aplicación construida desde cero con formulario, validación, feedback y navegación. El laboratorio es independiente de PocketLog.
+Aplicación construida desde cero siguiendo el flujo de Guía 11: StateFlow, validación, navegación y resumen con ViewModel compartido. El laboratorio es independiente de PocketLog.
 
 ## Proyecto transversal · PocketLog v0.8
 
