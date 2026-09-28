@@ -103,6 +103,30 @@ En una línea separada del laboratorio, se aplica el aprendizaje al proyecto for
 
 El objetivo no es “hacer otra demo Android”, sino preservar lo construido en v0.4 y cambiar su superficie desde consola hacia Compose.
 
+## Inicio formal del proyecto VcM
+
+En paralelo al aprendizaje técnico comienza el trabajo formal del caso **Exploración móvil de innovación y capacidades I+D**, del **Centro UC de Innovación en Madera (CIM UC)**.
+
+Esta línea **no recibe una solución docente de referencia**. El trabajo esperado es que cada equipo construya y defienda su propio análisis:
+
+```text
+contexto
+→ problema
+→ usuarios priorizados
+→ requerimientos
+→ alcance MVP
+→ modelo de datos
+→ mockups / flujo
+→ propuesta
+```
+
+El docente acompaña, cuestiona alcance y canaliza dudas; no diseña ni implementa la solución por los equipos.
+
+→ [Acompañamiento del proyecto VcM](../../docs/ACOMPANAMIENTO-PROYECTO-VCM.md)  
+→ [Uso de GenAI y defensa de decisiones](../../docs/USO-GENAI-Y-DEFENSA.md)
+
+El uso de GenAI puede apoyar el trabajo, pero cada integrante debe comprender, justificar y adaptar todo lo que entrega. La defensa de decisiones forma parte de la evidencia de aprendizaje.
+
 ## Qué NO incorporar todavía
 
 - Navigation Compose;
@@ -114,7 +138,7 @@ El objetivo no es “hacer otra demo Android”, sino preservar lo construido en
 - arquitectura adaptativa avanzada;
 - animaciones complejas.
 
-Estas restricciones mantienen visible el objetivo real de la semana.
+Estas restricciones mantienen visible el objetivo técnico real de la semana. No significan que cámara, GPS u otras capacidades nativas queden fuera de la asignatura: se incorporarán cuando corresponda y mediante problemas donde su uso tenga sentido.
 
 ## Evidencia mínima de cierre
 
