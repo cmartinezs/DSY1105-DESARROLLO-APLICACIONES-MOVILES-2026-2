@@ -1,134 +1,83 @@
-# 02 · Navegación estructurada con Navigation Compose
+# 02 · Navegación y estructura visual con Navigation Compose
 
 ## Qué problema resolvemos
 
-Una aplicación real suele tener más de una pantalla. No queremos resolverlo con múltiples booleanos como:
-
-```kotlin
-if (mostrarDetalle) {
-    Detalle()
-} else {
-    Inicio()
-}
-```
-
-Ese enfoque deja de escalar rápidamente.
+Una app multipantalla necesita destinos, rutas, historial y una estructura visual coherente. Guía 10 incorpora `NavHost`, `NavController`, `TopAppBar`, `NavigationDrawer` y `NavigationBar`.
 
 ## Modelo mental
 
 ```text
-Destino
-  ↓
-Ruta
-  ↓
-NavHost
-  ↓
-Back stack
+destino
+→ ruta
+→ NavHost
+→ back stack
+→ estructura visual que permite moverse
 ```
 
-Un **destino** es una pantalla o estado navegable relevante. Una **ruta** identifica ese destino.
+## Rutas reutilizables
 
-## Dependencia
-
-En el módulo `app`:
+Evita strings dispersos. Puedes usar un objeto o una `sealed class` para centralizar rutas.
 
 ```kotlin
-implementation("androidx.navigation:navigation-compose:2.10.1")
-```
-
-## NavController
-
-```kotlin
-val navController = rememberNavController()
-```
-
-El controlador permite navegar y volver.
-
-## NavHost
-
-```kotlin
-NavHost(
-    navController = navController,
-    startDestination = "inicio"
-) {
-    composable("inicio") {
-        PantallaInicio(
-            onVerLugares = {
-                navController.navigate("lugares")
-            }
-        )
-    }
-
-    composable("lugares") {
-        PantallaLugares(
-            onSeleccionar = { id ->
-                navController.navigate("detalle/$id")
-            }
-        )
-    }
-
-    composable("detalle/{id}") { backStackEntry ->
-        val id = backStackEntry.arguments?.getString("id")
-
-        PantallaDetalle(
-            id = id,
-            onVolver = { navController.popBackStack() }
-        )
+sealed class Screen(val route: String) {
+    data object Home : Screen("home")
+    data object Listado : Screen("listado")
+    data object Detalle : Screen("detalle/{id}") {
+        fun create(id: Int) = "detalle/$id"
     }
 }
 ```
 
-## No pasar NavController a todo
-
-Preferimos:
+## NavHost y NavController
 
 ```kotlin
-PantallaInicio(
-    onVerLugares = {
-        navController.navigate("lugares")
+val navController = rememberNavController()
+
+NavHost(
+    navController = navController,
+    startDestination = Screen.Home.route
+) {
+    composable(Screen.Home.route) { /* ... */ }
+    composable(Screen.Listado.route) { /* ... */ }
+    composable(Screen.Detalle.route) { entry ->
+        val id = entry.arguments?.getString("id")
+        // detalle
+    }
+}
+```
+
+## Estructura visual
+
+Según la necesidad, integra:
+- `TopAppBar`;
+- `NavigationDrawer`;
+- `NavigationBar`;
+- contenido dentro de `Scaffold`.
+
+Estas piezas deben representar destinos o acciones reales, no decoración.
+
+## Pantallas desacopladas
+
+Preferimos callbacks:
+
+```kotlin
+PantallaListado(
+    onSeleccionar = { id ->
+        navController.navigate(Screen.Detalle.create(id))
     }
 )
 ```
 
-en lugar de:
-
-```kotlin
-PantallaInicio(navController)
-```
-
-Así la pantalla conoce la **intención** pero no la infraestructura de navegación.
+La pantalla expresa intención; la capa de navegación conoce rutas.
 
 ## Back stack
 
-Si navegamos:
-
-```text
-Inicio → Lugares → Detalle
-```
-
-el back stack recuerda el recorrido. `popBackStack()` vuelve al destino anterior.
+`popBackStack()` vuelve al destino anterior y conserva una historia navegable coherente.
 
 ## Argumentos simples
 
-Esta semana usa un identificador:
-
-```text
-detalle/7
-```
-
-La pantalla de destino usa ese ID para obtener o seleccionar la información que necesita.
-
-Evita enviar objetos completos serializados en la ruta.
-
-## Estado de navegación vs estado de UI
-
-```text
-¿Dónde estoy?             → navegación
-¿Qué datos muestra aquí?  → UI state / ViewModel
-```
-
-Son responsabilidades distintas.
+Usa IDs cuando sea suficiente. Evita serializar objetos completos en la ruta.
 
 ## Definition of Done
 
-Debes poder construir Inicio → Lista → Detalle, volver correctamente y explicar qué responsabilidad tiene el `NavHost` frente a cada Composable.
+Puedes construir al menos tres destinos, integrar una estructura visual de navegación, volver correctamente y explicar qué pertenece a UI, navegación y estado.
