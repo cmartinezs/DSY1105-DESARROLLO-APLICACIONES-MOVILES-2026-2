@@ -20,6 +20,7 @@ Las materias que requieran profundización adicional pueden usar una subcarpeta 
 | **04** | 31 agosto–5 septiembre 2026 | Introducción práctica a Android Studio y Kotlin; preparación EP1 | [Abrir Semana 04](semana-04/) |
 | **05** | 7–12 septiembre 2026 | Evaluación Parcial 1 · cierre del tramo Kotlin | [Abrir Semana 05](semana-05/) |
 | **06** | 14–19 septiembre 2026 | Arquitectura, MVVM, diseño visual inicial y Jetpack Compose | [Abrir Semana 06](semana-06/) |
-| **07 · actual** | 21–26 septiembre 2026 | Diseño visual profesional, adaptabilidad y navegación estructurada | [Abrir Semana 07](semana-07/) |
+| **07** | 21–26 septiembre 2026 | Diseño visual profesional, Window Size Classes y navegación estructurada | [Abrir Semana 07](semana-07/) |
+| **08 · actual** | 28 septiembre–3 octubre 2026 | Formularios reactivos, StateFlow, validaciones y ViewModel compartido | [Abrir Semana 08](semana-08/) |
 
-Las semanas 08–18 se incorporan progresivamente según el avance del semestre y el cronograma institucional.
+Las semanas 09–18 se incorporan progresivamente según el avance del semestre y el cronograma institucional.
