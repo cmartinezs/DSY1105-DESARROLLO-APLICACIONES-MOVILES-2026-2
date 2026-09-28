@@ -170,9 +170,11 @@ No “diseñes” sólo agregando colores al azar.
 
 ---
 
-## Paso 8 · Adaptabilidad
+## Paso 8 · Adaptabilidad con Window Size Classes
 
-Envuelve el contenido principal en una estructura similar a:
+Primero conserva restricciones flexibles para evitar anchos rígidos. Luego incorpora Window Size Classes para decidir cuándo la estructura debe cambiar.
+
+Puedes mantener una base similar a:
 
 ```kotlin
 Box(
@@ -190,12 +192,19 @@ Box(
 }
 ```
 
-Prueba en:
+Después distingue al menos una experiencia Compact y una Expanded; si dispones de un escenario Medium, compáralo también.
 
-1. teléfono vertical;
-2. teléfono horizontal o ventana más ancha.
+Ejemplo de decisión:
 
-**Checkpoint:** contenido legible, sin recortes ni anchos absurdos.
+```text
+Compact  → lista o detalle
+Medium   → lista con mayor ancho legible
+Expanded → lista + detalle simultáneos
+```
+
+Prueba con previews o dispositivos de tamaños diferentes.
+
+**Checkpoint:** puedes explicar qué cambió entre clases de ventana y por qué.
 
 ---
 
