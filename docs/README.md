@@ -30,3 +30,20 @@ guía ≠ proyecto vivo ≠ checkpoint histórico ≠ DevLog personal
 ```
 
 El DevLog registra el proceso del estudiante; PocketLog es el software que evoluciona.
+
+## Criterios pedagógicos de la Experiencia 2
+
+- [Acompañamiento del proyecto VcM](./ACOMPANAMIENTO-PROYECTO-VCM.md) — delimita la ayuda docente sin convertirla en una solución de referencia.
+- [Uso de GenAI y defensa de decisiones](./USO-GENAI-Y-DEFENSA.md) — permite apoyo con IA, manteniendo comprensión, trazabilidad y responsabilidad del estudiante.
+- [Capacidades nativas mediante miniapps](./CAPACIDADES-NATIVAS-MINIAPPS.md) — trabaja una capacidad de hardware por aplicación antes de una integración posterior.
+
+La práctica se organiza con la lógica:
+
+```text
+concepto
+→ ejemplo aislado
+→ ejercicio focalizado
+→ laboratorio independiente
+→ proyecto transversal docente
+→ transferencia autónoma
+```
