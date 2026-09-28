@@ -1,0 +1,45 @@
+week: 8
+period:
+  start: 2026-09-28
+  end: 2026-10-03
+
+course:
+  code: DSY1105
+  section: 009V
+
+planned:
+  institutional_guides:
+    - "2.3.1 Formularios, validaciones y componentes interactivos - Parte I"
+    - "2.3.2 Formularios, validaciones y componentes interactivos - Parte II"
+    - "2.3.3 Guia 11 - Formularios, validaciones y pasado de informacion"
+  focus:
+    - formularios_reactivos
+    - validaciones
+    - mutable_state_flow
+    - collect_as_state
+    - shared_viewmodel
+    - navegacion_registro_resumen
+
+course_specific:
+  vcm_checkpoint:
+    carried_from_week: 7
+    planned_day: jueves
+    review:
+      - contexto_requerimientos_alcance
+      - modelo_relacional
+      - mockups_navegacion
+      - avance_android
+      - github_colaborativo
+      - defensa_decisiones
+
+  pocketlog:
+    target: v0.8
+    focus: formulario_stateflow_validacion
+
+  miniapps_native:
+    stage: maqueta_funcional
+    hardware_real: false
+
+milestones:
+  parcial_2:
+    week: 11
