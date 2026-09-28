@@ -32,13 +32,13 @@ pantallas navegables
 Al finalizar la semana, el estudiante debe poder:
 
 1. construir formularios Compose con campos controlados;
-2. representar el estado del formulario de forma explícita;
-3. validar antes de ejecutar una acción;
-4. mostrar errores comprensibles junto al campo o acción correspondiente;
-5. habilitar/deshabilitar acciones según estado;
-6. comunicar información entre pantallas sin acoplar la UI a Navigation;
-7. mantener lógica de validación fuera del Composable principal;
-8. explicar la relación entre UI → evento → ViewModel → UiState → UI.
+2. modelar datos y errores mediante `data class`;
+3. almacenar estado con `MutableStateFlow` en el ViewModel;
+4. observar estado con `collectAsState` desde Compose;
+5. validar antes de ejecutar una acción y mostrar errores específicos;
+6. navegar sólo cuando `validarFormulario()` indique éxito;
+7. compartir el mismo ViewModel entre Registro y Resumen;
+8. explicar la relación UI → evento → ViewModel → StateFlow → UI.
 
 ## Ruta de aprendizaje
 
@@ -54,9 +54,9 @@ Al finalizar la semana, el estudiante debe poder:
 
 1. [Campo controlado](../../examples/semana-08/campo-controlado/)
 2. [Validación visible](../../examples/semana-08/validacion-visible/)
-3. [Formulario con UiState](../../examples/semana-08/formulario-uistate/)
-4. [Formulario + ViewModel](../../examples/semana-08/formulario-viewmodel/)
-5. [Crear → navegar → detalle](../../examples/semana-08/formulario-navegacion/)
+3. [UiState + modelo de errores](../../examples/semana-08/formulario-uistate/)
+4. [MutableStateFlow + ViewModel](../../examples/semana-08/formulario-viewmodel/)
+5. [Registro → Resumen con ViewModel compartido](../../examples/semana-08/formulario-navegacion/)
 
 → [Ruta completa de ejemplos](../../examples/semana-08/)
 
@@ -142,16 +142,17 @@ El **Parcial 2 se entrega en Semana 11**. Semanas 8–10 deben mostrar construcc
 - DI;
 - complejidad arquitectónica que no sea necesaria para explicar el flujo.
 
-La orientación institucional menciona que StateFlow, DataStore y Room aparecen posteriormente en EA2. Esta semana construye una base compatible con esa evolución, pero no los adelanta automáticamente.
+`StateFlow` sí forma parte explícita de la Guía 11 y se trabaja esta semana. `DataStore` y `Room` quedan para su momento posterior dentro de EA2.
 
 ## Evidencia mínima de cierre
 
 - formulario funcional;
 - al menos dos validaciones justificadas;
 - feedback visible;
-- ViewModel o responsable de estado fuera del Composable principal;
-- navegación posterior a una acción válida;
-- información recuperada por ID o estado compartido de forma controlada;
+- `MutableStateFlow` administrado desde ViewModel;
+- `collectAsState` observando el formulario;
+- navegación posterior a una validación correcta;
+- segunda pantalla observando el mismo ViewModel compartido;
 - lab terminado o equivalente;
 - PocketLog v0.8 avanzado;
 - checkpoint VcM realizado o registrado como pendiente justificado;
