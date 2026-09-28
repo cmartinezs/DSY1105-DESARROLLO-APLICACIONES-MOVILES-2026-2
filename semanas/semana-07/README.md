@@ -89,6 +89,37 @@ PocketLog evoluciona en paralelo como producto acumulativo. Aplica los conceptos
 9. construir RutaLocal desde cero como laboratorio independiente;
 10. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
 
+## Seguimiento del proyecto VcM
+
+Durante esta semana correspondía comenzar un seguimiento más concreto del proyecto VcM, verificando coherencia entre:
+
+```text
+problemática
+→ requerimientos
+→ alcance MVP
+→ Modelo Relacional normalizado
+→ mockups / prototipos
+→ pantallas y navegación
+```
+
+El seguimiento no busca validar una solución única ni entregar una arquitectura de referencia. Cada equipo debe sostener su propia propuesta y justificar sus decisiones.
+
+### Estado real de la sección 009V
+
+El checkpoint formal de seguimiento **no se realizó durante Semana 7**. Se registra como pendiente operativo y se traslada al **jueves de Semana 8**, sin alterar retrospectivamente el avance real.
+
+En ese checkpoint se revisará principalmente:
+
+- que el problema elegido responda al contexto;
+- que el alcance sea viable para un equipo de máximo dos integrantes;
+- que requerimientos, datos, mockups y navegación sean coherentes entre sí;
+- que las dudas externas estén identificadas y no resueltas mediante supuestos;
+- que GitHub muestre trabajo progresivo y participación real;
+- que el equipo pueda justificar por qué está construyendo lo que está construyendo.
+
+→ [Acompañamiento del proyecto VcM](../../docs/ACOMPANAMIENTO-PROYECTO-VCM.md)  
+→ [Uso de GenAI y defensa de decisiones](../../docs/USO-GENAI-Y-DEFENSA.md)
+
 ## Límites de alcance
 
 Esta semana **no** necesita:
