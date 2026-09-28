@@ -2,89 +2,15 @@
 
 ## Qué problema resolvemos
 
-Una pantalla puede funcionar y aun así ser difícil de usar. El objetivo de esta semana es aprender a organizar visualmente la información para que el usuario entienda qué es importante, qué puede hacer y qué contenido pertenece junto.
+Una pantalla puede funcionar y aun así ser difícil de usar o degradarse cuando cambia el espacio disponible. Semana 7 trabaja jerarquía visual y adaptación declarativa.
 
 ## 1. Jerarquía visual
 
-La jerarquía visual responde:
+Usa roles de `MaterialTheme.typography`, espaciado, agrupación, contraste y posición para indicar qué debe mirar primero el usuario.
 
-> ¿Qué debería mirar primero el usuario?
+## 2. Evitar layouts rígidos
 
-En Compose podemos expresarla con:
-
-- tipografía de `MaterialTheme.typography`;
-- peso visual;
-- espaciado;
-- agrupación;
-- contraste;
-- tamaño y posición.
-
-Ejemplo:
-
-```kotlin
-Column(
-    modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp),
-    verticalArrangement = Arrangement.spacedBy(12.dp)
-) {
-    Text(
-        text = "RutaLocal",
-        style = MaterialTheme.typography.headlineMedium
-    )
-
-    Text(
-        text = "Lugares guardados",
-        style = MaterialTheme.typography.titleMedium
-    )
-
-    Text(
-        text = "Selecciona un lugar para ver su detalle.",
-        style = MaterialTheme.typography.bodyMedium
-    )
-}
-```
-
-No uses tamaños arbitrarios para cada texto si el tema ya expresa roles semánticos.
-
-## 2. Espaciado como relación
-
-El espacio no es decoración. Ayuda a decir qué elementos pertenecen juntos.
-
-```kotlin
-Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-    Text("Biblioteca")
-    Text("Av. Ejemplo 123")
-}
-```
-
-Si dos bloques pertenecen a grupos diferentes, aumenta la separación entre grupos en vez de llenar la UI de separadores.
-
-## 3. Contenedores
-
-Usa el contenedor que representa mejor el problema:
-
-- `Column`: flujo vertical;
-- `Row`: contenido horizontal;
-- `Box`: superposición o alineación dentro de un mismo espacio;
-- `LazyColumn`: listas;
-- `Scaffold`: estructura general de pantalla.
-
-## 4. Evitar layouts rígidos
-
-Mala idea:
-
-```kotlin
-Modifier.width(390.dp)
-```
-
-Mejor:
-
-```kotlin
-Modifier.fillMaxWidth()
-```
-
-Cuando necesites controlar el ancho en pantallas grandes puedes limitarlo:
+Prefiere restricciones y espacio disponible antes que medidas arbitrarias:
 
 ```kotlin
 Modifier
@@ -92,56 +18,53 @@ Modifier
     .widthIn(max = 720.dp)
 ```
 
-## 5. Repartir espacio disponible
+## 3. Window Size Classes
+
+Guía 9 pide trabajar con las clases de tamaño de ventana de Material 3 para distinguir, de forma declarativa, contextos como:
+
+```text
+Compact
+Medium
+Expanded
+```
+
+La idea no es agrandar todo, sino cambiar la composición cuando el espacio lo justifique.
+
+Ejemplo conceptual:
 
 ```kotlin
-Row(Modifier.fillMaxWidth()) {
-    Text(
-        text = "Biblioteca",
-        modifier = Modifier.weight(1f)
-    )
-
-    Text("Abierto")
+when (windowWidthSizeClass) {
+    WindowWidthSizeClass.Compact -> HomeCompact()
+    WindowWidthSizeClass.Medium -> HomeMedium()
+    WindowWidthSizeClass.Expanded -> HomeExpanded()
 }
 ```
 
-`weight` expresa proporción respecto del espacio disponible; evita calcular anchos manualmente.
+## 4. Variantes de pantalla
 
-## 6. Scaffold
+Una variante debe existir porque cambia la estructura, no sólo porque cambió el ancho.
 
-```kotlin
-Scaffold(
-    topBar = {
-        TopAppBar(title = { Text("RutaLocal") })
-    }
-) { innerPadding ->
-    Column(
-        modifier = Modifier
-            .padding(innerPadding)
-            .padding(16.dp)
-    ) {
-        // contenido
-    }
-}
+```text
+mismo estado
+├── Compact  → una columna
+├── Medium   → más aire / distribución distinta
+└── Expanded → dos zonas o paneles
 ```
 
-El `innerPadding` importa: impide que el contenido quede bajo la barra.
+El estado de negocio no se duplica.
 
-## 7. Probar adaptabilidad
+## 5. Scaffold y estructura
 
-Como mínimo prueba:
+`Scaffold` organiza elementos estructurales como barras superiores, contenido y navegación.
 
-1. teléfono vertical;
-2. teléfono horizontal o dispositivo de mayor ancho.
+## 6. Preview por tamaño
 
-Preguntas:
+Crea previews representativos para observar cómo responde la UI antes de ejecutar.
 
-- ¿se corta texto?;
-- ¿quedan botones fuera de pantalla?;
-- ¿el contenido usa un ancho razonable?;
-- ¿la jerarquía sigue siendo clara?;
-- ¿algún tamaño fijo está causando el problema?
+## 7. Probar en dispositivos distintos
+
+Como mínimo compara una ventana compacta con una más amplia. Idealmente observa Compact, Medium y Expanded cuando el entorno lo permita.
 
 ## Definition of Done
 
-Puedes cerrar este contenido cuando seas capaz de transformar una pantalla plana en una pantalla donde el orden de lectura, la agrupación y las acciones se entienden sin explicación adicional.
+Puedes explicar qué cambia entre tamaños, qué se mantiene, por qué existe cada variante y cómo el mismo estado alimenta todas las presentaciones.
