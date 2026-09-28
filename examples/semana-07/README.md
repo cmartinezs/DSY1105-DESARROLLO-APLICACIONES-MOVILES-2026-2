@@ -18,16 +18,18 @@ Los detalles de APIs específicas se pueden consultar. Primero interesa comprend
 
 1. [Jerarquía visual](./jerarquia-visual/) · roles tipográficos, agrupación y espaciado.
 2. [Layout adaptable](./layout-adaptable/) · evitar anchos rígidos y controlar legibilidad.
-3. [Scaffold y estructura](./scaffold-estructura/) · separar estructura general del contenido.
-4. [Navegación entre dos destinos](./navegacion-dos-destinos/) · `NavController`, `NavHost`, rutas y back stack.
-5. [Navegación simple completa](./navegacion-simple/) · Inicio → Lista → Detalle, argumento por ID y retorno.
+3. [Window Size Classes](./window-size-classes/) · distinguir Compact, Medium y Expanded.
+4. [Scaffold y estructura](./scaffold-estructura/) · separar estructura general del contenido.
+5. [Navegación entre dos destinos](./navegacion-dos-destinos/) · `NavController`, `NavHost`, rutas y back stack.
+6. [Navegación simple completa](./navegacion-simple/) · Inicio → Lista → Detalle, argumento por ID y retorno.
 
 ## Idea que conecta los cinco
 
 ```text
 pantalla plana
 → jerarquía
-→ adaptabilidad
+→ restricciones flexibles
+→ Window Size Classes
 → estructura
 → destinos
 → navegación con detalle
