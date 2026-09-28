@@ -34,11 +34,13 @@ Al terminar la semana el estudiante debe poder:
 
 1. reconocer y construir jerarquía visual mediante tamaño, peso, espaciado y agrupación;
 2. evitar layouts rígidos que dependan de medidas arbitrarias;
-3. usar contenedores Compose adecuados para distribuir contenido;
-4. definir destinos y rutas de navegación;
-5. implementar navegación entre al menos tres pantallas;
-6. enviar un identificador simple a una pantalla de detalle;
-7. explicar la diferencia entre estado de UI y estado de navegación.
+3. usar Window Size Classes para distinguir contextos Compact, Medium y Expanded;
+4. construir variantes visuales cuando la estructura realmente deba cambiar;
+5. definir destinos y rutas reutilizables;
+6. implementar navegación entre al menos tres pantallas;
+7. integrar TopAppBar, NavigationDrawer o NavigationBar cuando representen una necesidad real;
+8. enviar un identificador simple a una pantalla de detalle;
+9. explicar la diferencia entre estado de UI y estado de navegación.
 
 ## Ruta de aprendizaje
 
@@ -55,9 +57,10 @@ Antes de la práctica larga, recorre la progresión completa:
 
 1. [Jerarquía visual](../../examples/semana-07/jerarquia-visual/)
 2. [Layout adaptable](../../examples/semana-07/layout-adaptable/)
-3. [Scaffold y estructura](../../examples/semana-07/scaffold-estructura/)
-4. [Navegación entre dos destinos](../../examples/semana-07/navegacion-dos-destinos/)
-5. [Inicio → Lista → Detalle](../../examples/semana-07/navegacion-simple/)
+3. [Window Size Classes](../../examples/semana-07/window-size-classes/)
+4. [Scaffold y estructura](../../examples/semana-07/scaffold-estructura/)
+5. [Navegación entre dos destinos](../../examples/semana-07/navegacion-dos-destinos/)
+6. [Inicio → Lista → Detalle](../../examples/semana-07/navegacion-simple/)
 
 → [Ver ruta completa de ejemplos](../../examples/semana-07/)
 
@@ -104,15 +107,16 @@ PocketLog evoluciona en paralelo como producto acumulativo. Aplica los conceptos
 
 1. observar una pantalla funcional pero visualmente plana;
 2. identificar problemas de jerarquía, densidad, alineación y lectura;
-3. recorrer ejemplos de jerarquía, adaptabilidad y Scaffold;
-4. probar la misma pantalla en más de un tamaño/orientación;
-5. modelar la app como destinos;
-6. recorrer navegación de dos destinos;
-7. completar Inicio → Lista → Detalle con argumento por ID;
-8. resolver el ejercicio individual;
-9. construir RutaLocal como laboratorio independiente;
-10. desarrollar las maquetas de miniapps nativas, concentrándose en flujo y estados;
-11. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
+3. recorrer jerarquía, layouts flexibles y Window Size Classes;
+4. comparar Compact, Medium y Expanded mediante previews o dispositivos;
+5. incorporar Scaffold y estructuras de navegación visual;
+6. modelar la app como destinos y rutas reutilizables;
+7. recorrer navegación de dos destinos;
+8. completar Inicio → Lista → Detalle con argumento por ID;
+9. resolver el ejercicio individual;
+10. construir RutaLocal como laboratorio independiente;
+11. desarrollar las maquetas de miniapps nativas, concentrándose en flujo y estados;
+12. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
 
 ## Seguimiento del proyecto VcM
 
@@ -168,7 +172,7 @@ Se utiliza **Navigation Compose 2.10.1**, suficiente para el objetivo pedagógic
 - navegación hacia adelante y retorno;
 - un destino de detalle que recibe un identificador;
 - jerarquía visual explícita;
-- layout usable en al menos dos tamaños/orientaciones;
+- adaptación demostrable mediante Window Size Classes o una decisión equivalente justificada entre Compact, Medium y Expanded;
 - código de navegación separado de las pantallas;
 - al menos una miniapp puede explicar claramente la frontera fuente simulada → futura fuente nativa;
 - DevLog con una decisión visual y una decisión de navegación explicadas.
