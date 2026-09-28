@@ -1,66 +1,47 @@
-# Profundización · Estado de formulario y validación
+# Profundización · StateFlow, errores y responsabilidad del ViewModel
 
-## Validar no es decorar
+## Estado único del formulario
 
-La validación protege un requisito. Debe poder trazarse a una razón funcional.
+El formulario se modela como una estructura completa. El ViewModel modifica copias del estado y expone un `StateFlow` observable.
 
-## Estado derivado
+## Errores por campo
 
-No todo necesita almacenarse:
+Separar `UsuarioErrores` evita esconder strings de error dentro de múltiples Composables y permite actualizar sólo la condición corregida.
+
+## Eventos de campo
+
+Cada cambio puede limpiar el error del campo correspondiente antes de la siguiente validación final.
+
+## Validación reactiva y validación final
+
+No son equivalentes:
+
+- reactiva: entrega feedback mientras cambia el estado;
+- final: protege la acción antes de navegar.
+
+## collectAsState
+
+Compose observa el flujo y recompone cuando cambia el estado.
 
 ```kotlin
-val puedeGuardar
-    get() = nombre.trim().length >= 3 && correo.contains("@")
+val estado by viewModel.estado.collectAsState()
 ```
 
-Si un valor puede derivarse confiablemente de otro estado, evita duplicarlo.
+## Shared ViewModel
 
-## Validación por campo vs validación de acción
+Guía 11 usa el mismo `UsuarioViewModel` en Registro y Resumen. El objetivo es que la segunda pantalla observe el mismo estado sin transportar todos los datos como argumentos de ruta.
 
-Puede existir validación temprana para feedback y validación final antes de persistir/enviar.
-
-## ViewModel
-
-```kotlin
-class PerfilViewModel : ViewModel() {
-    var uiState by mutableStateOf(PerfilUiState())
-        private set
-
-    fun onNombreChange(value: String) {
-        uiState = uiState.copy(nombre = value, nombreError = null)
-    }
-
-    fun guardar(): Boolean {
-        val error = if (uiState.nombre.trim().length < 3) {
-            "Nombre demasiado corto"
-        } else null
-
-        uiState = uiState.copy(nombreError = error)
-        return error == null
-    }
-}
-```
-
-## StateFlow
-
-La experiencia contempla posteriormente validación y estado con `StateFlow`. Si la sección ya lo trabaja, puede usarse. Si aún no, un estado observable simple es suficiente para comprender el patrón.
-
-La arquitectura no debe volverse compleja sólo para anticipar una API futura.
-
-## Errores como parte del estado
-
-Un error visible es parte del estado de pantalla y debe desaparecer o cambiar cuando el usuario corrige la condición.
-
-## Validación y navegación
-
-La navegación ocurre **después** de que la operación sea válida:
+## Navegación después de validar
 
 ```text
-Guardar
-→ ViewModel valida
-→ válido
-→ UI recibe resultado/evento
-→ capa de navegación cambia destino
+RegistroScreen
+→ validarFormulario()
+→ true
+→ navController.navigate("resumen")
+→ ResumenScreen
+→ mismo ViewModel
 ```
 
-El ViewModel no necesita conocer `NavController`.
+## Límite arquitectónico
+
+El ViewModel mantiene datos y validación; la capa de navegación conoce `NavController`. No hace falta acoplarlos.
