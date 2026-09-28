@@ -1,70 +1,42 @@
-# Profundización · Back stack, rutas y límites de navegación
+# Profundización · Rutas, eventos y límites de navegación
 
-## 1. La navegación es estado
+## La navegación es estado
 
-Cuando el usuario está en:
+El back stack representa la historia de destinos activos.
 
-```text
-Inicio → Lista → Detalle
-```
+## Rutas como contrato
 
-la aplicación conserva una historia de destinos. Esa historia es el **back stack**.
+Centralizar rutas reduce strings mágicos. Guía 10 recomienda una `sealed class` como una opción segura y reutilizable.
 
-## 2. Navegar no es llamar una función
+## Eventos de navegación
 
-Aunque un destino termine ejecutando un Composable, conceptualmente no estamos “llamando otra pantalla”. Estamos cambiando el estado de navegación y Compose representa el destino activo.
+Puede existir un contrato de eventos para representar intenciones como abrir perfil, ir a ajustes o volver.
 
-## 3. Contratos de pantalla
+La UI emite la intención; la infraestructura decide cómo traducirla a `NavController`.
 
-Una pantalla reusable recibe datos y eventos:
+## ViewModel y navegación
 
-```kotlin
-@Composable
-fun PantallaDetalle(
-    lugar: Lugar,
-    onVolver: () -> Unit
-)
-```
+Evita acoplar el ViewModel directamente al `NavController`. El ViewModel puede producir estado o eventos; la capa de navegación resuelve la ruta.
 
-No necesita conocer rutas ni strings.
+## TopAppBar, Drawer y NavigationBar
 
-Esto separa:
+No es necesario usar las tres piezas en todas las pantallas. Elige según jerarquía y destinos:
+- TopAppBar para contexto/acciones de pantalla;
+- NavigationBar para destinos principales frecuentes;
+- NavigationDrawer cuando existe un conjunto más amplio de destinos.
 
-```text
-AppNavigation.kt  → sabe rutas
-PantallaDetalle   → sabe UI
-ViewModel         → sabe estado/comportamiento
-```
+## Adaptabilidad
 
-## 4. Centralizar rutas
+La estructura de navegación también puede cambiar con el espacio disponible. La semántica del destino debería mantenerse aunque cambie la forma visual.
 
-Para evitar strings repetidos:
+## Errores comunes
 
-```kotlin
-object Rutas {
-    const val INICIO = "inicio"
-    const val LUGARES = "lugares"
-    const val DETALLE = "detalle/{id}"
+- pasar `NavController` a todos los Composables;
+- rutas duplicadas;
+- usar navegación para estados internos simples;
+- menús que no representan destinos reales;
+- mezclar formularios de Semana 8 antes de tiempo.
 
-    fun detalle(id: Int) = "detalle/$id"
-}
-```
+## Navigation 2
 
-No necesitamos todavía una arquitectura de navegación compleja; sólo evitar rutas mágicas dispersas.
-
-## 5. Navegación y ViewModel
-
-El ViewModel no debería ejecutar `navController.navigate(...)` en esta etapa. Puede producir un resultado o evento; la capa de UI/navigation decide qué destino abrir.
-
-## 6. Errores comunes
-
-- colocar todo el `NavHost` dentro de una pantalla;
-- pasar `NavController` a cada Composable;
-- construir rutas en muchos lugares;
-- enviar objetos completos como texto;
-- usar navegación para representar estados internos simples;
-- mezclar validación/formularios de Semana 8 antes de tiempo.
-
-## 7. Navigation 2 vs Navigation 3
-
-En septiembre de 2026 existen Navigation 2.10.1 estable y Navigation 3 estable. Para esta asignatura usamos Navigation Compose clásico porque permite aprender destino, ruta y back stack con menos conceptos simultáneos. La migración de librería no aporta al resultado de aprendizaje de esta semana.
+La asignatura trabaja Navigation Compose clásico porque hace visibles rutas, `NavHost`, `NavController` y back stack sin sumar más abstracciones de las necesarias.
