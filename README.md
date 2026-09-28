@@ -50,31 +50,33 @@ Cada estudiante mantiene un único repositorio `DSY1105-009V-nombre-apellido`, u
 
 ## Semana actual
 
-**Semana 7 · 21 al 26 de septiembre de 2026**
+**Semana 8 · 28 de septiembre al 3 de octubre de 2026**
 
-Foco curricular: **Diseño visual profesional, adaptabilidad y navegación estructurada**.
+Foco curricular: **formularios reactivos, validaciones y paso de información**.
 
-- jerarquía visual con Material 3;
-- layouts flexibles y ancho legible;
-- `Scaffold`, `Card`, espaciado y agrupación;
-- Navigation Compose;
-- rutas y back stack;
-- argumento simple por ID;
-- transición de PocketLog desde pantalla única a Inicio → Registros → Detalle.
+- `data class` para UiState y errores;
+- `MutableStateFlow` en ViewModel;
+- `collectAsState` en Compose;
+- `OutlinedTextField`, `PasswordVisualTransformation`, `Checkbox` y `Button`;
+- `isError` y `supportingText`;
+- `validarFormulario()`;
+- navegación Registro → Resumen;
+- ViewModel compartido entre pantallas;
+- seguimiento técnico VcM y revisión de GitHub.
 
 Objetivo de la semana:
 
 ```text
-pantalla funcional
-→ jerarquía visual
-→ diseño adaptable
-→ destinos
+formulario
+→ estado reactivo
+→ validación
+→ feedback
 → navegación
-→ aplicación estructurada
+→ resumen con estado compartido
 ```
 
-Consulta el contenido en [`semanas/semana-07/`](semanas/semana-07/), el ejercicio en [`examples/semana-07/`](examples/semana-07/) y el laboratorio en [`labs/semana-07-rutalocal/`](labs/semana-07-rutalocal/).
+Consulta el contenido en [`semanas/semana-08/`](semanas/semana-08/), los ejemplos en [`examples/semana-08/`](examples/semana-08/) y el laboratorio en [`labs/semana-08-registro-usuario/`](labs/semana-08-registro-usuario/).
 
 ## Próximo hito
 
-**Semana 8:** formularios validados e interacción dinámica entre pantallas.
+**Semana 11:** entrega del Parcial 2. Semanas 8–10 concentran construcción y seguimiento progresivo.
