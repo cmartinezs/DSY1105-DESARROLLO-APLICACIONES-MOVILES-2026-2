@@ -11,6 +11,7 @@
 - Semana 05 · pausa por EP1
 - [Semana 06 · ChecklistDiaria: Compose + estado + ViewModel desde cero](./semana-06-checklist-diaria/)
 - [Semana 07 · RutaLocal: diseño adaptable y navegación](./semana-07-rutalocal/)
+- [Semana 08 · RegistroUsuario: StateFlow, validación y resumen](./semana-08-registro-usuario/)
 - [Serie de miniapps nativas](./miniapps-nativas/) — maquetas completas en Semana 7 y evolución posterior hacia hardware real.
 
 ### Miniapps nativas · etapa maqueta
