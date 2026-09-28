@@ -1,82 +1,48 @@
-# Profundización · Diseño adaptable en Compose
+# Profundización · Window Size Classes y diseño adaptable
 
-Esta ampliación es opcional. Úsala cuando el estudiante ya domina el contenido base y necesita entender **por qué** un layout funciona bien en distintos dispositivos.
+## Adaptable no significa responsive por escala
 
-## 1. Adaptable no significa “hacer todo más grande”
+Una app adaptable conserva intención, legibilidad y prioridad cuando cambia el espacio. No consiste en multiplicar tamaños.
 
-Un layout adaptable conserva intención y legibilidad cuando cambia el espacio disponible. No consiste en multiplicar medidas por el tamaño de pantalla.
+## Window Size Classes como decisión estructural
 
-## 2. Restricciones antes que coordenadas
+Guía 9 trabaja explícitamente clases de ventana para identificar tamaños Compact, Medium y Expanded. Úsalas cuando el layout necesite cambiar de estructura.
 
-Compose funciona mejor cuando declaramos restricciones:
+## Restricciones antes que coordenadas
 
-```text
-ocupa el ancho disponible
-pero no más de 720 dp
-mantén 16 dp de margen
-distribuye el resto proporcionalmente
-```
+Incluso dentro de una clase de ventana siguen siendo útiles `fillMaxWidth`, `weight`, `widthIn` y espaciado consistente.
 
-que cuando intentamos ubicar cada elemento mediante coordenadas.
-
-## 3. BoxWithConstraints
-
-Para decisiones simples dependientes del espacio:
-
-```kotlin
-BoxWithConstraints(Modifier.fillMaxSize()) {
-    if (maxWidth < 600.dp) {
-        ContenidoCompacto()
-    } else {
-        ContenidoAmplio()
-    }
-}
-```
-
-No conviertas cada diferencia visual en un `if`. Úsalo cuando la estructura realmente necesite cambiar.
-
-## 4. Ancho legible
-
-En una tablet, una columna de texto ocupando todo el ancho puede ser peor que una columna centrada y limitada.
-
-```kotlin
-Box(
-    modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.TopCenter
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .widthIn(max = 720.dp)
-            .padding(16.dp)
-    ) {
-        // contenido
-    }
-}
-```
-
-## 5. Estado y adaptación
-
-Cambiar el layout no debería duplicar el estado de negocio.
+## Estado único, presentaciones múltiples
 
 ```text
-mismo UiState
-   ├── presentación compacta
-   └── presentación amplia
+UiState
+├── HomeCompact
+├── HomeMedium
+└── HomeExpanded
 ```
 
-Ésta es una de las razones para no esconder lógica de negocio dentro de Composables visuales.
+La adaptación no debe duplicar lógica de negocio.
 
-## 6. Accesibilidad visual básica
+## Previews
 
-Sin convertir esta semana en un módulo completo de accesibilidad:
+Crea previews con dimensiones diferentes para detectar:
+- contenido cortado;
+- botones fuera de pantalla;
+- jerarquía perdida;
+- columnas demasiado anchas;
+- oportunidades para cambiar la estructura.
 
-- no expreses significado sólo mediante color;
-- usa componentes Material cuando sea posible;
-- evita textos demasiado pequeños;
-- conserva áreas táctiles razonables;
-- escribe labels comprensibles.
+## Accesibilidad visual básica
 
-## 7. Qué viene después
+- no comunicar significado sólo mediante color;
+- mantener áreas táctiles razonables;
+- evitar texto demasiado pequeño;
+- usar componentes Material cuando corresponda.
 
-Material 3 Adaptive permite construir patrones más sofisticados para ventanas y dispositivos diversos. No es requisito de Semana 7: primero domina restricciones, jerarquía y composición antes de sumar otra capa de abstracción.
+## Cuándo NO crear otra variante
+
+Si sólo necesitas limitar ancho o redistribuir espacio, no hace falta un Composable completamente distinto. Crea variantes cuando cambie la organización de la experiencia.
+
+## Puente hacia navegación
+
+Una UI adaptativa puede cambiar su estructura sin cambiar la semántica de sus destinos. La navegación y el estado visual son responsabilidades relacionadas, pero distintas.
