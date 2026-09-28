@@ -71,6 +71,30 @@ Cada ejemplo agrega una idea principal y contiene contexto, qué observar, una m
 
 RutaLocal es un proyecto pequeño y autocontenido. Practica diseño adaptable y navegación desde cero; no continúa ChecklistDiaria ni forma parte de PocketLog.
 
+### Serie de laboratorios · miniapps nativas · etapa maqueta
+
+Semana 7 también construye la **maqueta funcional completa** de cinco futuras miniapps de hardware:
+
+1. [GeoTrack · GPS](../../labs/miniapps-nativas/gps/maqueta/)
+2. [PhotoProof · Cámara](../../labs/miniapps-nativas/camara/maqueta/)
+3. [QRAction · Lector QR](../../labs/miniapps-nativas/qr/maqueta/)
+4. [ShakeLab · Acelerómetro](../../labs/miniapps-nativas/acelerometro/maqueta/)
+5. [OrientApp · Orientación / giroscopio](../../labs/miniapps-nativas/orientacion/maqueta/)
+
+En esta etapa **no se usa hardware real**. Cada miniapp implementa pantallas, navegación, estados, feedback y una fuente simulada separada de la UI.
+
+```text
+Semana 7
+maqueta completa + fuente simulada
+              ↓
+semana futura habilitada curricularmente
+misma miniapp + hardware real
+```
+
+Esto permite diseñar primero la experiencia y después incorporar permisos, listeners y APIs nativas sin rehacer el producto.
+
+→ [Estrategia completa de capacidades nativas](../../docs/CAPACIDADES-NATIVAS-MINIAPPS.md)
+
 ### Proyecto formativo transversal
 → [PocketLog · Semana 07](../../proyecto-formativo/semana-07/README.md)
 
@@ -80,14 +104,15 @@ PocketLog evoluciona en paralelo como producto acumulativo. Aplica los conceptos
 
 1. observar una pantalla funcional pero visualmente plana;
 2. identificar problemas de jerarquía, densidad, alineación y lectura;
-3. recorrer los ejemplos de jerarquía, adaptabilidad y Scaffold;
+3. recorrer ejemplos de jerarquía, adaptabilidad y Scaffold;
 4. probar la misma pantalla en más de un tamaño/orientación;
-5. modelar la app como destinos, no como funciones que “cambian de pantalla”;
+5. modelar la app como destinos;
 6. recorrer navegación de dos destinos;
 7. completar Inicio → Lista → Detalle con argumento por ID;
 8. resolver el ejercicio individual;
-9. construir RutaLocal desde cero como laboratorio independiente;
-10. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
+9. construir RutaLocal como laboratorio independiente;
+10. desarrollar las maquetas de miniapps nativas, concentrándose en flujo y estados;
+11. aplicar por separado los mismos aprendizajes a PocketLog v0.7.
 
 ## Seguimiento del proyecto VcM
 
@@ -122,15 +147,18 @@ En ese checkpoint se revisará principalmente:
 
 ## Límites de alcance
 
-Esta semana **no** necesita:
+Esta semana **no** necesita todavía:
 
 - formularios complejos ni validación avanzada;
 - Room/SQLite;
 - Retrofit/REST;
-- cámara u otros recursos nativos;
+- acceso real a cámara, GPS, QR, acelerómetro o giroscopio;
+- permisos asociados a esas capacidades;
 - inyección de dependencias;
 - arquitecturas adaptativas avanzadas;
 - Navigation 3.
+
+Las miniapps de esta semana son **maquetas funcionales**: simulan el dato o evento de hardware, pero implementan de verdad la UI, los estados y la navegación.
 
 Se utiliza **Navigation Compose 2.10.1**, suficiente para el objetivo pedagógico de rutas, back stack y argumentos simples.
 
@@ -142,8 +170,11 @@ Se utiliza **Navigation Compose 2.10.1**, suficiente para el objetivo pedagógic
 - jerarquía visual explícita;
 - layout usable en al menos dos tamaños/orientaciones;
 - código de navegación separado de las pantallas;
+- al menos una miniapp puede explicar claramente la frontera fuente simulada → futura fuente nativa;
 - DevLog con una decisión visual y una decisión de navegación explicadas.
 
 ## Próxima semana
 
-Semana 8 incorpora **formularios, validaciones y paso de información**. La navegación debe quedar estable esta semana para que los formularios se agreguen sobre una estructura ya comprensible.
+Semana 8 incorpora **formularios, validaciones y paso de información**. La navegación debe quedar estable para que los formularios se agreguen sobre una estructura comprensible.
+
+Las miniapps quedan preparadas para recibir hardware real **cuando la ruta curricular habilite recursos nativos**; no se adelanta esa implementación sólo por existir la maqueta.
