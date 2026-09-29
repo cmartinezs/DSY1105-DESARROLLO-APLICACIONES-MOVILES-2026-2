@@ -24,7 +24,11 @@
 
 ## Contrato
 
+→ [Estándar de laboratorios guiados](../docs/ESTANDAR-LABORATORIOS-GUIADOS.md)
+
 Cada laboratorio es un **proyecto pequeño, autocontenido e independiente** cuyo propósito es practicar contenido en un contexto acotado.
+
+Además, **todo lab de DSY1105 debe ser una guía 0→100**. No basta con enumerar requerimientos: debe acompañar al estudiante con pasos ordenados, código suficiente, explicaciones breves, checkpoints ejecutables, pruebas manuales y un criterio de término.
 
 Por diseño:
 
@@ -33,6 +37,9 @@ Por diseño:
 - un lab no depende de checkpoints de PocketLog;
 - cada lab debe poder iniciarse desde cero con conocimientos ya enseñados;
 - cada lab debe organizar la implementación en pasos secuenciales y checkpoints explícitos;
+- cada concepto nuevo debe incluir código concreto cuando la sintaxis/configuración aún no sea conocimiento esperado;
+- cada paso significativo debe indicar qué observar o comprobar antes de continuar;
+- cuando sea viable, el lab incluye un proyecto/checkpoint final de referencia;
 - el dominio puede cambiar para obligar a transferir aprendizaje y no sólo repetir código.
 
 ### Excepción deliberada · miniapps nativas
