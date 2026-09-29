@@ -10,6 +10,7 @@ Este directorio funciona como índice de conocimientos y decisiones que atravies
 - [Estándar de estadísticas semanales](./ESTANDAR-ESTADISTICAS-SEMANALES.md) — contrato común de datos agregados para análisis y dashboards entre cursos.
 - [Banco de dinámicas vivas](./BANCO-DINAMICAS-VIVAS.md) — actividades breves reutilizables para mantener activa la asignatura.
 - [Estándar de repositorio del estudiante](./ESTANDAR-REPOSITORIO-ESTUDIANTE.md) — estructura de entrega Kotlin/Android, packages, Git y Markdown.
+- [Estándar de laboratorios guiados](./ESTANDAR-LABORATORIOS-GUIADOS.md) — contrato 0→100: pasos, código, checkpoints, pruebas y referencia.
 - [DevLog del estudiante](./DEVLOG-ESTUDIANTE.md) — manual, propósito, formato, ejemplos y reglas de la bitácora técnica semanal.
 - [Datos semanales](../data/weekly/) — archivos YAML agregados y procesables por semana.
 
