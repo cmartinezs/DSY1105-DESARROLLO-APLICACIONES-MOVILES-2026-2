@@ -50,33 +50,13 @@ Cada estudiante mantiene un único repositorio `DSY1105-009V-nombre-apellido`, u
 
 ## Semana actual
 
-**Semana 8 · 28 de septiembre al 3 de octubre de 2026**
+**Semana 12 · 26 al 31 de octubre de 2026**
 
-Foco curricular: **formularios reactivos, validaciones y paso de información**.
+Foco: **continuación y cierre de la Evaluación Parcial 2 (40% de la asignatura)**: encargo grupal VcM (8%) y defensa individual (32%). Verificar ejecución funcional, explicación del código y modificación de funcionalidades de acuerdo con las rúbricas oficiales.
 
-- `data class` para UiState y errores;
-- `MutableStateFlow` en ViewModel;
-- `collectAsState` en Compose;
-- `OutlinedTextField`, `PasswordVisualTransformation`, `Checkbox` y `Button`;
-- `isError` y `supportingText`;
-- `validarFormulario()`;
-- navegación Registro → Resumen;
-- ViewModel compartido entre pantallas;
-- seguimiento técnico VcM y revisión de GitHub.
+También corresponde revisar la conformación de equipos y el avance de **Hito 1 → Hito 2** en la plataforma VcM. Cualquier incidencia debe notificarse al docente para su escalamiento institucional.
 
-Objetivo de la semana:
+→ [Orientaciones de Semana 12](semanas/semana-12/README.md)  
+→ [Acompañamiento del proyecto VcM](docs/ACOMPANAMIENTO-PROYECTO-VCM.md)
 
-```text
-formulario
-→ estado reactivo
-→ validación
-→ feedback
-→ navegación
-→ resumen con estado compartido
-```
-
-Consulta el contenido en [`semanas/semana-08/`](semanas/semana-08/), los ejemplos en [`examples/semana-08/`](examples/semana-08/) y el laboratorio en [`labs/semana-08-registro-usuario/`](labs/semana-08-registro-usuario/).
-
-## Próximo hito
-
-**Semana 11:** entrega del Parcial 2. Semanas 8–10 concentran construcción y seguimiento progresivo.
+**Importante:** las rúbricas y las indicaciones oficiales de AVA prevalecen sobre este material de apoyo. No se declara una nueva entrega ni una fecha específica distinta de la comunicada por la institución.
