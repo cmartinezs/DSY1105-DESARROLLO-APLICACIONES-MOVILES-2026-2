@@ -21,6 +21,9 @@ Las materias que requieran profundización adicional pueden usar una subcarpeta 
 | **05** | 7–12 septiembre 2026 | Evaluación Parcial 1 · cierre del tramo Kotlin | [Abrir Semana 05](semana-05/) |
 | **06** | 14–19 septiembre 2026 | Arquitectura, MVVM, diseño visual inicial y Jetpack Compose | [Abrir Semana 06](semana-06/) |
 | **07** | 21–26 septiembre 2026 | Diseño visual profesional, Window Size Classes y navegación estructurada | [Abrir Semana 07](semana-07/) |
-| **08 · actual** | 28 septiembre–3 octubre 2026 | Formularios reactivos, StateFlow, validaciones y ViewModel compartido | [Abrir Semana 08](semana-08/) |
+| 08 | 28 septiembre–3 octubre 2026 | Formularios reactivos, StateFlow, validaciones y ViewModel compartido | [Abrir Semana 08](semana-08/) |
 
-Las semanas 09–18 se incorporan progresivamente según el avance del semestre y el cronograma institucional.
+| **09** | 5–10 octubre 2026 | Estado, persistencia local y recursos nativos | [Abrir Semana 09](semana-09/) |
+| **12 · actual** | 26–31 octubre 2026 | Cierre EP2: encargo grupal VcM (8%) + defensa individual (32%); seguimiento Hitos 1 y 2 | [Abrir Semana 12](semana-12/) |
+
+Las semanas 10–11 y 13–18 se incorporan al índice cuando su material canónico esté disponible; no se inventa contenido para cubrir vacíos.
