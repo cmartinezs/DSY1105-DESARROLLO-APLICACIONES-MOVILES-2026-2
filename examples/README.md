@@ -40,3 +40,5 @@ Los ejemplos no sustituyen un laboratorio ni una etapa de PocketLog.
 Semanas 01–03 conservan por ahora su material actual. Su eventual adopción de este contrato se revisará por separado para no abrir un frente retroactivo mientras avanzamos con el contenido vigente.
 
 Los ejemplos ya no viven dentro de `semanas/`: esa vertical queda reservada para contenido curricular.
+
+- [Semana 13 · Lectura de un contrato Retrofit](./semana-13/README.md)

@@ -57,3 +57,5 @@ Esto no viola la independencia entre laboratorios: GeoTrack no continúa PhotoPr
 PocketLog **no es un laboratorio**. Es el proyecto formativo transversal de la asignatura y evoluciona de manera acumulativa durante el semestre.
 
 `semanas/` puede enlazar labs, miniapps y PocketLog como superficies distintas de práctica, pero no debe presentarlos como etapas del mismo proyecto.
+
+- [Semana 13 · LecturasRemotas: REST + Retrofit + Compose](./semana-13-lecturas-remotas/)

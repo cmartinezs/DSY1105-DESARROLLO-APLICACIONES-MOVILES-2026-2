@@ -31,7 +31,7 @@ flowchart LR
 
 PocketLog se pausa en semanas de evaluación sumativa y retoma su evolución cuando el contenido curricular lo justifica.
 
-→ [Ver proyecto PocketLog](proyecto-formativo/)  
+→ [Ver proyecto PocketLog](proyecto-formativo/)
 → [Ver diseño longitudinal](docs/PROYECTO-FORMATIVO-TRANSVERSAL.md)
 
 ## Organización del material
@@ -50,13 +50,13 @@ Cada estudiante mantiene un único repositorio `DSY1105-009V-nombre-apellido`, u
 
 ## Semana actual
 
-**Semana 12 · 26 al 31 de octubre de 2026**
+**Semana 13 · 2 al 7 de noviembre de 2026**
 
-Foco: **continuación y cierre de la Evaluación Parcial 2 (40% de la asignatura)**: encargo grupal VcM (8%) y defensa individual (32%). Verificar ejecución funcional, explicación del código y modificación de funcionalidades de acuerdo con las rúbricas oficiales.
+Inicio de EA3: **HTTP/JSON, consumo REST mediante Retrofit y presentación en Compose con MVVM**. Continuidad del proyecto VcM, correcciones de EP2 y preparación del video Hito 2.
 
-También corresponde revisar la conformación de equipos y el avance de **Hito 1 → Hito 2** en la plataforma VcM. Cualquier incidencia debe notificarse al docente para su escalamiento institucional.
+→ [Ruta completa de Semana 13](semanas/semana-13/README.md)
+→ [Laboratorio guiado LecturasRemotas](labs/semana-13-lecturas-remotas/README.md)
+→ [Requisitos del video Hito 2](semanas/semana-13/03-hito-2-vcm.md)
+→ [Material público de Semana 13](https://drive.google.com/drive/folders/13-mGFaKMLyDonrS1et5FfMMY0rSMexlS)
 
-→ [Orientaciones de Semana 12](semanas/semana-12/README.md)  
-→ [Acompañamiento del proyecto VcM](docs/ACOMPANAMIENTO-PROYECTO-VCM.md)
-
-**Importante:** las rúbricas y las indicaciones oficiales de AVA prevalecen sobre este material de apoyo. No se declara una nueva entrega ni una fecha específica distinta de la comunicada por la institución.
+**Importante:** AVA y las instrucciones oficiales prevalecen. Fecha límite y enlace de entrega del video pendientes de comunicación institucional. Esta actualización no acredita clases ya realizadas ni crea una nueva evaluación.

@@ -24,6 +24,8 @@ Las materias que requieran profundización adicional pueden usar una subcarpeta 
 | 08 | 28 septiembre–3 octubre 2026 | Formularios reactivos, StateFlow, validaciones y ViewModel compartido | [Abrir Semana 08](semana-08/) |
 
 | **09** | 5–10 octubre 2026 | Estado, persistencia local y recursos nativos | [Abrir Semana 09](semana-09/) |
-| **12 · actual** | 26–31 octubre 2026 | Cierre EP2: encargo grupal VcM (8%) + defensa individual (32%); seguimiento Hitos 1 y 2 | [Abrir Semana 12](semana-12/) |
+| **12** | 26–31 octubre 2026 | Cierre EP2: encargo grupal VcM (8%) + defensa individual (32%); seguimiento Hitos 1 y 2 | [Abrir Semana 12](semana-12/) |
 
-Las semanas 10–11 y 13–18 se incorporan al índice cuando su material canónico esté disponible; no se inventa contenido para cubrir vacíos.
+| **13 · actual** | 2–7 noviembre 2026 | Inicio EA3: HTTP/JSON, Retrofit, MVVM y video Hito 2 VcM | [Abrir Semana 13](semana-13/) |
+
+Las semanas 10–11 y 14–18 se incorporan al índice cuando su material canónico esté disponible; no se inventa contenido para cubrir vacíos.

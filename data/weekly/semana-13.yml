@@ -1,0 +1,43 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 13
+period:
+  start: 2026-11-02
+  end: 2026-11-07
+sections:
+  - id: 009V
+    sessions:
+      planned: null
+      completed: null
+    blocks:
+      planned: null
+      completed: null
+    curricular_progress:
+      planned_topics: [http_rest_json, retrofit, mvvm_compose, hito_2_vcm]
+      covered_topics: []
+      pending_topics: []
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: false
+    devlog:
+      expected: null
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: null
+      checkpoint: null
+    blockers: []
+    next_week_focus: []
+course_specific:
+  experience: EA3
+  source: "Orientaciones de coordinación Semana 13, Víctor Rosendo"
+  publication_status: material_preparado_no_acredita_clase_realizada
+  actual: null
+  ra_il_mapping: null
+  vcm_hito_2:
+    deadline: null
+    submission_url: null
+    videos_verified: null

@@ -93,3 +93,5 @@ Cada semana:
 - [Matriz de trazabilidad](./TRAZABILIDAD.md)
 - [Lineamientos para las próximas semanas](./LINEAMIENTOS-EVOLUCION-FUTURA.md)
 - [Checkpoints completos](./checkpoints/)
+
+- [Semana 13 · Transferencia de REST y continuidad](./semana-13/README.md)
