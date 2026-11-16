@@ -53,7 +53,7 @@ Ajusta el package a tu repositorio personal: `cl.duoc.<usuario-duoc-sin-puntos>`
 
 ## 5. Dependencias de prueba
 
-En el archivo `app/build.gradle.kts`, conserva las versiones y alias que ya tenga tu proyecto. Añade las dependencias equivalentes a:
+En el archivo `app/build.gradle.kts`, conserva las versiones y alias que ya tenga tu proyecto. Verifica también que el módulo declare `androidx.test.runner.AndroidJUnitRunner` como runner de instrumentación. Añade las dependencias equivalentes a:
 
 ```kotlin
 dependencies {
@@ -172,6 +172,7 @@ package cl.duoc.usuario.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CancellationException
 import cl.duoc.usuario.data.DescuentosRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -199,6 +200,8 @@ class DescuentoViewModel(
             try {
                 _uiState.value =
                     DescuentoUiState.Success(repository.obtenerDescuento())
+            } catch (cancelled: CancellationException) {
+                throw cancelled
             } catch (error: Exception) {
                 _uiState.value =
                     DescuentoUiState.Error(error.message ?: "Error inesperado")
@@ -232,6 +235,23 @@ private class FakeDescuentosRepository(
 Un fake es una implementación sencilla que devuelve datos controlados. Evita red, credenciales y servicios externos. Para esta primera prueba es suficiente y más simple que un mock.
 
 **Checkpoint 5:** puedes crear el fake con un resultado exitoso y con un error simulado.
+
+### Alternativa opcional · MockK
+
+Si quieres observar una interacción con un mock, puedes reemplazar el fake por:
+
+```kotlin
+val repository = mockk<DescuentosRepository>()
+coEvery { repository.obtenerDescuento() } returns 15
+
+val viewModel = DescuentoViewModel(repository)
+viewModel.cargar()
+advanceUntilIdle()
+
+coVerify(exactly = 1) { repository.obtenerDescuento() }
+```
+
+Este bloque debe ejecutarse dentro de `runTest` y requiere los imports de MockK. Usa fake o mock para esta prueba; no necesitas mantener ambas implementaciones en el mismo caso.
 
 ## 11. Paso 6 · Probar el ViewModel y las corrutinas
 
