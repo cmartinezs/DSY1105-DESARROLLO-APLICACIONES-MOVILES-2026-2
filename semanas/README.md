@@ -29,4 +29,4 @@ Las materias que requieran profundización adicional pueden usar una subcarpeta 
 | **13 · actual** | 2–7 noviembre 2026 | Inicio EA3: HTTP/JSON, Retrofit, MVVM y video Hito 2 VcM | [Abrir Semana 13](semana-13/) |
 | **14 · material preparado** | Por confirmar | Pruebas unitarias en Android: Kotlin, ViewModel, corrutinas y Compose UI Test | [Abrir Semana 14](semana-14/) |
 
-Las semanas 10–11 y 14–18 se incorporan al índice cuando su material canónico esté disponible; no se inventa contenido para cubrir vacíos.
+Las semanas 10–11 y 15–18 se incorporan al índice cuando su material canónico esté disponible; no se inventa contenido para cubrir vacíos.
