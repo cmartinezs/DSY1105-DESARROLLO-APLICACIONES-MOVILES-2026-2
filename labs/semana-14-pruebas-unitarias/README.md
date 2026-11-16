@@ -53,7 +53,17 @@ Ajusta el package a tu repositorio personal: `cl.duoc.<usuario-duoc-sin-puntos>`
 
 ## 5. Dependencias de prueba
 
-En el archivo `app/build.gradle.kts`, conserva las versiones y alias que ya tenga tu proyecto. Verifica también que el módulo declare `androidx.test.runner.AndroidJUnitRunner` como runner de instrumentación. Añade las dependencias equivalentes a:
+En el archivo `app/build.gradle.kts`, conserva las versiones y alias que ya tenga tu proyecto. Verifica también que el módulo declare `androidx.test.runner.AndroidJUnitRunner` como runner de instrumentación:
+
+```kotlin
+android {
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+```
+
+Añade las dependencias equivalentes a:
 
 ```kotlin
 dependencies {
@@ -211,7 +221,7 @@ class DescuentoViewModel(
 }
 ```
 
-En una aplicación real, no conviertas indiscriminadamente cualquier excepción en error de UI: la cancelación de una corrutina debe propagarse. En este ejemplo acotado, agrega luego el tratamiento específico de `CancellationException` antes de ampliar el caso.
+En una aplicación real, no conviertas indiscriminadamente cualquier excepción en error de UI: la cancelación de una corrutina debe propagarse. Por eso el ejemplo captura y vuelve a lanzar `CancellationException` antes de manejar otros errores.
 
 **Checkpoint 4:** el módulo compila y el ViewModel expone un estado observable.
 
