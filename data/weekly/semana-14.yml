@@ -1,0 +1,46 @@
+schema_version: 1
+course: DSY1105
+term: 2026-2
+week: 14
+period:
+  start: null
+  end: null
+sections:
+  - id: 009V
+    sessions:
+      planned: null
+      completed: null
+    blocks:
+      planned: null
+      completed: null
+    curricular_progress:
+      planned_topics:
+        - testing_fundamentals_android
+        - local_unit_tests
+        - instrumented_tests
+        - compose_ui_testing
+        - mockk
+        - kotest
+        - coroutines_test
+      covered_topics: []
+      pending_topics: []
+    evidence:
+      class_practice_available: true
+      labs_available: true
+      weekly_challenge_available: false
+    devlog:
+      expected: null
+      submitted: null
+      reviewed: null
+    formative_project:
+      name: PocketLog
+      status: null
+      checkpoint: null
+    blockers: []
+    next_week_focus: []
+course_specific:
+  experience: null
+  source: "Material de aprendizaje 3.2.1 Pruebas unitarias en aplicaciones móviles y documentación oficial Android Developers"
+  publication_status: material_preparado_no_acredita_clase_realizada
+  actual: null
+  ra_il_mapping: null

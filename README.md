@@ -15,6 +15,7 @@ Repositorio de apoyo para la asignatura **DSY1105 Desarrollo de Aplicaciones Mó
 - [**Uso de GenAI y defensa de decisiones**](docs/USO-GENAI-Y-DEFENSA.md) — criterio de uso responsable y foco evaluativo.
 - [**Capacidades nativas mediante miniapps**](docs/CAPACIDADES-NATIVAS-MINIAPPS.md) — estrategia monofoco para GPS, cámara, QR, sensores y posterior integración.
 - [**Material público del curso**](https://drive.google.com/drive/folders/1_Ew_IE0InqJbPY0Ggu8p0cHl4Avv3rYs?usp=sharing) — biblioteca de archivos originales organizada semana a semana.
+- [**Semana 14 · Pruebas unitarias en aplicaciones móviles**](semanas/semana-14/) — material preparado y laboratorio guiado; periodo pendiente de confirmación.
 
 ## Proyecto formativo transversal
 
